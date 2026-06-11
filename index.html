@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- Cookiebot -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dc412ea-0c06-49c7-ad96-62c193960ed0" data-blockingmode="auto" type="text/javascript"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-966VWC7DH4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-966VWC7DH4');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NA Creator Italia | App gestionali su misura</title>
+  <meta name="description" content="Applicazioni gestionali personalizzate per aziende. Dashboard, automazioni, scadenze, documenti e strumenti digitali su misura." />
+  
+  <meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://nacreator.it/" />
+ 
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ <link rel="shortcut icon" href="/favicon.ico" />
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+ <meta name="apple-mobile-web-app-title" content="NA Creator" />
+ <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0b1220" />
+  
+  <style>
+    :root {
+      --bg: #04050a;
+      --bg-soft: #0c1020;
+      --bg-panel: rgba(255,255,255,.06);
+      --panel-strong: rgba(255,255,255,.1);
+      --text: #f5f7ff;
+      --muted: rgba(235,240,255,.72);
+      --line: rgba(255,255,255,.12);
+      --blue: #4da3ff;
+      --cyan: #7cf7ff;
+      --violet: #8c7bff;
+      --pink: #d46dff;
+      --shadow: 0 40px 100px rgba(0,0,0,.45);
+      --shadow-soft: 0 18px 40px rgba(0,0,0,.25);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --container: min(1180px, calc(100% - 40px));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(77,163,255,.15), transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(140,123,255,.14), transparent 22%),
+        radial-gradient(circle at 50% 85%, rgba(212,109,255,.08), transparent 26%),
+        linear-gradient(180deg, #04050a 0%, #08101e 45%, #06070d 100%);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    #scene {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .9;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4,5,10,.26), rgba(4,5,10,.46));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(160%) blur(22px);
+      background: rgba(10,14,24,.58);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav {
+      width: var(--container);
+      margin: auto;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+      .logo-header{
+  height: 56px;
+  width:auto;
+  display:block;
+}
+    
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: rgba(245,247,255,.72);
+      font-size: .94rem;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: #fff; }
+
+    .nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+      border: 1px solid transparent;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .nav-cta,
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #2e7eff, #7b61ff);
+      box-shadow: 0 18px 40px rgba(79,135,255,.28);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      backdrop-filter: blur(22px);
+    }
+
+    .btn:hover, .nav-cta:hover { transform: translateY(-2px); }
+
+    section { position: relative; padding: 110px 0; }
+    .hero { min-height: calc(100vh - 74px); display: flex; align-items: center; padding: 60px 0 90px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 24px;
+      backdrop-filter: blur(20px);
+    }
+
+    .badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 8px rgba(124,247,255,.08);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 7.6rem);
+      line-height: .94;
+      letter-spacing: -.075em;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #f7fbff, #7cf7ff 30%, #4da3ff 55%, #c994ff 88%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy p,
+    .section-title p,
+    .card p,
+    .big-card p,
+    .price-card p,
+    .portfolio-card p,
+    .contact-panel p,
+    .system-card p,
+    .shop-card p,
+    .metric-card span,
+    .floating-item small,
+    .preview-row span,
+    .timeline p,
+    .process-row p {
+      color: var(--muted);
+    }
+
+    .hero-copy p {
+      margin-top: 22px;
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+      max-width: 650px;
+      letter-spacing: -.02em;
+    }
+
+    .actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .86rem;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,247,255,.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: 640px;
+      display: grid;
+      place-items: center;
+      perspective: 1800px;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: .55;
+      animation: drift 9s ease-in-out infinite;
+    }
+    .orb-a { width: 180px; height: 180px; top: 8%; left: 14%; background: rgba(77,163,255,.26); }
+    .orb-b { width: 240px; height: 240px; right: 6%; top: 12%; background: rgba(140,123,255,.22); animation-delay: -2s; }
+    .orb-c { width: 160px; height: 160px; left: 28%; bottom: 6%; background: rgba(124,247,255,.14); animation-delay: -4s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(0,-18px,0) scale(1.06); }
+    }
+
+    .device-stack {
+      position: relative;
+      width: min(640px, 100%);
+      height: 580px;
+      transform-style: preserve-3d;
+    }
+
+    .tablet-mockup,
+    .phone-mockup,
+    .floating-card {
+      position: absolute;
+      backdrop-filter: blur(24px) saturate(140%);
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: var(--shadow);
+      transform-style: preserve-3d;
+    }
+
+    .tablet-mockup {
+      width: 78%;
+      aspect-ratio: 1.12 / 1;
+      left: 10%;
+      top: 10%;
+      border-radius: 42px;
+      padding: 18px;
+      transform: rotateX(16deg) rotateY(-12deg) translateZ(0px);
+      animation: floatMain 7s ease-in-out infinite;
+    }
+
+    .phone-mockup {
+      width: 30%;
+      aspect-ratio: 0.56 / 1;
+      right: 2%;
+      bottom: 3%;
+      border-radius: 34px;
+      padding: 12px;
+      transform: rotateX(10deg) rotateY(-18deg) translateZ(50px);
+      animation: floatSecondary 6s ease-in-out infinite;
+    }
+
+    .floating-card {
+      padding: 16px 18px;
+      border-radius: 22px;
+      width: 240px;
+      left: 0;
+      bottom: 8%;
+      transform: translateZ(80px);
+      animation: floatNote 5.5s ease-in-out infinite;
+    }
+
+    @keyframes floatMain {
+      0%, 100% { transform: rotateX(16deg) rotateY(-12deg) translate3d(0, 0, 0); }
+      50% { transform: rotateX(12deg) rotateY(-9deg) translate3d(0, -12px, 26px); }
+    }
+    @keyframes floatSecondary {
+      0%, 100% { transform: rotateX(10deg) rotateY(-18deg) translate3d(0,0,40px); }
+      50% { transform: rotateX(14deg) rotateY(-14deg) translate3d(0,-8px,70px); }
+    }
+    @keyframes floatNote {
+      0%, 100% { transform: translate3d(0,0,50px); }
+      50% { transform: translate3d(0,-10px,80px); }
+    }
+
+    .device-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(9,12,20,.95), rgba(12,16,30,.98)),
+        linear-gradient(90deg, rgba(77,163,255,.12), transparent 30%);
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+    }
+
+    .tablet-header,
+    .phone-header,
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .red { background: #ff6a75; }
+    .yellow { background: #ffca63; }
+    .green { background: #67f0a4; }
+
+    .device-body {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      min-height: calc(100% - 54px);
+    }
+
+    .device-sidebar {
+      padding: 20px 14px;
+      border-right: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+    }
+
+    .device-sidebar strong {
+      display: block;
+      font-size: .96rem;
+      letter-spacing: -.03em;
+      margin-bottom: 16px;
+    }
+
+    .side-pill {
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: rgba(245,247,255,.7);
+      margin-bottom: 8px;
+      font-size: .88rem;
+      background: transparent;
+    }
+
+    .side-pill.active {
+      background: rgba(255,255,255,.09);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+    }
+
+    .device-content {
+      padding: 22px;
+    }
+
+    .dashboard-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dashboard-title h2,
+    .section-heading,
+    .portfolio-card h3,
+    .card h3,
+    .system-card h3,
+    .price-card h3,
+    .contact-panel h2,
+    .process-row h3,
+    .shop-card h3,
+    .big-card h3,
+    .metric-card strong,
+    .floating-card strong,
+    .timeline h3 {
+      letter-spacing: -.05em;
+    }
+
+    .dashboard-title h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); line-height: 1; }
+
+    .status {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(103,240,164,.12);
+      color: #9cf2c0;
+      font-size: .82rem;
+      font-weight: 800;
+      white-space: nowrap;
+      border: 1px solid rgba(103,240,164,.18);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .metric-box {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      min-height: 92px;
+    }
+
+    .metric-box strong { display: block; font-size: 1.65rem; margin-bottom: 4px; }
+    .metric-box span { color: rgba(245,247,255,.72); font-size: .84rem; }
+
+    .chart-card {
+      border-radius: 28px;
+      padding: 22px;
+      min-height: 200px;
+      background: linear-gradient(135deg, rgba(77,163,255,.18), rgba(140,123,255,.08) 65%, rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-bars { display: grid; gap: 12px; margin-top: 18px; }
+    .chart-bar {
+      height: 10px;
+      width: 100%;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      overflow: hidden;
+    }
+    .chart-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+      animation: pulseWidth 5s ease-in-out infinite;
+    }
+    @keyframes pulseWidth {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.22); }
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(12,16,30,.98), rgba(8,11,19,.98));
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+    }
+
+    .phone-main { padding: 18px 14px 16px; }
+
+    .mini-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 12px;
+    }
+
+    .mini-card strong { display: block; font-size: .95rem; margin-bottom: 8px; }
+    .mini-progress { display: grid; gap: 8px; }
+    .mini-progress span {
+      display: block;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+    .mini-progress span i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #7cf7ff, #7b61ff);
+    }
+
+    .floating-card strong { font-size: 1.05rem; display: block; margin-bottom: 8px; }
+    .floating-card small { display: block; }
+
+    .section-title {
+      max-width: 820px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .section-heading {
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: .98;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .glass-panel,
+    .card,
+    .big-card,
+    .metric-card,
+    .portfolio-card,
+    .system-card,
+    .process-row,
+    .price-card,
+    .shop-card,
+    .contact-panel,
+    .timeline {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+    }
+
+    .grid-3,
+    .systems-grid,
+    .pricing,
+    .shop-grid,
+    .portfolio-grid,
+    .metrics-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3,
+    .systems-grid,
+    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .card,
+    .system-card,
+    .metric-card,
+    .portfolio-card,
+    .price-card,
+    .shop-card {
+      border-radius: 30px;
+      padding: 30px;
+    }
+
+    .card { min-height: 320px; }
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, rgba(77,163,255,.18), rgba(140,123,255,.18));
+      font-size: 1.35rem;
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    }
+
+    .card h3, .system-card h3, .price-card h3, .portfolio-card h3, .shop-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-link {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .big-card {
+      border-radius: 40px;
+      padding: 40px;
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-card.dark {
+      background:
+        radial-gradient(circle at 80% 16%, rgba(77,163,255,.22), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(140,123,255,.18), transparent 22%),
+        linear-gradient(180deg, rgba(14,18,32,.85), rgba(7,9,16,.96));
+    }
+
+    .big-card h3 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: .98;
+      max-width: 540px;
+    }
+
+    .floating-list {
+      margin-top: 34px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .floating-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .floating-item strong { display: block; margin-bottom: 4px; }
+
+    .benefits {
+      padding-top: 86px;
+    }
+
+    .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .metric-card {
+      border-radius: 30px;
+      padding: 30px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric-card strong {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .metric-card .metric-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .portfolio-card {
+      border-radius: 34px;
+      min-height: 480px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .portfolio-head {
+      padding: 26px 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .portfolio-index {
+      font-size: .86rem;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-copy { padding: 18px 28px 28px; }
+
+    .preview-window {
+      margin: 22px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: rgba(12,16,30,.95);
+      border: 1px solid rgba(255,255,255,.08);
+      min-height: 250px;
+    }
+
+    .preview-body {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .preview-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .preview-chip,
+    .preview-box {
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .preview-box.tall { min-height: 96px; }
+
+    .systems-grid { grid-template-columns: repeat(3, 1fr); }
+    .system-card ul, .price-card ul, .shop-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    li::before {
+      content: "✦";
+      color: var(--cyan);
+      margin-right: 10px;
+      font-weight: 900;
+    }
+
+    .timeline-wrap {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline,
+    .process-row {
+      border-radius: 28px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 90px 1fr 1.15fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .number {
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: -.05em;
+    }
+
+    .pricing { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+
+    .price-card {
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.featured {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06)),
+        radial-gradient(circle at 80% 15%, rgba(124,247,255,.14), transparent 24%),
+        radial-gradient(circle at 12% 12%, rgba(140,123,255,.16), transparent 20%);
+      transform: scale(1.03);
+      box-shadow: var(--shadow);
+    }
+
+    .price {
+      margin: 24px 0 22px;
+      font-size: 3.3rem;
+      line-height: .95;
+      font-weight: 800;
+      letter-spacing: -.07em;
+    }
+
+    .price-note {
+      color: rgba(245,247,255,.72);
+      margin-top: -10px;
+      margin-bottom: 18px;
+      font-size: .9rem;
+    }
+
+    .price-card .btn { margin-top: auto; }
+
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .shop-card {
+      min-height: 410px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shop-badge {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(77,163,255,.12);
+      border: 1px solid rgba(77,163,255,.14);
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .shop-card .btn { margin-top: auto; width: fit-content; }
+
+    .contact-panel {
+      border-radius: 44px;
+      padding: 70px 34px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(77,163,255,.16), transparent 35%),
+        rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2.5rem, 5vw, 5.2rem);
+      line-height: .96;
+      font-weight: 800;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .email-card {
+      margin: 34px auto 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(18px);
+    }
+
+    .email-text {
+      padding-left: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    footer {
+      padding: 42px 0;
+      color: rgba(245,247,255,.62);
+      font-size: .92rem;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .parallax {
+      will-change: transform;
+      transition: transform .08s linear;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .split,
+      .systems-grid,
+      .pricing,
+      .portfolio-grid,
+      .shop-grid,
+      .metrics-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stage { min-height: 560px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .timeline,
+      .process-row { grid-template-columns: 1fr; gap: 8px; }
+      .price-card.featured { transform: none; }
+    }
+    .menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:white;
+  font-size:32px;
+  cursor:pointer;
+}
+
+@media (max-width:920px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  #mobileMenu{
+    position:absolute;
+    top:74px;
+    left:0;
+    width:100%;
+    background:#0b1220;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:15px;
+    display:none;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  #mobileMenu.active{
+    display:flex;
+  }
+
+  #mobileMenu a{
+    display:block !important;
+    width:100%;
+  }
+
+  .nav-cta{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+    @media (max-width: 920px) {
+     
+      
+      .hero { min-height: auto; }
+      .hero-grid { gap: 40px; }
+      .hero-stage { min-height: 520px; }
+      .device-stack { height: 500px; }
+      .tablet-mockup { width: 84%; left: 6%; }
+      .phone-mockup { width: 34%; }
+      .device-body { grid-template-columns: 1fr; }
+      .device-sidebar { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --container: min(100% - 28px, 1180px); }
+      .brand span:last-child { display: none; }
+      section { padding: 78px 0; }
+      .hero { padding: 34px 0 70px; }
+      h1 { font-size: 3.5rem; }
+      .hero-copy p { font-size: 1rem; }
+      .hero-stage { min-height: 420px; }
+      .device-stack { height: 400px; }
+      .tablet-mockup { padding: 12px; border-radius: 28px; }
+      .phone-mockup { border-radius: 24px; }
+      .floating-card { width: 180px; padding: 12px 14px; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .portfolio-card { min-height: auto; }
+      .big-card,
+      .card,
+      .system-card,
+      .metric-card,
+      .price-card,
+      .shop-card,
+      .contact-panel { border-radius: 26px; }
+      .contact-panel { padding: 52px 24px; }
+      .email-card { border-radius: 24px; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <div class="page">
+    <header>
+      <div class="nav">
+  <a class="brand" href="/">
+  <img src="logo-nacreator.png" alt="NA Creator Italia" class="logo-header">
+</a>
+
+<button class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</button>
+
+<nav id="mobileMenu">
+  <a href="#servizi">Servizi</a>
+  <a href="#soluzioni">Soluzioni</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#sistemi">Sistemi</a>
+  <a href="#pacchetti">Pacchetti</a>
+  <a href="articoli.html">Articoli</a>
+  <a href="#strumenti">Amazon</a>
+  <a href="#contatti">Contatti</a>
+  <a class="nav-cta" href="mailto:info@nacreator.it">Richiedi una consulenza</a>
+</nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="badge"><span class="badge-dot"></span> Applicazioni aziendali su misura</div>
+            <h1>App gestionali <span class="gradient-text">su misura</span> per lavorare meglio.</h1>
+            <p>
+              Creiamo strumenti digitali personalizzati per organizzare processi,
+              scadenze, mezzi, interventi, magazzino e attività operative.
+            </p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20app%20gestionale">Richiedi una consulenza</a>
+              <a class="btn btn-secondary" href="#portfolio">Scopri il portfolio</a>
+            </div>
+
+            <div class="hero-meta">
+              <span class="chip">Dashboard</span>
+              <span class="chip">Automazioni</span>
+              <span class="chip">Report</span>
+              <span class="chip">Accesso da tablet</span>
+            </div>
+          </div>
+
+          <div class="hero-stage reveal">
+            <div class="glow-orb orb-a"></div>
+            <div class="glow-orb orb-b"></div>
+            <div class="glow-orb orb-c"></div>
+
+            <div class="device-stack parallax" data-speed="0.1">
+              <div class="tablet-mockup">
+                <div class="device-screen">
+                  <div class="tablet-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="device-body">
+                    <aside class="device-sidebar">
+                      <strong>Workspace</strong>
+                      <div class="side-pill active">Dashboard</div>
+                      <div class="side-pill">Mezzi</div>
+                      <div class="side-pill">Interventi</div>
+                      <div class="side-pill">Documenti</div>
+                      <div class="side-pill">Scadenze</div>
+                    </aside>
+                    <div class="device-content">
+                      <div class="dashboard-title">
+                        <div>
+                          <h2>Controllo operativo</h2>
+                          <p>Un sistema chiaro per il lavoro quotidiano.</p>
+                        </div>
+                        <span class="status">Sistema attivo</span>
+                      </div>
+
+                      <div class="metrics">
+                        <div class="metric-box"><strong>128</strong><span>attività</span></div>
+                        <div class="metric-box"><strong>36</strong><span>scadenze</span></div>
+                        <div class="metric-box"><strong>94%</strong><span>completato</span></div>
+                        <div class="metric-box"><strong>12</strong><span>report</span></div>
+                      </div>
+
+                      <div class="chart-card">
+                        <strong>Dati ordinati. Decisioni più veloci.</strong>
+                        <p style="margin-top: 8px; color: rgba(245,247,255,.72);">Dashboard, automazioni e monitoraggio in tempo reale.</p>
+                        <div class="chart-bars">
+                          <div class="chart-bar"><i style="width:82%"></i></div>
+                          <div class="chart-bar"><i style="width:66%"></i></div>
+                          <div class="chart-bar"><i style="width:92%"></i></div>
+                          <div class="chart-bar"><i style="width:74%"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-mockup">
+                <div class="phone-screen">
+                  <div class="phone-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="phone-main">
+                    <div class="mini-card">
+                      <strong>Timbratura</strong>
+                      <p style="font-size: .84rem; color: rgba(245,247,255,.72); margin-bottom: 10px;">Ingresso 08:02 · Uscita 17:18</p>
+                      <div class="mini-progress">
+                        <span><i style="width:88%"></i></span>
+                        <span><i style="width:64%"></i></span>
+                      </div>
+                    </div>
+                    <div class="mini-card">
+                      <strong>Rifornimenti</strong>
+                      <p style="font-size: .84rem; color: rgba(245,247,255,.72); margin-bottom: 10px;">Litri, km, costi, riepiloghi.</p>
+                      <div class="mini-progress">
+                        <span><i style="width:72%"></i></span>
+                        <span><i style="width:48%"></i></span>
+                        <span><i style="width:90%"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="floating-card">
+                <strong>Sistema operativo aziendale</strong>
+                <small>Una visione chiara di attività, scadenze e dati aziendali, sempre accessibile da tablet e smartphone.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servizi">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Servizi</div>
+            <h2 class="section-heading">Soluzioni digitali pensate per semplificare il lavoro quotidiano.</h2>
+            <p>Applicazioni personalizzate per organizzare attività, documenti, mezzi, personale e processi aziendali.</p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card reveal">
+              <div class="card-icon">◈</div>
+              <h3>Gestionali personalizzati</h3>
+              <p>Sistemi costruiti sui processi reali della tua azienda, con funzioni utili e facili da usare.</p>
+              <a class="feature-link" href="#portfolio">Vedi gli esempi →</a>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">↯</div>
+              <h3>Lavoro più ordinato</h3>
+              <p>Dashboard, report, scadenze e attività raccolti in un unico sistema consultabile ogni giorno.</p>
+              <a class="feature-link" href="#benefici">Scopri i benefici →</a>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">⌘</div>
+              <h3>Più controllo aziendale</h3>
+              <p>Meno fogli sparsi, meno dimenticanze e una visione più chiara del lavoro operativo.</p>
+              <a class="feature-link" href="#pacchetti">Vai ai pacchetti →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="soluzioni">
+        <div class="container">
+          <div class="split">
+            <div class="big-card dark reveal">
+              <h3>Una piattaforma digitale per gestire il lavoro quotidiano.</h3>
+              <p>Organizza mezzi, scadenze, interventi, documenti, presenze e report in un unico sistema chiaro.</p>
+              <div class="floating-list">
+                <div class="floating-item"><strong>Gestione automezzi</strong><small>Scadenze, documenti, manutenzioni, revisioni.</small></div>
+                <div class="floating-item"><strong>Interventi tecnici</strong><small>Assegnazioni, stati, checklist, rapportini.</small></div>
+                <div class="floating-item"><strong>Magazzino e inventario</strong><small>Carico, scarico, movimenti e controllo materiali.</small></div>
+              </div>
+            </div>
+
+            <div class="big-card reveal">
+              <h3>Meno confusione. Più ordine. Utilizzo immediato.</h3>
+              <p>Ogni funzione è pensata per ridurre errori, velocizzare le operazioni e rendere i dati più semplici da consultare.</p>
+              <div class="floating-list">
+                <div class="floating-item"><strong>Accesso da ogni dispositivo</strong><small>Smartphone, tablet e computer.</small></div>
+                <div class="floating-item"><strong>Sistema scalabile</strong><small>Nuovi moduli e nuove funzioni nel tempo.</small></div>
+                <div class="floating-item"><strong>Dashboard operative</strong><small>Riepiloghi, report e viste chiare per decidere più velocemente.</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefici" class="benefits">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Numeri</div>
+            <h2 class="section-heading">Meno confusione, più controllo, più tempo per lavorare bene.</h2>
+            <p>I vantaggi vengono presentati in modo chiaro: risparmio di tempo, controllo e meno errori operativi.</p>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card reveal">
+              <div>
+                <div class="metric-label">Tempo risparmiato</div>
+                <strong><span class="counter" data-target="70" data-suffix="%">0</span></strong>
+              </div>
+              <span>Meno tempo perso tra fogli, documenti sparsi e comunicazioni disordinate.</span>
+            </article>
+            <article class="metric-card reveal">
+              <div>
+                <div class="metric-label">Controllo operativo</div>
+                <strong><span class="counter" data-target="100" data-suffix="%">0</span></strong>
+              </div>
+              <span>Più visibilità su scadenze, attività, mezzi, dipendenti e interventi.</span>
+            </article>
+            <article class="metric-card reveal">
+              <div>
+                <div class="metric-label">Accessibilità</div>
+                <strong><span class="counter" data-target="24" data-suffix="/7">0</span></strong>
+              </div>
+              <span>Dati e strumenti sempre disponibili da smartphone, tablet e computer.</span>
+            </article>
+            <article class="metric-card reveal">
+              <div>
+                <div class="metric-label">Dimenticanze</div>
+                <strong><span class="counter" data-target="0">0</span></strong>
+              </div>
+              <span>Automazioni, alert ed email aiutano a non perdere revisioni, scadenze o attività.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Portfolio</div>
+            <h2 class="section-heading">Esempi di sistemi gestionali che possiamo realizzare.</h2>
+            <p>Esempi chiari di sistemi realizzabili per mezzi, territorio, consegne e processi aziendali.</p>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-card reveal">
+              <div class="portfolio-head">
+                <span class="portfolio-index">01 · Demo sistema</span>
+                <span class="chip">Automezzi</span>
+              </div>
+              <div class="preview-window">
+                <div class="preview-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-box tall"><strong>Scadenze flotte</strong><span>Revisioni, assicurazioni, bollo, manutenzioni.</span></div>
+                  <div class="preview-row">
+                    <div class="preview-chip"><strong>24</strong><span>mezzi attivi</span></div>
+                    <div class="preview-chip"><strong>7</strong><span>scadenze vicine</span></div>
+                  </div>
+                  <div class="preview-box"><strong>Documenti centralizzati</strong><span>Archivio digitale con storico interventi.</span></div>
+                </div>
+              </div>
+              <div class="portfolio-copy">
+                <h3>Gestione Automezzi</h3>
+                <p>Una dashboard che mostra documenti, manutenzioni e scadenze in una sola vista ordinata.</p>
+              </div>
+            </article>
+
+            <article class="portfolio-card reveal">
+              <div class="portfolio-head">
+                <span class="portfolio-index">02 · Demo sistema</span>
+                <span class="chip">Territorio</span>
+              </div>
+              <div class="preview-window">
+                <div class="preview-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-box tall"><strong>Censimento Caditoie</strong><span>Mappa, coordinate GPS, foto e stato manutentivo.</span></div>
+                  <div class="preview-row">
+                    <div class="preview-chip"><strong>412</strong><span>punti censiti</span></div>
+                    <div class="preview-chip"><strong>39</strong><span>interventi aperti</span></div>
+                  </div>
+                  <div class="preview-box"><strong>Programmazione controlli</strong><span>Priorità, storico e pianificazione interventi.</span></div>
+                </div>
+              </div>
+              <div class="portfolio-copy">
+                <h3>Censimento Caditoie</h3>
+                <p>Un sistema per aziende e servizi sul territorio che hanno bisogno di mappatura, storico e controllo interventi.</p>
+              </div>
+            </article>
+
+            <article class="portfolio-card reveal">
+              <div class="portfolio-head">
+                <span class="portfolio-index">03 · Demo sistema</span>
+                <span class="chip">Consegne</span>
+              </div>
+              <div class="preview-window">
+                <div class="preview-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-box tall"><strong>Gestione Snack & Bar</strong><span>Punti consegna, quantità, venduto e ultime visite.</span></div>
+                  <div class="preview-row">
+                    <div class="preview-chip"><strong>89</strong><span>bar attivi</span></div>
+                    <div class="preview-chip"><strong>12</strong><span>giri oggi</span></div>
+                  </div>
+                  <div class="preview-box"><strong>Calendario e report</strong><span>Storico consegne, buste, barcode e note.</span></div>
+                </div>
+              </div>
+              <div class="portfolio-copy">
+                <h3>Gestione Consegne Snack</h3>
+                <p>Un sistema pensato per semplificare vendite, consegne, visite ai clienti e controllo magazzino.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sistemi">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Sistemi realizzabili</div>
+            <h2 class="section-heading">Soluzioni concrete per digitalizzare attività, mezzi, documenti e personale.</h2>
+            <p>Ogni modulo può vivere da solo oppure collegarsi a un sistema più ampio e scalabile.</p>
+          </div>
+
+          <div class="systems-grid">
+            <article class="system-card reveal">
+              <h3>Censimento caditoie</h3>
+              <p>Un sistema per mappare, registrare e monitorare punti di intervento sul territorio.</p>
+              <ul>
+                <li>Foto e posizione GPS</li>
+                <li>Stato manutentivo</li>
+                <li>Storico interventi</li>
+                <li>Programmazione controlli</li>
+              </ul>
+            </article>
+            <article class="system-card reveal">
+              <h3>Programmazione interventi</h3>
+              <p>Attività ordinate con priorità, assegnazioni, checklist e stato avanzamento lavori.</p>
+              <ul>
+                <li>Calendario attività</li>
+                <li>Assegnazione operatori</li>
+                <li>Checklist operative</li>
+                <li>Report di fine intervento</li>
+              </ul>
+            </article>
+            <article class="system-card reveal">
+              <h3>Documenti automezzi</h3>
+              <p>Archivio digitale per revisioni, assicurazioni, circolazione e manutenzioni.</p>
+              <ul>
+                <li>Scadenze automatiche</li>
+                <li>Archivio documentale</li>
+                <li>Storico manutenzioni</li>
+                <li>Avvisi e promemoria</li>
+              </ul>
+            </article>
+            <article class="system-card reveal">
+              <h3>Registro carburante</h3>
+              <p>Rifornimenti per mezzo, dipendente, chilometri, litri e costi con riepiloghi sempre aggiornati.</p>
+              <ul>
+                <li>Rifornimenti per veicolo</li>
+                <li>Costi carburante</li>
+                <li>Chilometri registrati</li>
+                <li>Report mensili</li>
+              </ul>
+            </article>
+            <article class="system-card reveal">
+              <h3>Timbratura entrata e uscita</h3>
+              <p>Presenze, orari, entrate, uscite e giornate operative consultabili anche da smartphone.</p>
+              <ul>
+                <li>Entrata e uscita</li>
+                <li>Ore lavorate</li>
+                <li>Registro presenze</li>
+                <li>Consultazione da smartphone</li>
+              </ul>
+            </article>
+            <article class="system-card reveal">
+              <h3>Costi dipendenti</h3>
+              <p>Analisi dei costi collegati a ore lavorate, attività, reparti, mezzi o cantieri.</p>
+              <ul>
+                <li>Costo orario</li>
+                <li>Riepiloghi per periodo</li>
+                <li>Analisi per attività</li>
+                <li>Dashboard direzionale</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="metodo">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Metodo</div>
+            <h2 class="section-heading">Un processo semplice, preciso, professionale.</h2>
+            <p>Dall'idea al sistema pronto all'uso, con passaggi chiari e attenzione ai processi reali della tua azienda.</p>
+          </div>
+
+          <div class="timeline-wrap">
+            <div class="timeline reveal">
+              <div class="number">01</div>
+              <div><h3>Analisi</h3></div>
+              <p>Comprendiamo il processo, i dati da gestire, i ruoli e i risultati che vuoi ottenere.</p>
+            </div>
+            <div class="timeline reveal">
+              <div class="number">02</div>
+              <div><h3>Prototipo</h3></div>
+              <p>Costruiamo una prima versione con flussi, viste, dashboard e logica operativa.</p>
+            </div>
+            <div class="timeline reveal">
+              <div class="number">03</div>
+              <div><h3>Sviluppo</h3></div>
+              <p>Configuriamo schermate, automazioni, report, notifiche, permessi e funzioni operative.</p>
+            </div>
+            <div class="timeline reveal">
+              <div class="number">04</div>
+              <div><h3>Consegna</h3></div>
+              <p>Ti aiutiamo a pubblicare la soluzione e a migliorarla nel tempo con nuovi moduli e nuove funzioni.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pacchetti">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Pacchetti</div>
+            <h2 class="section-heading">Pacchetti chiari per progetti aziendali professionali.</h2>
+            <p>Ogni progetto viene preventivato in base a complessità, funzioni, automazioni e moduli richiesti.</p>
+          </div>
+
+          <div class="pricing">
+            <article class="price-card reveal">
+              <h3>Base</h3>
+              <p>Per digitalizzare un processo aziendale con un gestionale professionale e pronto all’uso.</p>
+              <div class="price">€1.500</div>
+              <div class="price-note">Ideale per iniziare con una struttura chiara e funzioni essenziali.</div>
+              <ul>
+                <li>App gestionale personalizzata</li>
+                <li>Database strutturato</li>
+                <li>Utilizzo da smartphone, tablet e computer</li>
+                <li>Configurazione iniziale</li>
+                <li>Consegna e avvio operativo</li>
+              </ul>
+              <a class="btn btn-secondary" href="mailto:info@nacreator.it?subject=Richiesta%20Pacchetto%20Base">Richiedi info</a>
+            </article>
+
+            <article class="price-card featured reveal">
+              <h3>Business</h3>
+              <p>Per aziende che vogliono un gestionale più completo, più autorevole e pronto a crescere nel tempo.</p>
+              <div class="price">€2.000</div>
+              <div class="price-note">La scelta giusta per aziende che vogliono più controllo e automazioni.</div>
+              <ul>
+                <li>App avanzata su misura</li>
+                <li>Dashboard e report direzionali</li>
+                <li>Automazioni operative</li>
+                <li>Gestione utenti e permessi</li>
+                <li>Supporto all’avvio</li>
+              </ul>
+              <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20Pacchetto%20Business">Consulenza gratuita</a>
+            </article>
+
+            <article class="price-card reveal">
+              <h3>Custom</h3>
+              <p>Per più reparti, più moduli o processi collegati con logiche personalizzate ed evolutive.</p>
+              <div class="price">Su misura</div>
+              <div class="price-note">Pensato per sistemi aziendali completi, multipli e scalabili.</div>
+              <ul>
+                <li>Analisi approfondita</li>
+                <li>Più moduli collegati</li>
+                <li>Logiche personalizzate</li>
+                <li>Evoluzioni continuative</li>
+              </ul>
+              <a class="btn btn-secondary" href="mailto:info@nacreator.it?subject=Richiesta%20Pacchetto%20Custom">Su Richiesta</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="strumenti">
+        <div class="container">
+          <div class="section-title reveal">
+            <div class="kicker">Strumenti</div>
+            <h2 class="section-heading">Strumenti consigliati per aziende digitali.</h2>
+            <p>Una selezione di prodotti utili per lavorare meglio con app gestionali, documenti, processi e attività operative.</p>
+          </div>
+
+          <div id="amazon-products" class="shop-grid">
+            <article class="shop-card reveal visible">
+              <div class="shop-badge">Caricamento prodotti</div>
+              <h3>Sto caricando i consigli Amazon...</h3>
+              <p>I prodotti consigliati vengono aggiornati automaticamente dal Google Sheet collegato.</p>
+            </article>
+          </div>
+
+          <p style="margin-top: 22px; text-align: center; color: var(--muted);">Alcuni link presenti in questa sezione sono link affiliati. Potrei ricevere una piccola commissione sugli acquisti, senza costi aggiuntivi per te.</p>
+        </div>
+      </section>
+
+      <section id="contatti">
+        <div class="container">
+          <div class="contact-panel reveal">
+            <div class="kicker">Contatti</div>
+            <h2>Hai un processo da trasformare in un gestionale?</h2>
+            <p>
+              Scrivici cosa vuoi gestire: mezzi, scadenze, checklist, interventi, magazzino, personale
+              o qualsiasi flusso aziendale. Ti risponderemo con una proposta chiara e adatta alle tue esigenze.
+            </p>
+            <div class="email-card">
+              <span class="email-text">info@nacreator.it</span>
+              <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20app%20personalizzata">Invia richiesta</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer">
+        <p>© 2026 NA Creator Italia</p>
+        <p>Applicazioni gestionali personalizzate · Dashboard · Automazioni</p>
+      </div>
+    </footer>
+  </div>
+
+
+
+  <script>
+    // Card prodotti Amazon da Google Sheet
+    // Colonne nel foglio:
+    // ID | Attivo | Ordine | Categoria | Titolo | Descrizione | Caratteristica 1 | Caratteristica 2 | Caratteristica 3 | Link | Bottone
+
+    const GOOGLE_SHEET_AMAZON_URLS = [
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjHzyflUP1_2w8TqGiG-xSG3m44ZW_p8R1dMHlaMAbHDnA6AG6fqaPP_C_KEUVCUt6k4AJHokwlEs7/pub?gid=0&single=true&output=csv",
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjHzyflUP1_2w8TqGiG-xSG3m44ZW_p8R1dMHlaMAbHDnA6AG6fqaPP_C_KEUVCUt6k4AJHokwlEs7/pub?output=csv"
+    ];
+
+    const prodottiFallbackAmazon = [
+      {
+        ordine: 1,
+        categoria: "Tablet consigliato",
+        titolo: "Lenovo Idea Tab 11",
+        descrizione: "Tablet ideale per utilizzare applicazioni gestionali aziendali.",
+        caratteristiche: ["Display 11”", "8GB RAM", "Penna inclusa"],
+        link: "https://amzn.to/4fcsJyZ",
+        bottone: "Vedi su Amazon"
+      },
+      {
+        ordine: 2,
+        categoria: "Ufficio",
+        titolo: "Plastificatrice Amazon Basics",
+        descrizione: "Ideale per documenti aziendali e QR Code.",
+        caratteristiche: ["Formato A4", "Taglierina integrata", "10 pouches incluse"],
+        link: "https://amzn.to/4o7UcnN",
+        bottone: "Vedi su Amazon"
+      },
+      {
+        ordine: 3,
+        categoria: "Ufficio",
+        titolo: "Mini PC i9",
+        descrizione: "Mini PC ideale per averlo ovunque.",
+        caratteristiche: ["32 GB di RAM", "Processore Intel Core i9", "Scheda grafica Intel Iris Xe"],
+        link: "https://amzn.to/4409hhP",
+        bottone: "Vedi su Amazon"
+      },
+      {
+        ordine: 4,
+        categoria: "Ufficio",
+        titolo: "Mouse e tastiera wireless",
+        descrizione: "Miglior mouse e tastiera con rapporto qualità prezzo molto interessante.",
+        caratteristiche: ["Mouse wireless", "Tastiera Wireless", "Tastierino numerico"],
+        link: "https://amzn.to/3RLyNVx",
+        bottone: "Vedi su Amazon"
+      }
+    ];
+
+    function parseCSV(csvText) {
+      const rows = [];
+      let row = [];
+      let current = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (char === '"' && inQuotes && nextChar === '"') {
+          current += '"';
+          i++;
+        } else if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+          row.push(current.trim());
+          current = "";
+        } else if ((char === '\n' || char === '\r') && !inQuotes) {
+          if (char === '\r' && nextChar === '\n') i++;
+          row.push(current.trim());
+          rows.push(row);
+          row = [];
+          current = "";
+        } else {
+          current += char;
+        }
+      }
+
+      if (current || row.length) {
+        row.push(current.trim());
+        rows.push(row);
+      }
+
+      return rows.filter((r) => r.some(Boolean));
+    }
+
+    function cleanHeader(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function escapeHTML(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function getCell(row, headerMap, name) {
+      const index = headerMap[cleanHeader(name)];
+      return typeof index === "number" ? row[index] : "";
+    }
+
+    function renderAmazonProducts(prodotti) {
+      const container = document.getElementById("amazon-products");
+      if (!container) return;
+
+      container.innerHTML = "";
+
+      prodotti.forEach((prodotto) => {
+        const categoria = escapeHTML(prodotto.categoria || "Consigliato");
+        const titolo = escapeHTML(prodotto.titolo || "Prodotto consigliato");
+        const descrizione = escapeHTML(prodotto.descrizione || "Strumento utile per lavorare meglio.");
+        const link = escapeHTML(prodotto.link || "#");
+        const bottone = escapeHTML(prodotto.bottone || "Vedi su Amazon");
+        const caratteristiche = (prodotto.caratteristiche || [])
+          .map((voce) => escapeHTML(voce))
+          .filter(Boolean);
+
+        const listaCaratteristiche = caratteristiche.length
+          ? `<ul>${caratteristiche.map((voce) => `<li>${voce}</li>`).join("")}</ul>`
+          : "";
+
+        container.innerHTML += `
+          <article class="shop-card reveal visible">
+            <div class="shop-badge">${categoria}</div>
+            <h3>${titolo}</h3>
+            <p>${descrizione}</p>
+            ${listaCaratteristiche}
+            <a class="btn btn-primary" href="${link}" target="_blank" rel="nofollow sponsored noopener">${bottone}</a>
+          </article>
+        `;
+      });
+    }
+
+    function productsFromCSV(csv) {
+      const rows = parseCSV(csv);
+      const headerIndex = rows.findIndex((row) => row.map(cleanHeader).includes("titolo") && row.map(cleanHeader).includes("link"));
+      if (headerIndex === -1) return [];
+
+      const headers = rows[headerIndex].map(cleanHeader);
+      const headerMap = {};
+      headers.forEach((header, index) => {
+        if (header) headerMap[header] = index;
+      });
+
+      return rows.slice(headerIndex + 1)
+        .map((row) => ({
+          id: getCell(row, headerMap, "ID"),
+          attivo: getCell(row, headerMap, "Attivo"),
+          ordine: Number(getCell(row, headerMap, "Ordine") || 0),
+          categoria: getCell(row, headerMap, "Categoria"),
+          titolo: getCell(row, headerMap, "Titolo"),
+          descrizione: getCell(row, headerMap, "Descrizione"),
+          caratteristiche: [
+            getCell(row, headerMap, "Caratteristica 1"),
+            getCell(row, headerMap, "Caratteristica 2"),
+            getCell(row, headerMap, "Caratteristica 3")
+          ],
+          link: getCell(row, headerMap, "Link"),
+          bottone: getCell(row, headerMap, "Bottone") || "Vedi su Amazon"
+        }))
+        .filter((prodotto) => ["SI", "SÌ", "YES", "TRUE", "1"].includes(String(prodotto.attivo || "").trim().toUpperCase()))
+        .filter((prodotto) => prodotto.titolo && prodotto.link)
+        .sort((a, b) => a.ordine - b.ordine);
+    }
+
+    async function loadAmazonProductsFromSheet() {
+      for (const url of GOOGLE_SHEET_AMAZON_URLS) {
+        try {
+          const separator = url.includes("?") ? "&" : "?";
+          const response = await fetch(url + separator + "cache=" + Date.now());
+          if (!response.ok) continue;
+
+          const csv = await response.text();
+          const prodotti = productsFromCSV(csv);
+
+          if (prodotti.length) {
+            renderAmazonProducts(prodotti);
+            return;
+          }
+        } catch (error) {
+          console.warn("Tentativo Google Sheet non riuscito:", error);
+        }
+      }
+
+      renderAmazonProducts(prodottiFallbackAmazon);
+    }
+
+    loadAmazonProductsFromSheet();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script>
+    (function () {
+      const revealItems = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const counters = document.querySelectorAll('.counter');
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = Number(el.dataset.target || 0);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1600;
+          const start = performance.now();
+
+          function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            el.textContent = value + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+          }
+
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        });
+      }, { threshold: 0.45 });
+      counters.forEach((counter) => counterObserver.observe(counter));
+
+      const parallaxItems = Array.from(document.querySelectorAll('.parallax'));
+      let latestScroll = 0;
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollY = latestScroll;
+        parallaxItems.forEach((item) => {
+          const speed = parseFloat(item.dataset.speed || '0.12');
+          const rect = item.getBoundingClientRect();
+          const offset = (rect.top - window.innerHeight / 2) * speed;
+          item.style.transform = `translate3d(0, ${offset * -0.18}px, 0)`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        latestScroll = window.scrollY;
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      updateParallax();
+
+      if (window.THREE) {
+        const canvas = document.getElementById('scene');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 9;
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const particleCount = window.innerWidth < 768 ? 120 : 220;
+        const positions = new Float32Array(particleCount * 3);
+        const scales = [];
+
+        for (let i = 0; i < particleCount; i++) {
+          positions[i * 3] = (Math.random() - 0.5) * 18;
+          positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+          scales.push(Math.random() * 1.2 + 0.6);
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const material = new THREE.PointsMaterial({
+          size: 0.055,
+          color: 0x8fd3ff,
+          transparent: true,
+          opacity: 0.7,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+
+        const points = new THREE.Points(geometry, material);
+        group.add(points);
+
+        const ambient = new THREE.AmbientLight(0xffffff, 0.65);
+        scene.add(ambient);
+
+        const lightA = new THREE.PointLight(0x4da3ff, 1.4, 40);
+        lightA.position.set(3, 3, 6);
+        scene.add(lightA);
+
+        const lightB = new THREE.PointLight(0x8c7bff, 1.15, 40);
+        lightB.position.set(-4, -1, 5);
+        scene.add(lightB);
+
+        function resize() {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          renderer.setSize(width, height, false);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        const pointer = { x: 0, y: 0 };
+        window.addEventListener('pointermove', (event) => {
+          pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+          pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        }, { passive: true });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          points.rotation.y += 0.0008;
+          points.rotation.x += 0.0003;
+          group.rotation.x += (pointer.y * 0.08 - group.rotation.x) * 0.02;
+          group.rotation.y += (pointer.x * 0.12 - group.rotation.y) * 0.02;
+          renderer.render(scene, camera);
+        }
+
+        animate();
+      }
+    })();
+  </script>
+  <script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+</script>
+</body>
+</html>
