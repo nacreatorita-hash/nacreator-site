@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2839715420879212"
@@ -125,7 +125,7 @@
       letter-spacing: -.03em;
     }
       .logo-header{
-  height: 70px;
+  height: 76px;
   width:auto;
   display:block;
 }
@@ -274,22 +274,140 @@
       display: grid;
       place-items: center;
       perspective: 1800px;
+      isolation: isolate;
     }
 
-    .glow-orb {
+    .hero-3d-canvas {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(10px);
-      opacity: .55;
-      animation: drift 9s ease-in-out infinite;
+      inset: -8% -10% -2%;
+      width: 120%;
+      height: 110%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .92;
     }
-    .orb-a { width: 180px; height: 180px; top: 8%; left: 14%; background: rgba(77,163,255,.26); }
-    .orb-b { width: 240px; height: 240px; right: 6%; top: 12%; background: rgba(140,123,255,.22); animation-delay: -2s; }
-    .orb-c { width: 160px; height: 160px; left: 28%; bottom: 6%; background: rgba(124,247,255,.14); animation-delay: -4s; }
 
-    @keyframes drift {
-      0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(0,-18px,0) scale(1.06); }
+    .css-3d-system {
+      position: absolute;
+      inset: 4% 2% 8%;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      animation: cssSystemTilt 12s ease-in-out infinite;
+    }
+
+    .webgl-ready .css-3d-system { opacity: .58; }
+
+    .css-core,
+    .css-ring,
+    .css-node,
+    .css-link {
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+
+    .css-core {
+      width: 148px;
+      height: 148px;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(124,247,255,.84), rgba(103,240,164,.32) 52%, rgba(255,202,99,.58)),
+        linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.42);
+      box-shadow:
+        0 0 42px rgba(124,247,255,.28),
+        inset 0 0 32px rgba(255,255,255,.18),
+        0 28px 90px rgba(0,0,0,.36);
+      transform: rotateX(58deg) rotateZ(45deg);
+      animation: cssCoreSpin 9s linear infinite;
+    }
+
+    .css-core::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(4,5,10,.32);
+      border-radius: 22px;
+      background: rgba(4,12,18,.18);
+    }
+
+    .css-ring {
+      width: var(--size);
+      height: var(--size);
+      border: 1px solid var(--color);
+      border-radius: 50%;
+      box-shadow: 0 0 24px color-mix(in srgb, var(--color), transparent 42%);
+      opacity: .82;
+      animation: cssRingSpin var(--duration) linear infinite;
+    }
+
+    .css-ring.ring-a { --size: 310px; --color: rgba(124,247,255,.72); --duration: 13s; transform: rotateX(68deg) rotateZ(12deg); }
+    .css-ring.ring-b { --size: 410px; --color: rgba(103,240,164,.5); --duration: 18s; transform: rotateY(64deg) rotateX(8deg); }
+    .css-ring.ring-c { --size: 500px; --color: rgba(255,202,99,.38); --duration: 22s; transform: rotateX(78deg) rotateY(-18deg); }
+
+    .css-node {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #f7ffff;
+      box-shadow: 0 0 20px rgba(124,247,255,.78), 0 0 42px rgba(103,240,164,.24);
+      transform: translate3d(var(--x), var(--y), 90px);
+      animation: cssNodePulse 3.2s ease-in-out infinite;
+    }
+
+    .css-node:nth-of-type(5) { animation-delay: -.4s; }
+    .css-node:nth-of-type(6) { animation-delay: -.8s; }
+    .css-node:nth-of-type(7) { animation-delay: -1.2s; }
+    .css-node:nth-of-type(8) { animation-delay: -1.6s; }
+
+    .css-link {
+      width: 210px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,247,255,.58), transparent);
+      transform-origin: center;
+      opacity: .55;
+    }
+
+    .css-link.link-a { transform: rotateZ(22deg) translate3d(36px, -88px, 40px); }
+    .css-link.link-b { transform: rotateZ(-34deg) translate3d(-58px, 72px, 50px); }
+    .css-link.link-c { transform: rotateZ(78deg) translate3d(110px, 18px, 30px); }
+
+    @keyframes cssSystemTilt {
+      0%, 100% { transform: rotateX(6deg) rotateY(-9deg) translate3d(0,0,0); }
+      50% { transform: rotateX(-2deg) rotateY(8deg) translate3d(0,-12px,20px); }
+    }
+
+    @keyframes cssCoreSpin {
+      from { transform: rotateX(58deg) rotateZ(45deg); }
+      to { transform: rotateX(58deg) rotateZ(405deg); }
+    }
+
+    @keyframes cssRingSpin {
+      from { rotate: 0deg; }
+      to { rotate: 360deg; }
+    }
+
+    @keyframes cssNodePulse {
+      0%, 100% { scale: 1; opacity: .66; }
+      50% { scale: 1.45; opacity: 1; }
+    }
+
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 9% 2% 3%;
+      z-index: 0;
+      border: 1px solid rgba(124,247,255,.13);
+      border-radius: 34px;
+      background:
+        linear-gradient(rgba(124,247,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,247,255,.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at 58% 42%, black 0%, black 42%, transparent 74%);
+      opacity: .38;
+      transform: rotateX(60deg) rotateZ(-8deg) translateY(120px);
     }
 
     .device-stack {
@@ -297,6 +415,7 @@
       width: min(640px, 100%);
       height: 580px;
       transform-style: preserve-3d;
+      z-index: 2;
     }
 
     .tablet-mockup,
@@ -775,7 +894,7 @@
     }
 
     li::before {
-      content: "✦";
+      content: "âœ¦";
       color: var(--cyan);
       margin-right: 10px;
       font-weight: 900;
@@ -1041,7 +1160,7 @@
 </a>
 
 <button class="menu-toggle" onclick="toggleMenu()">
-  ☰
+  â˜°
 </button>
 
 <nav id="mobileMenu">
@@ -1066,7 +1185,7 @@
             <h1>App gestionali <span class="gradient-text">su misura</span> per lavorare meglio.</h1>
             <p>
               Creiamo strumenti digitali personalizzati per organizzare processi,
-              scadenze, mezzi, interventi, magazzino e attività operative.
+              scadenze, mezzi, interventi, magazzino e attivitÃ  operative.
             </p>
 
             <div class="actions">
@@ -1083,9 +1202,20 @@
           </div>
 
           <div class="hero-stage reveal">
-            <div class="glow-orb orb-a"></div>
-            <div class="glow-orb orb-b"></div>
-            <div class="glow-orb orb-c"></div>
+            <canvas class="hero-3d-canvas" id="heroScene" aria-hidden="true"></canvas>
+            <div class="css-3d-system" aria-hidden="true">
+              <span class="css-ring ring-a"></span>
+              <span class="css-ring ring-b"></span>
+              <span class="css-ring ring-c"></span>
+              <span class="css-core"></span>
+              <span class="css-node" style="--x:-190px; --y:-78px;"></span>
+              <span class="css-node" style="--x:-118px; --y:132px;"></span>
+              <span class="css-node" style="--x:168px; --y:-118px;"></span>
+              <span class="css-node" style="--x:230px; --y:74px;"></span>
+              <span class="css-link link-a"></span>
+              <span class="css-link link-b"></span>
+              <span class="css-link link-c"></span>
+            </div>
 
             <div class="device-stack parallax" data-speed="0.1">
               <div class="tablet-mockup">
@@ -1114,14 +1244,14 @@
                       </div>
 
                       <div class="metrics">
-                        <div class="metric-box"><strong>128</strong><span>attività</span></div>
+                        <div class="metric-box"><strong>128</strong><span>attivitÃ </span></div>
                         <div class="metric-box"><strong>36</strong><span>scadenze</span></div>
                         <div class="metric-box"><strong>94%</strong><span>completato</span></div>
                         <div class="metric-box"><strong>12</strong><span>report</span></div>
                       </div>
 
                       <div class="chart-card">
-                        <strong>Dati ordinati. Decisioni più veloci.</strong>
+                        <strong>Dati ordinati. Decisioni piÃ¹ veloci.</strong>
                         <p style="margin-top: 8px; color: rgba(245,247,255,.72);">Dashboard, automazioni e monitoraggio in tempo reale.</p>
                         <div class="chart-bars">
                           <div class="chart-bar"><i style="width:82%"></i></div>
@@ -1145,7 +1275,7 @@
                   <div class="phone-main">
                     <div class="mini-card">
                       <strong>Timbratura</strong>
-                      <p style="font-size: .84rem; color: rgba(245,247,255,.72); margin-bottom: 10px;">Ingresso 08:02 · Uscita 17:18</p>
+                      <p style="font-size: .84rem; color: rgba(245,247,255,.72); margin-bottom: 10px;">Ingresso 08:02 Â· Uscita 17:18</p>
                       <div class="mini-progress">
                         <span><i style="width:88%"></i></span>
                         <span><i style="width:64%"></i></span>
@@ -1166,7 +1296,7 @@
 
               <div class="floating-card">
                 <strong>Sistema operativo aziendale</strong>
-                <small>Una visione chiara di attività, scadenze e dati aziendali, sempre accessibile da tablet e smartphone.</small>
+                <small>Una visione chiara di attivitÃ , scadenze e dati aziendali, sempre accessibile da tablet e smartphone.</small>
               </div>
             </div>
           </div>
@@ -1178,27 +1308,27 @@
           <div class="section-title reveal">
             <div class="kicker">Servizi</div>
             <h2 class="section-heading">Soluzioni digitali pensate per semplificare il lavoro quotidiano.</h2>
-            <p>Applicazioni personalizzate per organizzare attività, documenti, mezzi, personale e processi aziendali.</p>
+            <p>Applicazioni personalizzate per organizzare attivitÃ , documenti, mezzi, personale e processi aziendali.</p>
           </div>
 
           <div class="grid-3">
             <article class="card reveal">
-              <div class="card-icon">◈</div>
+              <div class="card-icon">â—ˆ</div>
               <h3>Gestionali personalizzati</h3>
               <p>Sistemi costruiti sui processi reali della tua azienda, con funzioni utili e facili da usare.</p>
-              <a class="feature-link" href="#portfolio">Vedi gli esempi →</a>
+              <a class="feature-link" href="#portfolio">Vedi gli esempi â†’</a>
             </article>
             <article class="card reveal">
-              <div class="card-icon">↯</div>
-              <h3>Lavoro più ordinato</h3>
-              <p>Dashboard, report, scadenze e attività raccolti in un unico sistema consultabile ogni giorno.</p>
-              <a class="feature-link" href="#benefici">Scopri i benefici →</a>
+              <div class="card-icon">â†¯</div>
+              <h3>Lavoro piÃ¹ ordinato</h3>
+              <p>Dashboard, report, scadenze e attivitÃ  raccolti in un unico sistema consultabile ogni giorno.</p>
+              <a class="feature-link" href="#benefici">Scopri i benefici â†’</a>
             </article>
             <article class="card reveal">
-              <div class="card-icon">⌘</div>
-              <h3>Più controllo aziendale</h3>
-              <p>Meno fogli sparsi, meno dimenticanze e una visione più chiara del lavoro operativo.</p>
-              <a class="feature-link" href="#pacchetti">Vai ai pacchetti →</a>
+              <div class="card-icon">âŒ˜</div>
+              <h3>PiÃ¹ controllo aziendale</h3>
+              <p>Meno fogli sparsi, meno dimenticanze e una visione piÃ¹ chiara del lavoro operativo.</p>
+              <a class="feature-link" href="#pacchetti">Vai ai pacchetti â†’</a>
             </article>
           </div>
         </div>
@@ -1218,12 +1348,12 @@
             </div>
 
             <div class="big-card reveal">
-              <h3>Meno confusione. Più ordine. Utilizzo immediato.</h3>
-              <p>Ogni funzione è pensata per ridurre errori, velocizzare le operazioni e rendere i dati più semplici da consultare.</p>
+              <h3>Meno confusione. PiÃ¹ ordine. Utilizzo immediato.</h3>
+              <p>Ogni funzione Ã¨ pensata per ridurre errori, velocizzare le operazioni e rendere i dati piÃ¹ semplici da consultare.</p>
               <div class="floating-list">
                 <div class="floating-item"><strong>Accesso da ogni dispositivo</strong><small>Smartphone, tablet e computer.</small></div>
                 <div class="floating-item"><strong>Sistema scalabile</strong><small>Nuovi moduli e nuove funzioni nel tempo.</small></div>
-                <div class="floating-item"><strong>Dashboard operative</strong><small>Riepiloghi, report e viste chiare per decidere più velocemente.</small></div>
+                <div class="floating-item"><strong>Dashboard operative</strong><small>Riepiloghi, report e viste chiare per decidere piÃ¹ velocemente.</small></div>
               </div>
             </div>
           </div>
@@ -1234,7 +1364,7 @@
         <div class="container">
           <div class="section-title reveal">
             <div class="kicker">Numeri</div>
-            <h2 class="section-heading">Meno confusione, più controllo, più tempo per lavorare bene.</h2>
+            <h2 class="section-heading">Meno confusione, piÃ¹ controllo, piÃ¹ tempo per lavorare bene.</h2>
             <p>I vantaggi vengono presentati in modo chiaro: risparmio di tempo, controllo e meno errori operativi.</p>
           </div>
 
@@ -1251,11 +1381,11 @@
                 <div class="metric-label">Controllo operativo</div>
                 <strong><span class="counter" data-target="100" data-suffix="%">0</span></strong>
               </div>
-              <span>Più visibilità su scadenze, attività, mezzi, dipendenti e interventi.</span>
+              <span>PiÃ¹ visibilitÃ  su scadenze, attivitÃ , mezzi, dipendenti e interventi.</span>
             </article>
             <article class="metric-card reveal">
               <div>
-                <div class="metric-label">Accessibilità</div>
+                <div class="metric-label">AccessibilitÃ </div>
                 <strong><span class="counter" data-target="24" data-suffix="/7">0</span></strong>
               </div>
               <span>Dati e strumenti sempre disponibili da smartphone, tablet e computer.</span>
@@ -1265,7 +1395,7 @@
                 <div class="metric-label">Dimenticanze</div>
                 <strong><span class="counter" data-target="0">0</span></strong>
               </div>
-              <span>Automazioni, alert ed email aiutano a non perdere revisioni, scadenze o attività.</span>
+              <span>Automazioni, alert ed email aiutano a non perdere revisioni, scadenze o attivitÃ .</span>
             </article>
           </div>
         </div>
@@ -1282,7 +1412,7 @@
           <div class="portfolio-grid">
             <article class="portfolio-card reveal">
               <div class="portfolio-head">
-                <span class="portfolio-index">01 · Demo sistema</span>
+                <span class="portfolio-index">01 Â· Demo sistema</span>
                 <span class="chip">Automezzi</span>
               </div>
               <div class="preview-window">
@@ -1308,7 +1438,7 @@
 
             <article class="portfolio-card reveal">
               <div class="portfolio-head">
-                <span class="portfolio-index">02 · Demo sistema</span>
+                <span class="portfolio-index">02 Â· Demo sistema</span>
                 <span class="chip">Territorio</span>
               </div>
               <div class="preview-window">
@@ -1323,7 +1453,7 @@
                     <div class="preview-chip"><strong>412</strong><span>punti censiti</span></div>
                     <div class="preview-chip"><strong>39</strong><span>interventi aperti</span></div>
                   </div>
-                  <div class="preview-box"><strong>Programmazione controlli</strong><span>Priorità, storico e pianificazione interventi.</span></div>
+                  <div class="preview-box"><strong>Programmazione controlli</strong><span>PrioritÃ , storico e pianificazione interventi.</span></div>
                 </div>
               </div>
               <div class="portfolio-copy">
@@ -1334,7 +1464,7 @@
 
             <article class="portfolio-card reveal">
               <div class="portfolio-head">
-                <span class="portfolio-index">03 · Demo sistema</span>
+                <span class="portfolio-index">03 Â· Demo sistema</span>
                 <span class="chip">Consegne</span>
               </div>
               <div class="preview-window">
@@ -1344,7 +1474,7 @@
                   <span class="dot green"></span>
                 </div>
                 <div class="preview-body">
-                  <div class="preview-box tall"><strong>Gestione Snack & Bar</strong><span>Punti consegna, quantità, venduto e ultime visite.</span></div>
+                  <div class="preview-box tall"><strong>Gestione Snack & Bar</strong><span>Punti consegna, quantitÃ , venduto e ultime visite.</span></div>
                   <div class="preview-row">
                     <div class="preview-chip"><strong>89</strong><span>bar attivi</span></div>
                     <div class="preview-chip"><strong>12</strong><span>giri oggi</span></div>
@@ -1365,8 +1495,8 @@
         <div class="container">
           <div class="section-title reveal">
             <div class="kicker">Sistemi realizzabili</div>
-            <h2 class="section-heading">Soluzioni concrete per digitalizzare attività, mezzi, documenti e personale.</h2>
-            <p>Ogni modulo può vivere da solo oppure collegarsi a un sistema più ampio e scalabile.</p>
+            <h2 class="section-heading">Soluzioni concrete per digitalizzare attivitÃ , mezzi, documenti e personale.</h2>
+            <p>Ogni modulo puÃ² vivere da solo oppure collegarsi a un sistema piÃ¹ ampio e scalabile.</p>
           </div>
 
           <div class="systems-grid">
@@ -1382,9 +1512,9 @@
             </article>
             <article class="system-card reveal">
               <h3>Programmazione interventi</h3>
-              <p>Attività ordinate con priorità, assegnazioni, checklist e stato avanzamento lavori.</p>
+              <p>AttivitÃ  ordinate con prioritÃ , assegnazioni, checklist e stato avanzamento lavori.</p>
               <ul>
-                <li>Calendario attività</li>
+                <li>Calendario attivitÃ </li>
                 <li>Assegnazione operatori</li>
                 <li>Checklist operative</li>
                 <li>Report di fine intervento</li>
@@ -1422,11 +1552,11 @@
             </article>
             <article class="system-card reveal">
               <h3>Costi dipendenti</h3>
-              <p>Analisi dei costi collegati a ore lavorate, attività, reparti, mezzi o cantieri.</p>
+              <p>Analisi dei costi collegati a ore lavorate, attivitÃ , reparti, mezzi o cantieri.</p>
               <ul>
                 <li>Costo orario</li>
                 <li>Riepiloghi per periodo</li>
-                <li>Analisi per attività</li>
+                <li>Analisi per attivitÃ </li>
                 <li>Dashboard direzionale</li>
               </ul>
             </article>
@@ -1472,14 +1602,14 @@
           <div class="section-title reveal">
             <div class="kicker">Pacchetti</div>
             <h2 class="section-heading">Pacchetti chiari per progetti aziendali professionali.</h2>
-            <p>Ogni progetto viene preventivato in base a complessità, funzioni, automazioni e moduli richiesti.</p>
+            <p>Ogni progetto viene preventivato in base a complessitÃ , funzioni, automazioni e moduli richiesti.</p>
           </div>
 
           <div class="pricing">
             <article class="price-card reveal">
               <h3>Base</h3>
-              <p>Per digitalizzare un processo aziendale con un gestionale professionale e pronto all’uso.</p>
-              <div class="price">€1.500</div>
+              <p>Per digitalizzare un processo aziendale con un gestionale professionale e pronto allâ€™uso.</p>
+              <div class="price">â‚¬1.500</div>
               <div class="price-note">Ideale per iniziare con una struttura chiara e funzioni essenziali.</div>
               <ul>
                 <li>App gestionale personalizzata</li>
@@ -1493,27 +1623,27 @@
 
             <article class="price-card featured reveal">
               <h3>Business</h3>
-              <p>Per aziende che vogliono un gestionale più completo, più autorevole e pronto a crescere nel tempo.</p>
-              <div class="price">€2.000</div>
-              <div class="price-note">La scelta giusta per aziende che vogliono più controllo e automazioni.</div>
+              <p>Per aziende che vogliono un gestionale piÃ¹ completo, piÃ¹ autorevole e pronto a crescere nel tempo.</p>
+              <div class="price">â‚¬2.000</div>
+              <div class="price-note">La scelta giusta per aziende che vogliono piÃ¹ controllo e automazioni.</div>
               <ul>
                 <li>App avanzata su misura</li>
                 <li>Dashboard e report direzionali</li>
                 <li>Automazioni operative</li>
                 <li>Gestione utenti e permessi</li>
-                <li>Supporto all’avvio</li>
+                <li>Supporto allâ€™avvio</li>
               </ul>
               <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20Pacchetto%20Business">Consulenza gratuita</a>
             </article>
 
             <article class="price-card reveal">
               <h3>Custom</h3>
-              <p>Per più reparti, più moduli o processi collegati con logiche personalizzate ed evolutive.</p>
+              <p>Per piÃ¹ reparti, piÃ¹ moduli o processi collegati con logiche personalizzate ed evolutive.</p>
               <div class="price">Su misura</div>
               <div class="price-note">Pensato per sistemi aziendali completi, multipli e scalabili.</div>
               <ul>
                 <li>Analisi approfondita</li>
-                <li>Più moduli collegati</li>
+                <li>PiÃ¹ moduli collegati</li>
                 <li>Logiche personalizzate</li>
                 <li>Evoluzioni continuative</li>
               </ul>
@@ -1528,7 +1658,7 @@
           <div class="section-title reveal">
             <div class="kicker">Strumenti</div>
             <h2 class="section-heading">Strumenti consigliati per aziende digitali.</h2>
-            <p>Una selezione di prodotti utili per lavorare meglio con app gestionali, documenti, processi e attività operative.</p>
+            <p>Una selezione di prodotti utili per lavorare meglio con app gestionali, documenti, processi e attivitÃ  operative.</p>
           </div>
 
           <div id="amazon-products" class="shop-grid">
@@ -1563,8 +1693,8 @@
 
     <footer>
       <div class="container footer">
-        <p>© 2026 NA Creator Italia</p>
-        <p>Applicazioni gestionali personalizzate · Dashboard · Automazioni</p>
+        <p>Â© 2026 NA Creator Italia</p>
+        <p>Applicazioni gestionali personalizzate Â· Dashboard Â· Automazioni</p>
       </div>
     </footer>
   </div>
@@ -1587,7 +1717,7 @@
         categoria: "Tablet consigliato",
         titolo: "Lenovo Idea Tab 11",
         descrizione: "Tablet ideale per utilizzare applicazioni gestionali aziendali.",
-        caratteristiche: ["Display 11”", "8GB RAM", "Penna inclusa"],
+        caratteristiche: ["Display 11â€", "8GB RAM", "Penna inclusa"],
         link: "https://amzn.to/4fcsJyZ",
         bottone: "Vedi su Amazon"
       },
@@ -1613,7 +1743,7 @@
         ordine: 4,
         categoria: "Ufficio",
         titolo: "Mouse e tastiera wireless",
-        descrizione: "Miglior mouse e tastiera con rapporto qualità prezzo molto interessante.",
+        descrizione: "Miglior mouse e tastiera con rapporto qualitÃ  prezzo molto interessante.",
         caratteristiche: ["Mouse wireless", "Tastiera Wireless", "Tastierino numerico"],
         link: "https://amzn.to/3RLyNVx",
         bottone: "Vedi su Amazon"
@@ -1739,7 +1869,7 @@
           link: getCell(row, headerMap, "Link"),
           bottone: getCell(row, headerMap, "Bottone") || "Vedi su Amazon"
         }))
-        .filter((prodotto) => ["SI", "SÌ", "YES", "TRUE", "1"].includes(String(prodotto.attivo || "").trim().toUpperCase()))
+        .filter((prodotto) => ["SI", "SÃŒ", "YES", "TRUE", "1"].includes(String(prodotto.attivo || "").trim().toUpperCase()))
         .filter((prodotto) => prodotto.titolo && prodotto.link)
         .sort((a, b) => a.ordine - b.ordine);
     }
@@ -1830,79 +1960,225 @@
       }, { passive: true });
       updateParallax();
 
+      document.body.classList.remove('webgl-ready');
+
       if (window.THREE) {
-        const canvas = document.getElementById('scene');
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-        camera.position.z = 9;
-
-        const group = new THREE.Group();
-        scene.add(group);
-
-        const particleCount = window.innerWidth < 768 ? 120 : 220;
-        const positions = new Float32Array(particleCount * 3);
-        const scales = [];
-
-        for (let i = 0; i < particleCount; i++) {
-          positions[i * 3] = (Math.random() - 0.5) * 18;
-          positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-          positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-          scales.push(Math.random() * 1.2 + 0.6);
-        }
-
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const material = new THREE.PointsMaterial({
-          size: 0.055,
-          color: 0x8fd3ff,
-          transparent: true,
-          opacity: 0.7,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false
-        });
-
-        const points = new THREE.Points(geometry, material);
-        group.add(points);
-
-        const ambient = new THREE.AmbientLight(0xffffff, 0.65);
-        scene.add(ambient);
-
-        const lightA = new THREE.PointLight(0x4da3ff, 1.4, 40);
-        lightA.position.set(3, 3, 6);
-        scene.add(lightA);
-
-        const lightB = new THREE.PointLight(0x8c7bff, 1.15, 40);
-        lightB.position.set(-4, -1, 5);
-        scene.add(lightB);
-
-        function resize() {
-          const width = window.innerWidth;
-          const height = window.innerHeight;
-          renderer.setSize(width, height, false);
-          camera.aspect = width / height;
-          camera.updateProjectionMatrix();
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-
+        document.body.classList.add('webgl-ready');
         const pointer = { x: 0, y: 0 };
         window.addEventListener('pointermove', (event) => {
           pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
           pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
         }, { passive: true });
 
+        const backgroundCanvas = document.getElementById('scene');
+        const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas, antialias: true, alpha: true });
+        backgroundRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const backgroundScene = new THREE.Scene();
+        const backgroundCamera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+        backgroundCamera.position.z = 9;
+
+        const backgroundGroup = new THREE.Group();
+        backgroundScene.add(backgroundGroup);
+
+        const particleCount = window.innerWidth < 768 ? 90 : 160;
+        const positions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+          positions[i * 3] = (Math.random() - 0.5) * 18;
+          positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+        }
+
+        const particleGeometry = new THREE.BufferGeometry();
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({
+          size: 0.046,
+          color: 0x8fd3ff,
+          transparent: true,
+          opacity: 0.48,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+
+        const backgroundPoints = new THREE.Points(particleGeometry, particleMaterial);
+        backgroundGroup.add(backgroundPoints);
+
+        const heroCanvas = document.getElementById('heroScene');
+        const heroRenderer = new THREE.WebGLRenderer({ canvas: heroCanvas, antialias: true, alpha: true });
+        heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const heroScene = new THREE.Scene();
+        const heroCamera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
+        heroCamera.position.set(0, 0.45, 8.5);
+
+        const system = new THREE.Group();
+        heroScene.add(system);
+
+        heroScene.add(new THREE.AmbientLight(0xd8f7ff, 0.58));
+
+        const keyLight = new THREE.PointLight(0x7cf7ff, 2.2, 30);
+        keyLight.position.set(3.2, 4.2, 5.2);
+        heroScene.add(keyLight);
+
+        const warmLight = new THREE.PointLight(0xffca63, 1.15, 24);
+        warmLight.position.set(-4.5, -2.6, 4);
+        heroScene.add(warmLight);
+
+        const fillLight = new THREE.PointLight(0x67f0a4, 1.25, 26);
+        fillLight.position.set(1.2, -3.6, 5);
+        heroScene.add(fillLight);
+
+        const core = new THREE.Mesh(
+          new THREE.IcosahedronGeometry(1.15, 2),
+          new THREE.MeshPhysicalMaterial({
+            color: 0x102d3a,
+            emissive: 0x123a48,
+            metalness: 0.72,
+            roughness: 0.22,
+            transmission: 0.2,
+            transparent: true,
+            opacity: 0.92,
+            clearcoat: 0.8
+          })
+        );
+        system.add(core);
+
+        const wireCore = new THREE.Mesh(
+          new THREE.IcosahedronGeometry(1.18, 2),
+          new THREE.MeshBasicMaterial({
+            color: 0x7cf7ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.26
+          })
+        );
+        system.add(wireCore);
+
+        const ringMaterials = [
+          new THREE.MeshBasicMaterial({ color: 0x7cf7ff, transparent: true, opacity: 0.62, blending: THREE.AdditiveBlending }),
+          new THREE.MeshBasicMaterial({ color: 0x67f0a4, transparent: true, opacity: 0.48, blending: THREE.AdditiveBlending }),
+          new THREE.MeshBasicMaterial({ color: 0xffca63, transparent: true, opacity: 0.38, blending: THREE.AdditiveBlending })
+        ];
+
+        const rings = [
+          new THREE.Mesh(new THREE.TorusGeometry(2.0, 0.012, 12, 144), ringMaterials[0]),
+          new THREE.Mesh(new THREE.TorusGeometry(2.58, 0.01, 12, 144), ringMaterials[1]),
+          new THREE.Mesh(new THREE.TorusGeometry(3.15, 0.009, 12, 144), ringMaterials[2])
+        ];
+        rings[0].rotation.x = Math.PI / 2.6;
+        rings[1].rotation.y = Math.PI / 2.8;
+        rings[1].rotation.x = Math.PI / 8;
+        rings[2].rotation.x = Math.PI / 2;
+        rings[2].rotation.z = Math.PI / 6;
+        rings.forEach((ring) => system.add(ring));
+
+        const nodeGroup = new THREE.Group();
+        const linePositions = [];
+        const nodeMaterial = new THREE.MeshStandardMaterial({
+          color: 0xefffff,
+          emissive: 0x45d7c8,
+          emissiveIntensity: 0.55,
+          roughness: 0.28,
+          metalness: 0.35
+        });
+
+        const nodePoints = [
+          [-2.9, 1.0, 0.2], [-1.9, -1.55, 0.65], [-.25, 2.35, -.15],
+          [1.55, 1.72, .45], [2.85, -.72, -.2], [.72, -2.25, .55],
+          [-3.25, -.45, -.5], [2.15, -1.9, .25]
+        ];
+
+        nodePoints.forEach((point, index) => {
+          const node = new THREE.Mesh(new THREE.SphereGeometry(index % 3 === 0 ? 0.105 : 0.075, 20, 20), nodeMaterial);
+          node.position.set(point[0], point[1], point[2]);
+          nodeGroup.add(node);
+          linePositions.push(0, 0, 0, point[0], point[1], point[2]);
+          if (index > 0) {
+            const prev = nodePoints[index - 1];
+            linePositions.push(prev[0], prev[1], prev[2], point[0], point[1], point[2]);
+          }
+        });
+        system.add(nodeGroup);
+
+        const lineGeometry = new THREE.BufferGeometry();
+        lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+        const networkLines = new THREE.LineSegments(
+          lineGeometry,
+          new THREE.LineBasicMaterial({
+            color: 0x7cf7ff,
+            transparent: true,
+            opacity: 0.28,
+            blending: THREE.AdditiveBlending
+          })
+        );
+        system.add(networkLines);
+
+        const sparkCount = window.innerWidth < 768 ? 70 : 130;
+        const sparkPositions = new Float32Array(sparkCount * 3);
+        for (let i = 0; i < sparkCount; i++) {
+          const radius = 2.3 + Math.random() * 2.4;
+          const angle = Math.random() * Math.PI * 2;
+          sparkPositions[i * 3] = Math.cos(angle) * radius;
+          sparkPositions[i * 3 + 1] = (Math.random() - 0.5) * 4.8;
+          sparkPositions[i * 3 + 2] = Math.sin(angle) * radius * 0.58;
+        }
+        const sparkGeometry = new THREE.BufferGeometry();
+        sparkGeometry.setAttribute('position', new THREE.BufferAttribute(sparkPositions, 3));
+        const sparks = new THREE.Points(
+          sparkGeometry,
+          new THREE.PointsMaterial({
+            size: 0.04,
+            color: 0xfff3c4,
+            transparent: true,
+            opacity: 0.62,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+          })
+        );
+        system.add(sparks);
+
+        function resizeScenes() {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          backgroundRenderer.setSize(width, height, false);
+          backgroundCamera.aspect = width / height;
+          backgroundCamera.updateProjectionMatrix();
+
+          const heroRect = heroCanvas.getBoundingClientRect();
+          const heroWidth = Math.max(1, Math.floor(heroRect.width));
+          const heroHeight = Math.max(1, Math.floor(heroRect.height));
+          heroRenderer.setSize(heroWidth, heroHeight, false);
+          heroCamera.aspect = heroWidth / heroHeight;
+          heroCamera.updateProjectionMatrix();
+        }
+
+        window.addEventListener('resize', resizeScenes);
+        resizeScenes();
+
         function animate() {
           requestAnimationFrame(animate);
-          points.rotation.y += 0.0008;
-          points.rotation.x += 0.0003;
-          group.rotation.x += (pointer.y * 0.08 - group.rotation.x) * 0.02;
-          group.rotation.y += (pointer.x * 0.12 - group.rotation.y) * 0.02;
-          renderer.render(scene, camera);
+
+          backgroundPoints.rotation.y += 0.0006;
+          backgroundPoints.rotation.x += 0.00022;
+          backgroundGroup.rotation.x += (pointer.y * 0.06 - backgroundGroup.rotation.x) * 0.018;
+          backgroundGroup.rotation.y += (pointer.x * 0.1 - backgroundGroup.rotation.y) * 0.018;
+          backgroundRenderer.render(backgroundScene, backgroundCamera);
+
+          core.rotation.x += 0.003;
+          core.rotation.y += 0.005;
+          wireCore.rotation.x -= 0.002;
+          wireCore.rotation.y += 0.004;
+          rings[0].rotation.z += 0.0035;
+          rings[1].rotation.x += 0.0026;
+          rings[2].rotation.y -= 0.0028;
+          nodeGroup.rotation.y -= 0.0016;
+          sparks.rotation.y += 0.0018;
+
+          system.rotation.x += (pointer.y * 0.18 - system.rotation.x) * 0.035;
+          system.rotation.y += (pointer.x * 0.22 - system.rotation.y) * 0.035;
+          heroRenderer.render(heroScene, heroCamera);
         }
 
         animate();
