@@ -934,12 +934,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: -.05em;
     }
 
-    .pricing { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+    .pricing {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 18px;
+    }
 
     .price-card {
-      min-height: 460px;
+      min-height: 0;
+      padding: 24px;
       display: flex;
       flex-direction: column;
+    }
+
+    .package-image {
+      width: min(100%, 230px);
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      margin: 6px auto 22px;
+      box-shadow: 0 18px 38px rgba(0,0,0,.24);
+      background: #050812;
     }
 
     .price-card.featured {
@@ -1062,7 +1078,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero-grid,
       .split,
       .systems-grid,
-      .pricing,
       .portfolio-grid,
       .shop-grid,
       .metrics-grid,
@@ -1075,6 +1090,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .timeline,
       .process-row { grid-template-columns: 1fr; gap: 8px; }
       .price-card.featured { transform: none; }
+    }
+
+    @media (max-width: 820px) {
+      .pricing { grid-template-columns: 1fr; }
     }
     .menu-toggle{
   display:none;
@@ -1634,10 +1653,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           <div class="pricing">
             <article class="price-card reveal">
-              <h3>Base</h3>
-              <p>Per digitalizzare un processo aziendale con un gestionale professionale e pronto all’uso.</p>
-              <div class="price">€150/mese</div>
-              <div class="price-note">Soluzione mensile ideale per iniziare con una struttura chiara e funzioni essenziali.</div>
+              <h3>Pacchetto Base</h3>
+              <img class="package-image" src="assets/images/pacchetto%20base%20150.jpg" alt="Pacchetto Base a 150 euro al mese" loading="lazy" />
+              <p>Per digitalizzare un processo aziendale con un gestionale professionale e pronto all&rsquo;uso.</p>
               <ul>
                 <li>App gestionale personalizzata</li>
                 <li>Database strutturato</li>
@@ -1649,28 +1667,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </article>
 
             <article class="price-card featured reveal">
-              <h3>Business</h3>
-              <p>Per aziende che vogliono un gestionale più completo, più autorevole e pronto a crescere nel tempo.</p>
-              <div class="price">€250/mese</div>
-              <div class="price-note">Soluzione mensile per aziende che vogliono più controllo, dashboard e automazioni.</div>
+              <h3>Pacchetto Business</h3>
+              <img class="package-image" src="assets/images/pacchetto%20business%20250.jpg" alt="Pacchetto Business a 250 euro al mese" loading="lazy" />
+              <p>Per aziende che vogliono un gestionale pi&ugrave; completo, pi&ugrave; autorevole e pronto a crescere nel tempo.</p>
               <ul>
                 <li>App avanzata su misura</li>
                 <li>Dashboard e report direzionali</li>
                 <li>Automazioni operative</li>
                 <li>Gestione utenti e permessi</li>
-                <li>Supporto all’avvio</li>
+                <li>Supporto all&rsquo;avvio</li>
               </ul>
               <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20Pacchetto%20Business">Consulenza gratuita</a>
             </article>
 
             <article class="price-card reveal">
-              <h3>Custom</h3>
-              <p>Per più reparti, più moduli o processi collegati con logiche personalizzate ed evolutive.</p>
-              <div class="price">Su misura</div>
-              <div class="price-note">Pensato per sistemi aziendali completi, multipli e scalabili.</div>
+              <h3>Pacchetto su misura</h3>
+              <img class="package-image" src="assets/images/pacchetto%20su%20misura.jpg" alt="Pacchetto su misura per sistemi personalizzati" loading="lazy" />
+              <p>Per pi&ugrave; reparti, pi&ugrave; moduli o processi collegati con logiche personalizzate ed evolutive.</p>
               <ul>
                 <li>Analisi approfondita</li>
-                <li>Più moduli collegati</li>
+                <li>Pi&ugrave; moduli collegati</li>
                 <li>Logiche personalizzate</li>
                 <li>Evoluzioni continuative</li>
               </ul>
