@@ -1,0 +1,35 @@
+exclude:
+  - .agents
+  - .github
+  - .gitignore
+  - ADMIN-GUIDE.md
+  - "Cartella nuovo articolo"
+  - generate.js
+  - package.json
+  - package-lock.json
+  - posts
+  - article-template.html
+  - admin.html
+  - assets/images
+  - images
+  - "assets/articoli/censimento-caditoie/dashboard-caditoie.png"
+  - "assets/articoli/censimento-caditoie/interventi-caditoie.png"
+  - "assets/articoli/censimento-caditoie/mappa-caditoie.png"
+  - "assets/articoli/censimento-caditoie/scheda-caditoia.png"
+  - "assets/articoli/documenti-automezzi/calendario-mensile-scadenze-automezzi.jpg"
+  - "assets/articoli/documenti-automezzi/calendario-scadenze-automezzi.png"
+  - "assets/articoli/documenti-automezzi/dashboard-automezzi.png"
+  - "assets/articoli/documenti-automezzi/immagine-automezzi-4.png"
+  - "assets/articoli/errori-umani-azienda/azienda-organizzata-digitale.jpg"
+  - "assets/articoli/errori-umani-azienda/caos-operativo-azienda.jpg"
+  - "assets/articoli/errori-umani-azienda/costo-nascosto-errori-aziendali.jpg"
+  - "assets/articoli/errori-umani-azienda/digitalizzazione-processi-aziendali.jpg"
+  - "assets/articoli/errori-umani-azienda/errori-umani-azienda.jpg"
+  - "assets/articoli/gestire-magazzino-smartphone/carico-scarico-smartphone.jpg"
+  - "assets/articoli/gestire-magazzino-smartphone/codici-barre-magazzino.jpg"
+  - "assets/articoli/gestire-magazzino-smartphone/gestione-magazzino-smartphone.jpg"
+  - "assets/articoli/gestire-magazzino-smartphone/inventario-digitale.jpg"
+  - "assets/articoli/gestire-magazzino-smartphone/magazzino-digitale-organizzato.jpg"
+  - "8dd344ea-877b-413c-b731-082bc611660a.png"
+  - "ccca190f-2ffe-4c28-af8c-398615ed7a86.png"
+  - "ChatGPT Image 10 giu 2026, 12_22_51.png"
