@@ -154,7 +154,7 @@ function updateArticlesPage(published) {
   }
   const cards=published.length?published.map(card).join('\n'):'<p class="empty-state">Nessun articolo pubblicato al momento.</p>';
   html=html.replace(new RegExp(`${start}[\\s\\S]*?${end}`),`${start}\n${cards}\n${end}`);
-  if (!html.includes('.article-card-image')) html=html.replace('.article-card {','.article-card-image{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin-bottom:18px}\n    .article-card {');
+  if (!html.includes('.article-card-image')) html=html.replace('.article-card {','.article-card-image{display:block;width:100%;height:220px;max-width:100%;object-fit:contain;object-position:center;border:1px solid rgba(255,255,255,.1);border-radius:6px;margin-bottom:18px;background:#050812}\n    .article-card {');
   fs.writeFileSync(ARTICLES_PATH,html,'utf8');
 }
 function updateSitemap(published) {

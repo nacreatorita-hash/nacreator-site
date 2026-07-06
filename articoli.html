@@ -1047,7 +1047,18 @@
       gap: 18px;
     }
 
-    .article-card-image{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin-bottom:18px}
+    .article-card-image {
+      display: block;
+      width: 100%;
+      height: 220px;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px;
+      margin-bottom: 18px;
+      background: #050812;
+    }
     .article-card {
       min-height: 430px;
       display: flex;
@@ -1134,6 +1145,10 @@
       .editorial-panel {
         grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 520px) {
+      .article-card-image { height: 200px; }
     }
 
   </style>
