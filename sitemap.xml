@@ -1,40 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://nacreator.it/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://nacreator.it/articoli.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://nacreator.it/articolo-censimento-caditoie.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://nacreator.it/articolo-documenti-automezzi.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://nacreator.it/articolo-errori-umani-azienda.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://nacreator.it/articolo-gestire-magazzino-smartphone.html</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
+  <url><loc>https://nacreator.it/</loc><lastmod>2026-07-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://nacreator.it/articoli.html</loc><lastmod>2026-07-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://nacreator.it/articolo-errori-umani-azienda.html</loc><lastmod>2026-07-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://nacreator.it/articolo-gestire-magazzino-smartphone.html</loc><lastmod>2026-07-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://nacreator.it/articolo-censimento-caditoie.html</loc><lastmod>2026-07-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://nacreator.it/articolo-documenti-automezzi.html</loc><lastmod>2026-07-06</lastmod><priority>0.9</priority></url>
 </urlset>
