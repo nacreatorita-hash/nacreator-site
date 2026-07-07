@@ -1151,7 +1151,30 @@
       .article-card-image { height: 200px; }
     }
 
-  </style>
+  
+/* ARTICLE_CARD_IMAGE_CSS_START */
+
+    .article-card-image {
+      display: block;
+      width: 100%;
+      height: 220px;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px;
+      margin-bottom: 18px;
+      background: #050812;
+    }
+
+    @media (max-width: 520px) {
+      .article-card-image {
+        height: 200px;
+      }
+    }
+
+/* ARTICLE_CARD_IMAGE_CSS_END */
+</style>
 </head>
 <body>
   <canvas id="scene"></canvas>
@@ -1220,10 +1243,211 @@
 
           <div class="articles-grid">
 <!-- ARTICLES_GRID_START -->
-<article class="article-card card reveal"><img class="article-card-image" src="assets/articoli/errori-umani-azienda/errori-umani-azienda.webp" alt="Imprenditore sommerso da documenti e scadenze che rappresentano il costo degli errori umani" width="640" height="360" loading="lazy"><div class="article-meta"><span class="shop-badge">Digitalizzazione</span><span class="article-date">19 giugno 2026</span></div><h3>Errori Umani: Quanto Costano Davvero alla Tua Azienda?</h3><p>Scopri quanto costano gli errori umani in azienda e come ridurli con digitalizzazione, applicazioni gestionali personalizzate e processi più organizzati.</p><span class="article-date">7 minuti di lettura</span><a class="feature-link" href="articolo-errori-umani-azienda.html">Leggi articolo →</a></article>
-<article class="article-card card reveal"><img class="article-card-image" src="assets/articoli/gestire-magazzino-smartphone/gestione-magazzino-smartphone.webp" alt="Operatore che utilizza uno smartphone per gestire un magazzino digitale" width="640" height="360" loading="lazy"><div class="article-meta"><span class="shop-badge">Magazzino</span><span class="article-date">19 giugno 2026</span></div><h3>Come Gestire un Magazzino con lo Smartphone</h3><p>Scopri come gestire un magazzino con smartphone, codici a barre e QR Code: inventari più veloci, meno errori e controllo giacenze in tempo reale.</p><span class="article-date">6 minuti di lettura</span><a class="feature-link" href="articolo-gestire-magazzino-smartphone.html">Leggi articolo →</a></article>
-<article class="article-card card reveal"><img class="article-card-image" src="assets/articoli/censimento-caditoie/dashboard-caditoie.webp" alt="Web app per mappatura e geolocalizzazione delle caditoie" width="640" height="360" loading="lazy"><div class="article-meta"><span class="shop-badge">Territorio e Servizi</span><span class="article-date">10 giugno 2026</span></div><h3>Come digitalizzare il censimento delle caditoie con una web app</h3><p>Scopri come digitalizzare il censimento delle caditoie con una web app: mappatura GPS, archivio fotografico, storico interventi e programmazione operativa.</p><span class="article-date">5 minuti di lettura</span><a class="feature-link" href="articolo-censimento-caditoie.html">Leggi articolo →</a></article>
-<article class="article-card card reveal"><img class="article-card-image" src="assets/articoli/documenti-automezzi/dashboard-automezzi.webp" alt="Dashboard per il controllo di assicurazioni e scadenze degli automezzi" width="640" height="360" loading="lazy"><div class="article-meta"><span class="shop-badge">Automezzi</span><span class="article-date">10 giugno 2026</span></div><h3>Come gestire documenti e scadenze degli automezzi con una web app</h3><p>Scopri come una web app può gestire documenti automezzi, assicurazioni, revisioni, scadenze, calendario e report della flotta aziendale.</p><span class="article-date">6 minuti di lettura</span><a class="feature-link" href="articolo-documenti-automezzi.html">Leggi articolo →</a></article>
+
+    <article class="article-card card reveal">
+      <img
+        class="article-card-image"
+        src="assets/articoli/gestionale-clienti-documenti/gestionale-clienti-aziendale.webp"
+        alt="Trasformazione di un sistema aziendale disorganizzato in un gestionale digitale centralizzato"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+
+      <div class="article-meta">
+        <span class="shop-badge">
+          Gestionali Aziendali
+        </span>
+
+        <span class="article-date">
+          7 luglio 2026
+        </span>
+      </div>
+
+      <h3>
+        Come Organizzare Clienti, Chiamate e Documenti in un Unico Gestionale
+      </h3>
+
+      <p>
+        Scopri come un gestionale personalizzato può riunire clienti, chiamate, appuntamenti, documenti e scadenze in un unico spazio digitale.
+      </p>
+
+      <span class="article-date">
+        8 minuti di lettura
+      </span>
+
+      <a
+        class="feature-link"
+        href="articolo-gestionale-clienti-documenti.html"
+      >
+        Leggi articolo →
+      </a>
+    </article>
+  
+
+    <article class="article-card card reveal">
+      <img
+        class="article-card-image"
+        src="assets/articoli/errori-umani-azienda/errori-umani-azienda.webp"
+        alt="Imprenditore sommerso da documenti e scadenze che rappresentano il costo degli errori umani"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+
+      <div class="article-meta">
+        <span class="shop-badge">
+          Digitalizzazione
+        </span>
+
+        <span class="article-date">
+          19 giugno 2026
+        </span>
+      </div>
+
+      <h3>
+        Errori Umani: Quanto Costano Davvero alla Tua Azienda?
+      </h3>
+
+      <p>
+        Scopri quanto costano gli errori umani in azienda e come ridurli con digitalizzazione, applicazioni gestionali personalizzate e processi più organizzati.
+      </p>
+
+      <span class="article-date">
+        7 minuti di lettura
+      </span>
+
+      <a
+        class="feature-link"
+        href="articolo-errori-umani-azienda.html"
+      >
+        Leggi articolo →
+      </a>
+    </article>
+  
+
+    <article class="article-card card reveal">
+      <img
+        class="article-card-image"
+        src="assets/articoli/gestire-magazzino-smartphone/gestione-magazzino-smartphone.webp"
+        alt="Operatore che utilizza uno smartphone per gestire un magazzino digitale"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+
+      <div class="article-meta">
+        <span class="shop-badge">
+          Magazzino
+        </span>
+
+        <span class="article-date">
+          19 giugno 2026
+        </span>
+      </div>
+
+      <h3>
+        Come Gestire un Magazzino con lo Smartphone
+      </h3>
+
+      <p>
+        Scopri come gestire un magazzino con smartphone, codici a barre e QR Code: inventari più veloci, meno errori e controllo giacenze in tempo reale.
+      </p>
+
+      <span class="article-date">
+        6 minuti di lettura
+      </span>
+
+      <a
+        class="feature-link"
+        href="articolo-gestire-magazzino-smartphone.html"
+      >
+        Leggi articolo →
+      </a>
+    </article>
+  
+
+    <article class="article-card card reveal">
+      <img
+        class="article-card-image"
+        src="assets/articoli/censimento-caditoie/dashboard-caditoie.webp"
+        alt="Web app per mappatura e geolocalizzazione delle caditoie"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+
+      <div class="article-meta">
+        <span class="shop-badge">
+          Territorio e Servizi
+        </span>
+
+        <span class="article-date">
+          10 giugno 2026
+        </span>
+      </div>
+
+      <h3>
+        Come digitalizzare il censimento delle caditoie con una web app
+      </h3>
+
+      <p>
+        Scopri come digitalizzare il censimento delle caditoie con una web app: mappatura GPS, archivio fotografico, storico interventi e programmazione operativa.
+      </p>
+
+      <span class="article-date">
+        5 minuti di lettura
+      </span>
+
+      <a
+        class="feature-link"
+        href="articolo-censimento-caditoie.html"
+      >
+        Leggi articolo →
+      </a>
+    </article>
+  
+
+    <article class="article-card card reveal">
+      <img
+        class="article-card-image"
+        src="assets/articoli/documenti-automezzi/dashboard-automezzi.webp"
+        alt="Dashboard per il controllo di assicurazioni e scadenze degli automezzi"
+        width="640"
+        height="360"
+        loading="lazy"
+      >
+
+      <div class="article-meta">
+        <span class="shop-badge">
+          Automezzi
+        </span>
+
+        <span class="article-date">
+          10 giugno 2026
+        </span>
+      </div>
+
+      <h3>
+        Come gestire documenti e scadenze degli automezzi con una web app
+      </h3>
+
+      <p>
+        Scopri come una web app può gestire documenti automezzi, assicurazioni, revisioni, scadenze, calendario e report della flotta aziendale.
+      </p>
+
+      <span class="article-date">
+        6 minuti di lettura
+      </span>
+
+      <a
+        class="feature-link"
+        href="articolo-documenti-automezzi.html"
+      >
+        Leggi articolo →
+      </a>
+    </article>
+  
 <!-- ARTICLES_GRID_END -->
 </div>
 </div>
