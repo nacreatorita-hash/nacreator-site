@@ -1143,6 +1143,7 @@ function updateSitemap(published) {
   const entries = [
     ['/', today, '1.0'],
     ['/articoli.html', today, '0.9'],
+    ['/download.html', today, '0.9'],
     ...published.map((post) => [
       `/${post.output}`,
       post.modified || post.date,
