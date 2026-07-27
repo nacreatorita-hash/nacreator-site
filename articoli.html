@@ -955,6 +955,25 @@
       will-change: transform;
       transition: transform .08s linear;
     }
+    .footer a { color: inherit; }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    .footer-links a {
+      color: rgba(235,240,255,.72);
+      text-decoration: none;
+    }
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: #fff;
+    }
+
 
     @media (max-width: 1080px) {
       .hero-grid,
@@ -1284,7 +1303,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1325,7 +1344,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1366,7 +1385,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1407,7 +1426,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1448,7 +1467,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1489,7 +1508,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1530,7 +1549,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 
     <article class="article-card card reveal">
       <img
@@ -1571,7 +1590,7 @@
         Leggi articolo →
       </a>
     </article>
-
+  
 <!-- ARTICLES_GRID_END -->
 </div>
 </div>
@@ -1594,11 +1613,17 @@
         </div>
       </section>
     </main>
-
-    <footer>
+<footer>
       <div class="container footer">
-        <p>© 2026 NA Creator Italia</p>
-        <p>Articoli · Web app gestionali · Dashboard · Automazioni</p>
+        <div>
+          <p>&copy; 2026 NaCreator</p>
+          <p>P.IVA 11131741214 &middot; <a href="mailto:info@nacreator.it">info@nacreator.it</a></p>
+        </div>
+        <nav class="footer-links" aria-label="Link legali">
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie-policy.html">Cookie</a>
+          <a href="note-legali.html">Note legali</a>
+        </nav>
       </div>
     </footer>
   </div>

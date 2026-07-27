@@ -1144,6 +1144,9 @@ function updateSitemap(published) {
     ['/', today, '1.0'],
     ['/articoli.html', today, '0.9'],
     ['/download.html', today, '0.9'],
+    ['/privacy.html', today, '0.5'],
+    ['/cookie-policy.html', today, '0.5'],
+    ['/note-legali.html', today, '0.5'],
     ...published.map((post) => [
       `/${post.output}`,
       post.modified || post.date,
