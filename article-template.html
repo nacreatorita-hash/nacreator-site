@@ -27,9 +27,28 @@
   <link rel="stylesheet" href="assets/css/article.css">
   <script type="application/ld+json">{{STRUCTURED_DATA}}</script>
   {{FAQ_STRUCTURED_DATA}}
+  <link rel="stylesheet" href="assets/css/site-theme.css">
 </head>
 <body>
-<header class="site-header"><div class="container nav"><a href="index.html" aria-label="NA Creator Italia"><img class="logo-header" src="logo-nacreator.png" alt="NA Creator Italia" width="80" height="80"></a><nav class="nav-links" aria-label="Navigazione principale"><a href="index.html#servizi">Servizi</a><a href="index.html#soluzioni">Soluzioni</a><a href="articoli.html">Articoli</a><a href="download.html">Download</a><a href="index.html#pacchetti">Pacchetti</a><a class="nav-cta" href="mailto:info@nacreator.it">Richiedi una consulenza</a></nav></div></header>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="NA Creator Italia, homepage">
+      <img class="logo-header" src="assets/images/na-monogram-purple-v2.png" alt="">
+      <span>Creator Italia</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="main-menu" aria-label="Navigazione principale">
+      <a href="index.html#trasformazione">Trasformazione</a>
+      <a href="index.html#caso-reale">Caso reale</a>
+      <a href="index.html#metodo">Come lavoriamo</a>
+      <a href="articoli.html">Articoli</a>
+      <a href="download.html">Download</a>
+      <a class="nav-cta" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20software%20su%20misura">Richiedi una consulenza</a>
+    </nav>
+  </div>
+</header>
   <main>
     <section class="article-hero"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="articoli.html">Articoli</a><span>/</span><span>{{CATEGORY}}</span></nav><div class="kicker">{{CATEGORY}}</div><h1>{{TITLE}}</h1><p class="lead">{{LEAD}}</p><div class="meta"><span class="chip">{{DATE}}</span><span class="chip">{{READING_TIME}}</span><span class="chip">{{AUTHOR}}</span></div><figure class="hero-media reveal"><img src="{{HERO_IMAGE}}" alt="{{HERO_IMAGE_ALT}}" width="{{HERO_WIDTH}}" height="{{HERO_HEIGHT}}" fetchpriority="high"></figure></div></section>
     <section class="ad-section" aria-label="Pubblicità"><div class="container"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2839715420879212" data-ad-slot="4926476892" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></section>
@@ -38,5 +57,6 @@
   </main>
   <footer class="site-footer"><div class="container footer"><div><p>&copy; 2026 NaCreator</p><p>P.IVA 11131741214 &middot; <a href="mailto:info@nacreator.it">info@nacreator.it</a></p></div><nav class="footer-links" aria-label="Link legali"><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="note-legali.html">Note legali</a></nav></div></footer>
   <script src="assets/js/article.js" defer></script>
+  <script src="assets/js/site-navigation.js"></script>
 </body>
 </html>

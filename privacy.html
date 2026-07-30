@@ -20,16 +20,28 @@
     footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);background:rgba(3,5,12,.45)}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-links{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;font-size:.92rem;font-weight:800}.footer a:hover,.footer a:focus-visible{color:#fff}
     @media(max-width:860px){.nav{align-items:flex-start;height:auto;padding:8px 0 14px}.nav-links{gap:12px;font-size:.88rem}.legal-shell{grid-template-columns:1fr}.toc{position:static}}@media(max-width:640px){.container{width:min(100% - 28px,1060px)}main{padding:48px 0 68px}.footer{flex-direction:column;align-items:flex-start}.footer-links{justify-content:flex-start}.nav-links a:not(.nav-cta){display:none}.legal-content h1{overflow-wrap:anywhere}}
   </style>
+  <link rel="stylesheet" href="assets/css/site-theme.css">
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" aria-label="NaCreator"><img class="logo-header" src="logo-nacreator.png" alt="NaCreator" width="76" height="76" /></a>
-      <nav class="nav-links" aria-label="Navigazione principale">
-        <a href="index.html#servizi">Servizi</a><a href="index.html#soluzioni">Soluzioni</a><a href="articoli.html">Articoli</a><a href="download.html">Download</a><a class="nav-cta" href="mailto:info@nacreator.it">Contatti</a>
-      </nav>
-    </div>
-  </header>
+  <header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="NA Creator Italia, homepage">
+      <img class="logo-header" src="assets/images/na-monogram-purple-v2.png" alt="">
+      <span>Creator Italia</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="main-menu" aria-label="Navigazione principale">
+      <a href="index.html#trasformazione">Trasformazione</a>
+      <a href="index.html#caso-reale">Caso reale</a>
+      <a href="index.html#metodo">Come lavoriamo</a>
+      <a href="articoli.html">Articoli</a>
+      <a href="download.html">Download</a>
+      <a class="nav-cta" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20software%20su%20misura">Richiedi una consulenza</a>
+    </nav>
+  </div>
+</header>
   <main>
     <div class="container legal-shell">
       <aside class="toc" aria-label="Indice"><h2>Indice</h2><a href="#1-titolare-del-trattamento">1. Titolare del trattamento</a>
@@ -193,5 +205,6 @@ Email: <strong><a href="mailto:info@nacreator.it">info@nacreator.it</a></strong>
       <nav class="footer-links" aria-label="Link legali"><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="note-legali.html">Note legali</a></nav>
     </div>
   </footer>
+  <script src="assets/js/site-navigation.js"></script>
 </body>
 </html>
