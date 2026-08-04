@@ -81,8 +81,20 @@
   const article = document.querySelector('.article-content');
   if (!article) return;
 
-  const storageKey = `na-creator-liked:${location.pathname.split('/').pop() || 'articolo'}`;
+  const apiUrl = 'https://na-creator-like-counter.nacreatorita.workers.dev/likes';
+  const fileName = location.pathname.split('/').pop() || 'articolo';
+  const articleId = fileName.replace(/\.html?$/i, '').toLowerCase();
+  const storageKey = `na-creator-liked:${fileName}`;
+  const voterStorageKey = 'na-creator-like-voter';
   const liked = localStorage.getItem(storageKey) === 'true';
+  let voterId = localStorage.getItem(voterStorageKey);
+  if (!voterId) {
+    voterId = typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : `${Date.now().toString(16).padStart(8, '0')}-0000-4000-8000-${Math.random().toString(16).slice(2).padEnd(12, '0').slice(0, 12)}`;
+    localStorage.setItem(voterStorageKey, voterId);
+  }
+
   const panel = document.createElement('section');
   panel.className = 'article-like reveal visible';
   panel.setAttribute('aria-label', 'Valuta questo articolo');
@@ -94,15 +106,59 @@
     <button class="article-like__button${liked ? ' is-liked' : ''}" type="button" aria-pressed="${liked}">
       <span class="article-like__icon" aria-hidden="true">♥</span>
       <span class="article-like__label">${liked ? 'Ti piace' : 'Mi piace'}</span>
+      <span class="article-like__count" aria-live="polite" aria-label="Conteggio Mi piace">…</span>
     </button>`;
   article.append(panel);
 
   const button = panel.querySelector('button');
-  button.addEventListener('click', () => {
+  const countElement = button.querySelector('.article-like__count');
+
+  const requestLikes = async (options = {}) => {
+    const response = await fetch(`${apiUrl}?article=${encodeURIComponent(articleId)}`, options);
+    if (!response.ok) throw new Error(`Errore contatore: ${response.status}`);
+    return response.json();
+  };
+
+  const updateCount = (count) => {
+    countElement.textContent = new Intl.NumberFormat('it-IT').format(Number(count) || 0);
+  };
+
+  const syncLike = (nextLiked) => requestLikes({
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ voterId, liked: nextLiked })
+  });
+
+  (async () => {
+    try {
+      const data = liked ? await syncLike(true) : await requestLikes();
+      updateCount(data.count);
+    } catch (error) {
+      countElement.textContent = '—';
+      console.warn('Contatore Mi piace non disponibile', error);
+    }
+  })();
+
+  button.addEventListener('click', async () => {
+    if (button.disabled) return;
     const nextLiked = button.getAttribute('aria-pressed') !== 'true';
+    button.disabled = true;
     button.setAttribute('aria-pressed', String(nextLiked));
     button.classList.toggle('is-liked', nextLiked);
     button.querySelector('.article-like__label').textContent = nextLiked ? 'Ti piace' : 'Mi piace';
     localStorage.setItem(storageKey, String(nextLiked));
+
+    try {
+      const data = await syncLike(nextLiked);
+      updateCount(data.count);
+    } catch (error) {
+      button.setAttribute('aria-pressed', String(!nextLiked));
+      button.classList.toggle('is-liked', !nextLiked);
+      button.querySelector('.article-like__label').textContent = !nextLiked ? 'Ti piace' : 'Mi piace';
+      localStorage.setItem(storageKey, String(!nextLiked));
+      console.warn('Aggiornamento Mi piace non riuscito', error);
+    } finally {
+      button.disabled = false;
+    }
   });
 })();
