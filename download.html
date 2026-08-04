@@ -307,7 +307,7 @@
       scroll-margin-top: 100px;
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 24px;
+      padding: 20px;
       background: linear-gradient(180deg, var(--panel-strong), rgba(255,255,255,.045));
       box-shadow: var(--shadow);
       backdrop-filter: blur(24px);
@@ -324,14 +324,15 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
+      gap: 8px;
       margin-bottom: 18px;
     }
 
     .app-icon {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.08);
       object-fit: cover;
@@ -342,11 +343,11 @@
       display: inline-flex;
       align-items: center;
       min-height: 30px;
-      padding: 0 10px;
+      padding: 0 8px;
       border-radius: 999px;
       color: #061018;
       background: var(--green);
-      font-size: .76rem;
+      font-size: .66rem;
       font-weight: 850;
       white-space: nowrap;
     }
@@ -375,6 +376,12 @@
 
     .app-meta strong { color: #fff; font-weight: 750; }
     .app-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    .app-actions .btn-primary {
+      width: 100%;
+      padding-inline: 12px;
+      font-size: .88rem;
+      white-space: nowrap;
+    }
 
     .info-panel {
       border: 1px solid var(--line);
