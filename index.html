@@ -301,24 +301,34 @@
     .step h3 { margin-bottom: 10px; }
     .step p { color: var(--muted); font-size: .92rem; }
 
-    .cta { padding-top: 38px; }
-    .cta-panel {
-      position: relative;
-      min-height: 380px;
-      padding: 70px 8%;
-      display: grid;
-      align-content: center;
-      justify-items: center;
-      overflow: hidden;
-      border: 1px solid rgba(176,184,227,.3);
-      border-radius: 24px;
-      text-align: center;
-      background: url("assets/images/cinematic-coast-background-v2.png") center 67% / cover no-repeat;
-    }
-    .cta-panel::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,22,.86), rgba(15,17,49,.36), rgba(5,8,22,.68)); }
-    .cta-panel > * { position: relative; z-index: 1; }
-    .cta-panel h2 { max-width: 860px; margin-top: 14px; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 480; line-height: 1.05; letter-spacing: -.05em; }
-    .cta-panel p { max-width: 650px; margin: 18px auto 28px; color: #d0d4e2; }
+    .contact-section { padding-top: 70px; }
+    .contact-shell { display: grid; grid-template-columns: minmax(0,.78fr) minmax(0,1.22fr); gap: 28px; align-items: start; }
+    .contact-intro, .contact-card { border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(155deg, rgba(17,26,53,.9), rgba(8,13,31,.82)); box-shadow: 0 30px 80px rgba(0,0,0,.32); }
+    .contact-intro { position: sticky; top: 104px; padding: clamp(28px,4vw,48px); overflow: hidden; }
+    .contact-intro::after { content: ""; position: absolute; width: 230px; height: 230px; right: -90px; bottom: -100px; border-radius: 50%; background: rgba(157,116,242,.18); filter: blur(36px); pointer-events: none; }
+    .contact-intro h2 { margin: 16px 0 18px; font-size: clamp(2.35rem,4.5vw,4rem); font-weight: 480; line-height: 1.02; letter-spacing: -.05em; }
+    .contact-intro > p { color: var(--muted); }
+    .contact-email { position: relative; z-index: 1; display: block; margin-top: 28px; padding: 18px; border: 1px solid rgba(111,145,255,.32); border-radius: 14px; background: rgba(111,145,255,.08); }
+    .contact-email span { display: block; margin-bottom: 4px; color: #9aa8c8; font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .contact-email strong { color: #fff; overflow-wrap: anywhere; }
+    .contact-note { margin-top: 20px; font-size: .86rem; line-height: 1.6; }
+    .contact-card { padding: clamp(24px,4vw,42px); }
+    .contact-form-section + .contact-form-section { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .contact-form h3 { margin-bottom: 18px; font-size: 1.08rem; }
+    .form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px; }
+    .form-field--full { grid-column: 1 / -1; }
+    .contact-form label { display: block; margin-bottom: 7px; color: #e8ebf5; font-size: .88rem; font-weight: 650; }
+    .required { color: #91c6ff; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; min-height: 50px; padding: 13px 14px; color: #fff; border: 1px solid var(--line); border-radius: 12px; outline: none; background: rgba(255,255,255,.045); font: inherit; }
+    .contact-form select { color-scheme: dark; }
+    .contact-form textarea { min-height: 150px; resize: vertical; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: rgba(111,145,255,.75); box-shadow: 0 0 0 4px rgba(111,145,255,.11); }
+    .privacy-check { display: flex !important; gap: 10px; align-items: flex-start; margin: 24px 0 0 !important; color: var(--muted) !important; font-size: .84rem !important; font-weight: 500 !important; line-height: 1.55; }
+    .privacy-check input { flex: 0 0 auto; width: 18px; height: 18px; min-height: 0; margin-top: 2px; accent-color: var(--violet); }
+    .privacy-check a { color: #9fc2ff; text-decoration: underline; text-underline-offset: 3px; }
+    .form-actions { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+    .form-submit { cursor: pointer; }
+    .form-help { color: #929bb3; font-size: .78rem; }
 
     footer { margin-top: 90px; padding: 42px 0; border-top: 1px solid var(--line); background: rgba(3,6,17,.65); }
     .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 40px; }
@@ -339,7 +349,8 @@
       .nav-links a { padding: 11px 0; }
       .nav-links .nav-cta { margin-top: 8px; align-self: flex-start; width: auto; min-height: 42px; padding: 9px 18px; }
       .menu-toggle { display: block; }
-      .hero-grid, .case-study { grid-template-columns: 1fr; }
+      .hero-grid, .case-study, .contact-shell { grid-template-columns: 1fr; }
+      .contact-intro { position: static; }
       .hero-copy { text-align: center; }
       .hero h1, .hero-copy > p { margin-inline: auto; }
       .hero-actions { justify-content: center; }
@@ -374,8 +385,10 @@
       .capability + .capability { border-left: 0; border-top: 1px solid var(--line); }
       .process-grid { grid-template-columns: 1fr; gap: 38px; }
       .process-grid::before { display: none; }
-      .cta-panel { min-height: 460px; padding: 54px 22px; }
-      .cta-panel h2 { font-size: 2.7rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field--full { grid-column: auto; }
+      .form-actions { align-items: stretch; flex-direction: column; }
+      .form-submit { width: 100%; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; }
     }
@@ -551,13 +564,40 @@
       </div>
     </section>
 
-    <section class="cta" id="contatti">
-      <div class="container">
-        <div class="cta-panel reveal">
-          <p class="eyebrow">Pronto a trasformare la tua azienda?</p>
-          <h2>Meno caos. Più controllo. Più tempo per far crescere il tuo business.</h2>
-          <p>Raccontaci la tua realtà: ti mostreremo come un gestionale su misura può semplificare il lavoro di ogni giorno.</p>
-          <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20software%20su%20misura">Richiedi una consulenza</a>
+    <section class="contact-section" id="contatti" aria-labelledby="contact-title">
+      <div class="container contact-shell">
+        <div class="contact-intro reveal">
+          <p class="eyebrow">Parliamo del tuo progetto</p>
+          <h2 id="contact-title">Hai un’idea? Trasformiamola in uno strumento concreto.</h2>
+          <p>Descrivi il processo che vuoi semplificare. Prepareremo un’email ordinata con le informazioni inserite, così potrai inviarcela dalla tua applicazione di posta.</p>
+          <a class="contact-email" href="mailto:info@nacreator.it"><span>Preferisci scriverci direttamente?</span><strong>info@nacreator.it</strong></a>
+          <p class="contact-note">Il sito non salva i dati inseriti nel modulo. L’invio avviene soltanto dopo la tua conferma nell’applicazione email.</p>
+        </div>
+        <div class="contact-card reveal">
+          <form class="contact-form" id="project-contact-form">
+            <div class="contact-form-section">
+              <h3>1. I tuoi contatti</h3>
+              <div class="form-grid">
+                <div><label for="contact-name">Nome e cognome <span class="required">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" required></div>
+                <div><label for="contact-company">Azienda o attività</label><input id="contact-company" name="company" type="text" autocomplete="organization"></div>
+                <div><label for="contact-email-field">Email <span class="required">*</span></label><input id="contact-email-field" name="email" type="email" autocomplete="email" required></div>
+                <div><label for="contact-phone">Telefono</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel"></div>
+              </div>
+            </div>
+            <div class="contact-form-section">
+              <h3>2. Il progetto</h3>
+              <div class="form-grid">
+                <div><label for="contact-type">Tipologia <span class="required">*</span></label><select id="contact-type" name="type" required><option value="">Seleziona</option><option>Applicazione su misura</option><option>Gestionale aziendale</option><option>Automazione</option><option>Sito web o portale</option><option>Integrazione tra servizi</option><option>Miglioramento software esistente</option><option>Consulenza</option><option>Altro progetto digitale</option></select></div>
+                <div><label for="contact-sector">Settore o area</label><select id="contact-sector" name="sector"><option value="">Seleziona</option><option>Magazzino e inventario</option><option>Logistica e trasporti</option><option>Gestione flotte</option><option>Amministrazione e documenti</option><option>Clienti e vendite</option><option>Produzione</option><option>Altro</option></select></div>
+                <div class="form-field--full"><label for="contact-message">Cosa vuoi semplificare o realizzare? <span class="required">*</span></label><textarea id="contact-message" name="message" required placeholder="Descrivi il lavoro attuale, la difficoltà e il risultato che vorresti ottenere."></textarea></div>
+                <div><label for="contact-budget">Budget indicativo</label><select id="contact-budget" name="budget"><option>Da definire</option><option>Meno di 1.000 €</option><option>Da 1.000 € a 3.000 €</option><option>Da 3.000 € a 7.000 €</option><option>Da 7.000 € a 15.000 €</option><option>Oltre 15.000 €</option></select></div>
+                <div><label for="contact-timing">Tempistiche</label><select id="contact-timing" name="timing"><option>Da definire</option><option>Il prima possibile</option><option>Entro 1 mese</option><option>Tra 1 e 3 mesi</option><option>Tra 3 e 6 mesi</option><option>Sto raccogliendo informazioni</option></select></div>
+                <div class="form-field--full"><label for="contact-method">Come preferisci essere ricontattato?</label><select id="contact-method" name="method"><option>Email</option><option>Telefono</option><option>WhatsApp</option><option>Videochiamata</option></select></div>
+              </div>
+            </div>
+            <label class="privacy-check"><input type="checkbox" required><span>Dichiaro di aver letto l’<a href="privacy.html" target="_blank" rel="noopener">informativa privacy</a>. I dati saranno utilizzati esclusivamente per rispondere alla richiesta e per l’eventuale contatto successivo. <span class="required">*</span></span></label>
+            <div class="form-actions"><button class="btn btn-primary form-submit" type="submit">Prepara l’email</button><span class="form-help">Si aprirà la tua applicazione di posta. Controlla il messaggio e conferma l’invio.</span></div>
+          </form>
         </div>
       </div>
     </section>
@@ -627,6 +667,34 @@
     } else {
       reveals.forEach(item => item.classList.add('visible'));
     }
+
+    const contactForm = document.getElementById('project-contact-form');
+    contactForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const data = new FormData(contactForm);
+      const subject = `Richiesta progetto NA Creator — ${data.get('type')}`;
+      const body = [
+        'Nuova richiesta dal sito NA Creator',
+        '',
+        `Nome e cognome: ${data.get('name')}`,
+        `Azienda o attività: ${data.get('company') || 'Non indicata'}`,
+        `Email: ${data.get('email')}`,
+        `Telefono: ${data.get('phone') || 'Non indicato'}`,
+        '',
+        `Tipologia: ${data.get('type')}`,
+        `Settore o area: ${data.get('sector') || 'Non indicato'}`,
+        `Budget indicativo: ${data.get('budget')}`,
+        `Tempistiche: ${data.get('timing')}`,
+        `Metodo di contatto preferito: ${data.get('method')}`,
+        '',
+        'Descrizione del progetto:',
+        data.get('message')
+      ].join('\n');
+
+      window.location.href = `mailto:info@nacreator.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
   </script>
 </body>
 </html>
