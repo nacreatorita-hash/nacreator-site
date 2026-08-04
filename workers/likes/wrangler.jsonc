@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "na-creator-like-counter",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-04",
+  "d1_databases": [
+    {
+      "binding": "LIKES_DB",
+      "database_name": "na-creator-likes",
+      "database_id": "c8e6568a-3ef5-4db7-8015-2ad820bf3684"
+    }
+  ]
+}

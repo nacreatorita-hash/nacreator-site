@@ -79,6 +79,8 @@ Email: <strong><a href="mailto:info@nacreator.it">info@nacreator.it</a></strong>
 <li>dati tecnici relativi al funzionamento e alla sicurezza del sito.</li>
 </ul>
 <p>Questi dati vengono trattati per consentire il corretto funzionamento del sito, garantirne la sicurezza, prevenire abusi e ottenere informazioni statistiche sull’utilizzo delle pagine.</p>
+<h3>Interazioni con gli articoli</h3>
+<p>Quando l’utente utilizza il pulsante “Mi piace”, il sito genera nel browser un identificatore casuale e lo associa all’articolo selezionato. Il sistema non richiede nome, email o altri dati identificativi e utilizza l’identificatore esclusivamente per conteggiare il voto ed evitare duplicazioni dallo stesso browser.</p>
 <h3>Dati forniti volontariamente</h3>
 <p>Quando l’utente invia un’email, utilizza il modulo di contatto o altri canali messi a disposizione, possono essere trattati i dati forniti volontariamente, come:</p>
 <ul>
@@ -103,6 +105,9 @@ Email: <strong><a href="mailto:info@nacreator.it">info@nacreator.it</a></strong>
 <h3>Sicurezza e funzionamento del sito</h3>
 <p>I dati tecnici possono essere trattati per garantire il funzionamento, la manutenzione, la sicurezza del sito e la prevenzione di attività fraudolente o abusive.</p>
 <p><strong>Base giuridica:</strong> legittimo interesse del titolare alla sicurezza e al corretto funzionamento dei propri sistemi informatici.</p>
+<h3>Conteggio dei “Mi piace”</h3>
+<p>L’identificatore casuale memorizzato nel browser viene utilizzato per mostrare il totale dei voti ricevuti da ciascun articolo, registrare o rimuovere il voto richiesto dall’utente e limitare voti duplicati.</p>
+<p><strong>Base giuridica:</strong> legittimo interesse del titolare a misurare l’utilità dei contenuti e consenso espresso dall’utente attraverso l’azione sul pulsante.</p>
 <h3>Statistiche e analisi</h3>
 <p>Con il consenso dell’utente, il sito può utilizzare strumenti statistici, come Google Analytics, per comprendere come vengono consultate le pagine e migliorare i contenuti e i servizi.</p>
 <p><strong>Base giuridica:</strong> consenso dell’interessato.</p>
@@ -147,6 +152,7 @@ Email: <strong><a href="mailto:info@nacreator.it">info@nacreator.it</a></strong>
 <p>Il sito può utilizzare o collegarsi ai seguenti servizi:</p>
 <ul>
 <li><strong>GitHub Pages</strong>, per la pubblicazione e l’hosting del sito;</li>
+<li><strong>Cloudflare Workers e D1</strong>, per il funzionamento dell’API e la memorizzazione del conteggio dei “Mi piace”;</li>
 <li><strong>Cookiebot</strong>, per la gestione delle preferenze relative ai cookie;</li>
 <li><strong>Google Tag Manager</strong>, per la gestione degli strumenti di misurazione;</li>
 <li><strong>Google Analytics</strong>, per statistiche sull’utilizzo del sito;</li>
@@ -173,6 +179,7 @@ Email: <strong><a href="mailto:info@nacreator.it">info@nacreator.it</a></strong>
 <li>i dati contenuti nelle richieste informative che non danno origine a un rapporto professionale vengono conservati per il tempo necessario a rispondere e, di norma, non oltre 12 mesi dall’ultima comunicazione, salvo necessità di tutela dei diritti o obblighi di legge;</li>
 <li>i dati relativi a clienti, contratti, fatture e operazioni commerciali vengono conservati per i periodi previsti dalla normativa civile e fiscale;</li>
 <li>i dati tecnici e di sicurezza vengono conservati per il periodo necessario alla protezione e alla manutenzione dei sistemi;</li>
+<li>l’identificatore casuale associato ai “Mi piace” viene conservato finché il voto rimane attivo; la rimozione del voto elimina la relativa associazione dal database, mentre l’identificatore locale può essere eliminato cancellando i dati del sito dal browser;</li>
 <li>i dati raccolti tramite cookie seguono le durate indicate nella Cookie Policy e nella dichiarazione Cookiebot.</li>
 </ul>
 <p>Quando il trattamento è basato sul consenso, i dati possono essere trattati fino alla revoca del consenso, fatti salvi eventuali obblighi di legge.</p>
