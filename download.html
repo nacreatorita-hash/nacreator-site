@@ -22,7 +22,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Applicazioni NA Creator per Windows | Download</title>
-  <meta name="description" content="Catalogo ufficiale delle applicazioni NA Creator per Windows: NA Desk, NA PDF - Studio Editor, NA Warehouse 3D e NA Fleet Management." />
+  <meta name="description" content="Catalogo ufficiale delle applicazioni NA Creator per Windows: NA Desk, NA PDF - Studio Editor, NA Warehouse 3D, NA Fleet Management e NA Lens." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://nacreator.it/download.html" />
   <meta property="og:type" content="website" />
@@ -295,12 +295,13 @@
 
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 18px;
       align-items: stretch;
     }
 
     .app-card {
+      grid-column: span 2;
       min-height: 100%;
       display: flex;
       flex-direction: column;
@@ -383,6 +384,9 @@
       white-space: nowrap;
     }
 
+    .app-card:nth-last-child(2):nth-child(3n + 1) { grid-column: 2 / span 2; }
+    .app-card:last-child:nth-child(3n + 2) { grid-column: 4 / span 2; }
+
     .info-panel {
       border: 1px solid var(--line);
       border-radius: 22px;
@@ -446,6 +450,10 @@
 
     @media (max-width: 1024px) {
       .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .app-card,
+      .app-card:nth-last-child(2):nth-child(3n + 1),
+      .app-card:last-child:nth-child(3n + 2) { grid-column: auto; }
+      .app-card:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 9px); justify-self: center; }
     }
 
     @media (max-width: 860px) {
@@ -465,6 +473,7 @@
       .apps-grid,
       .info-grid { grid-template-columns: 1fr; }
       .app-card:last-child { grid-column: auto; }
+      .app-card:last-child:nth-child(odd) { width: auto; }
       .app-card,
       .info-panel { padding: 22px; border-radius: 20px; }
       .app-actions { align-items: stretch; }
@@ -473,6 +482,7 @@
       .download-dropdown { left: auto; right: 0; min-width: min(280px, calc(100vw - 38px)); }
     }
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://nacreator.it/download.html#na-lens","name":"NA Lens","operatingSystem":"Windows 10 or later","applicationCategory":"UtilitiesApplication","publisher":{"@type":"Organization","name":"NA Creator Italia","url":"https://nacreator.it/"},"downloadUrl":"https://apps.microsoft.com/store/detail/9PFBMK01QT56?cid=DevShareMCLPCS","offers":{"@type":"Offer","price":"4.99","priceCurrency":"EUR"}}</script>
   <link rel="stylesheet" href="assets/css/site-theme.css">
 </head>
 <body class="download-page">
@@ -515,7 +525,7 @@
         <div class="container">
           <div class="section-head">
             <h2 id="catalog-title">Catalogo applicazioni</h2>
-            <p>Quattro strumenti Windows per lavorare con più ordine: desktop, PDF, magazzino e flotta aziendale.</p>
+            <p>Cinque strumenti Windows per lavorare con più ordine: desktop, PDF, magazzino, flotta aziendale e ricerca locale.</p>
           </div>
           <div class="apps-grid" id="appsGrid" aria-live="polite"></div>
         </div>
@@ -611,6 +621,19 @@
             "price": "Gratis con piano Premium",
             "storeUrl": "https://apps.microsoft.com/detail/9N1X59N6X7N0?hl=it-it&gl=IT&ocid=pdpshare",
             "secondaryUrl": "articolo-na-fleet-management.html",
+            "secondaryText": "Scopri l'app"
+      },
+      {
+            "id": "na-lens",
+            "name": "NA Lens",
+            "description": "Trova file, cartelle e parole nei documenti con un'unica ricerca locale e privata.",
+            "icon": "assets/images/app-icon-na-lens.png",
+            "iconAlt": "Icona di NA Lens con lente di ingrandimento sul monogramma viola",
+            "version": "Non indicata",
+            "system": "Windows",
+            "price": "4,99 €",
+            "storeUrl": "https://apps.microsoft.com/store/detail/9PFBMK01QT56?cid=DevShareMCLPCS",
+            "secondaryUrl": "articolo-na-lens-ricerca-file-windows.html",
             "secondaryText": "Scopri l'app"
       }
 ];
