@@ -22,7 +22,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Applicazioni NA Creator per Windows | Download</title>
-  <meta name="description" content="Catalogo ufficiale delle applicazioni NA Creator per Windows: NA Desk, NA PDF - Studio Editor, NA Warehouse 3D, NA Fleet Management e NA Lens." />
+  <meta name="description" content="Catalogo ufficiale delle applicazioni NA Creator per Windows: NA Desk, NA PDF - Studio Editor, NA Warehouse 3D, NA Fleet Management, NA Lens e NA Ritiro Ingombranti." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://nacreator.it/download.html" />
   <meta property="og:type" content="website" />
@@ -353,6 +353,11 @@
       white-space: nowrap;
     }
 
+.store-badge--pending {
+      color: #fff;
+      background: linear-gradient(135deg, #7b61ff, #d56bc8);
+    }
+
     .app-description {
       color: rgba(235,240,255,.76);
       margin-bottom: 18px;
@@ -386,6 +391,17 @@
 
     .app-card:nth-last-child(2):nth-child(3n + 1) { grid-column: 2 / span 2; }
     .app-card:last-child:nth-child(3n + 2) { grid-column: 4 / span 2; }
+
+.app-privacy-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: rgba(235,240,255,.68);
+      font-size: .82rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .app-privacy-link:hover,
+    .app-privacy-link:focus-visible { color: #fff; }
 
     .info-panel {
       border: 1px solid var(--line);
@@ -525,7 +541,7 @@
         <div class="container">
           <div class="section-head">
             <h2 id="catalog-title">Catalogo applicazioni</h2>
-            <p>Cinque strumenti Windows per lavorare con più ordine: desktop, PDF, magazzino, flotta aziendale e ricerca locale.</p>
+            <p>Strumenti Windows per lavorare con più ordine: desktop, PDF, magazzino, flotta aziendale, ricerca locale e raccolta degli ingombranti.</p>
           </div>
           <div class="apps-grid" id="appsGrid" aria-live="polite"></div>
         </div>
@@ -535,7 +551,7 @@
         <div class="container">
           <div class="info-panel">
             <h2 id="official-download-title">Download ufficiali e sicuri</h2>
-            <p>Tutte le applicazioni disponibili in questa pagina vengono distribuite tramite Microsoft Store.</p>
+            <p>Le applicazioni pubblicate sono distribuite tramite Microsoft Store; i progetti in preparazione sono presentati senza link di download finché non saranno disponibili.</p>
             <div class="info-grid">
               <div class="info-item">
                 <strong>Installazione sicura</strong>
@@ -635,6 +651,20 @@
             "storeUrl": "https://apps.microsoft.com/store/detail/9PFBMK01QT56?cid=DevShareMCLPCS",
             "secondaryUrl": "articolo-na-lens-ricerca-file-windows.html",
             "secondaryText": "Scopri l'app"
+      },
+{
+            "id": "na-ritiro-ingombranti",
+            "name": "NA Ritiro Ingombranti",
+            "description": "Organizza prenotazioni, calendario, giri di raccolta, anagrafiche, TARI, report e backup in un unico sistema locale.",
+            "icon": "assets/images/app-icon-na-ritiro-ingombranti.png",
+            "iconAlt": "Logo di NA Ritiro Ingombranti con monogramma NA e freccia di raccolta",
+            "version": "In preparazione",
+            "system": "Windows",
+            "price": "Non ancora disponibile",
+            "status": "In arrivo",
+            "secondaryUrl": "articolo-na-ritiro-ingombranti.html",
+            "secondaryText": "Scopri il progetto",
+            "privacyUrl": "privacy-na-ritiro-ingombranti.html"
       }
 ];
 
@@ -650,11 +680,16 @@
       return '<a class="btn btn-secondary" href="' + app.secondaryUrl + '">' + app.secondaryText + '</a>';
     }
 
+    function privacyButton(app) {
+      if (!app.privacyUrl) return '';
+      return '<a class="app-privacy-link" href="' + app.privacyUrl + '">Informativa privacy</a>';
+    }
+
     appsGrid.innerHTML = apps.map((app) => {
       return '<article class="app-card" id="' + app.id + '">' +
         '<div class="app-top">' +
           '<img class="app-icon" src="' + app.icon + '" alt="' + app.iconAlt + '" width="62" height="62" loading="lazy">' +
-          (app.storeUrl ? '<span class="store-badge">Disponibile su Microsoft Store</span>' : '') +
+          (app.storeUrl ? '<span class="store-badge">Disponibile su Microsoft Store</span>' : (app.status ? '<span class="store-badge store-badge--pending">' + app.status + '</span>' : '')) +
         '</div>' +
         '<h3>' + app.name + '</h3>' +
         '<p class="app-description">' + app.description + '</p>' +
@@ -663,7 +698,7 @@
           '<span><strong>Versione</strong><em>' + app.version + '</em></span>' +
           '<span><strong>Prezzo</strong><em>' + app.price + '</em></span>' +
         '</div>' +
-        '<div class="app-actions">' + appButton(app) + secondaryButton(app) + '</div>' +
+        '<div class="app-actions">' + appButton(app) + secondaryButton(app) + '</div>' + privacyButton(app) +
       '</article>';
     }).join('');
 
