@@ -473,7 +473,7 @@
     }
 
     @media (max-width: 860px) {
-      .nav { align-items: flex-start; padding: 10px 0 14px; flex-direction: column; }
+      .nav { align-items: center; padding: 0; flex-direction: row; }
       .nav-links { width: 100%; flex-wrap: wrap; gap: 12px; }
       .download-dropdown { left: 0; transform: translateY(8px); }
       .download-menu.is-open .download-dropdown,
@@ -708,27 +708,29 @@
     const downloadToggle = document.getElementById('downloadToggle');
     const downloadDropdown = document.getElementById('downloadDropdown');
 
-    function setMenu(open) {
-      downloadMenu.classList.toggle('is-open', open);
-      downloadToggle.setAttribute('aria-expanded', String(open));
-    }
-
-    downloadToggle.addEventListener('click', () => {
-      setMenu(!downloadMenu.classList.contains('is-open'));
-    });
-
-    downloadMenu.addEventListener('mouseleave', () => setMenu(false));
-
-    downloadDropdown.addEventListener('click', (event) => {
-      if (event.target.matches('a')) setMenu(false);
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        setMenu(false);
-        downloadToggle.focus();
+    if (downloadMenu && downloadToggle && downloadDropdown) {
+      function setMenu(open) {
+        downloadMenu.classList.toggle('is-open', open);
+        downloadToggle.setAttribute('aria-expanded', String(open));
       }
-    });
+
+      downloadToggle.addEventListener('click', () => {
+        setMenu(!downloadMenu.classList.contains('is-open'));
+      });
+
+      downloadMenu.addEventListener('mouseleave', () => setMenu(false));
+
+      downloadDropdown.addEventListener('click', (event) => {
+        if (event.target.matches('a')) setMenu(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setMenu(false);
+          downloadToggle.focus();
+        }
+      });
+    }
 
     document.querySelectorAll('.js-download-app').forEach((link) => {
       link.addEventListener('click', () => {
