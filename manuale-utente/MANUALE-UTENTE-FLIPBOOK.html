@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manuale utente interattivo di NA Ritiro Ingombranti.">
+  <title>NA Ritiro Ingombranti · Manuale interattivo</title>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --subtle: #8e8e93;
+      --blue: #007aff;
+      --indigo: #5e5ce6;
+      --violet: #af52de;
+      --pink: #e88bc8;
+      --line: rgba(60, 60, 67, .12);
+      --paper: rgba(255, 255, 255, .78);
+      --paper-strong: rgba(255, 255, 255, .94);
+      --canvas: #eef1f8;
+      --shadow: 0 32px 100px rgba(31, 38, 55, .16);
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% -10%, rgba(175, 82, 222, .25), transparent 28rem),
+        radial-gradient(circle at 0% 30%, rgba(0, 122, 255, .18), transparent 30rem),
+        linear-gradient(140deg, #fbfbff 0%, var(--canvas) 58%, #f5f5f7 100%);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .35;
+      background: linear-gradient(rgba(70, 82, 118, .026) 1px, transparent 1px), linear-gradient(90deg, rgba(70, 82, 118, .026) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    button, a { font: inherit; }
+    button { border: 0; cursor: pointer; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(255,255,255,.72); background: rgba(255,255,255,.64); backdrop-filter: blur(24px) saturate(150%); }
+    .topbar-inner { width: min(1440px, calc(100% - 38px)); min-height: 72px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+    .brand img { width: 45px; height: 45px; border-radius: 14px; object-fit: cover; box-shadow: 0 10px 24px rgba(94,92,230,.22); }
+    .brand strong, .brand small { display: block; }
+    .brand strong { font-size: .93rem; letter-spacing: -.03em; }
+    .brand small { margin-top: 1px; color: var(--muted); font-size: .64rem; font-weight: 800; letter-spacing: .14em; }
+    .toolbar { display: flex; align-items: center; gap: 8px; }
+    .toolbar-button, .toc-button { min-height: 36px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.6); box-shadow: inset 0 1px rgba(255,255,255,.92); transition: .18s ease; }
+    .toolbar-button:hover, .toc-button:hover { color: var(--blue); border-color: rgba(0,122,255,.3); transform: translateY(-1px); }
+    .toolbar-button.primary { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--blue), var(--indigo)); box-shadow: 0 10px 24px rgba(0,122,255,.2); }
+    .shell { width: min(1440px, calc(100% - 38px)); margin: 0 auto; padding: 34px 0 54px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 28px; align-items: center; padding: 40px 44px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,.8); border-radius: 34px; background: linear-gradient(125deg, rgba(255,255,255,.82), rgba(243,245,255,.58)); box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.96); backdrop-filter: blur(26px) saturate(145%); }
+    .eyebrow { color: var(--indigo); font-size: .68rem; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 810px; margin: 10px 0 15px; font-size: clamp(2.2rem, 5vw, 5.25rem); line-height: .98; letter-spacing: -.07em; color: var(--ink); background: linear-gradient(105deg, #1d1d1f 0%, #1d1d1f 40%, #18528f 76%, #4b3e9f 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { max-width: 740px; margin-bottom: 0; color: var(--muted); font-size: 1.05rem; }
+    .hero-art { position: relative; display: grid; place-items: center; min-height: 220px; }
+    .hero-art::before { content: ""; position: absolute; width: 230px; height: 230px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,122,255,.19), rgba(175,82,222,.2)); filter: blur(2px); animation: breathe 5s ease-in-out infinite; }
+    .hero-art img { position: relative; width: 220px; border-radius: 30px; box-shadow: 0 28px 52px rgba(31,38,55,.18); }
+    @keyframes breathe { 0%, 100% { transform: scale(.95); opacity: .7; } 50% { transform: scale(1.08); opacity: 1; } }
+    .book-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 20px; align-items: start; }
+    .glass { border: 1px solid rgba(255,255,255,.78); border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.79), rgba(245,247,255,.56)); box-shadow: inset 0 1px rgba(255,255,255,.96), 0 22px 65px rgba(31,38,55,.10); backdrop-filter: blur(25px) saturate(145%); }
+    .toc { position: sticky; top: 92px; padding: 20px 16px; }
+    .toc h2 { padding: 0 8px; margin-bottom: 12px; font-size: 1rem; letter-spacing: -.03em; }
+    .toc-list { display: grid; gap: 3px; max-height: calc(100vh - 150px); overflow: auto; padding-right: 2px; }
+    .toc-button { width: 100%; min-height: 36px; padding: 6px 9px; border-radius: 11px; text-align: left; font-size: .74rem; }
+    .toc-button.active { color: #075fca; border-color: rgba(0,122,255,.28); background: rgba(0,122,255,.1); }
+    .book-stage { min-width: 0; }
+    .book { position: relative; display: grid; min-height: 665px; overflow: hidden; border-radius: 30px; }
+    .spread { grid-area: 1 / 1; position: relative; min-height: 665px; display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); overflow: hidden; border: 1px solid rgba(255,255,255,.86); border-radius: 30px; background: linear-gradient(90deg, rgba(255,255,255,.9) 0%, rgba(248,249,255,.82) 50%, rgba(255,255,255,.86) 50.2%, rgba(246,248,255,.72) 100%); box-shadow: 0 30px 100px rgba(31,38,55,.16), inset 0 1px rgba(255,255,255,.98); }
+    .spread-underlay { z-index: 1; visibility: hidden; opacity: 0; pointer-events: none; }
+    .spread-underlay.is-visible { visibility: visible; animation: pageReveal .5s cubic-bezier(.2,.72,.2,1) both; }
+    .spread-current { z-index: 2; }
+    .spread::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: linear-gradient(transparent, rgba(60,60,67,.12) 12%, rgba(60,60,67,.12) 88%, transparent); box-shadow: 0 0 20px rgba(40,46,72,.07); }
+    .spread.turn-next { z-index: 3; animation: slideOutNext .5s cubic-bezier(.2,.72,.2,1) both; }
+    .spread.turn-prev { z-index: 3; animation: slideOutPrev .5s cubic-bezier(.2,.72,.2,1) both; }
+    @keyframes slideOutNext { 0% { opacity: 1; transform: translateX(0) scale(1); } 55% { opacity: .2; transform: translateX(-34px) scale(.985); } 100% { opacity: 0; transform: translateX(-72px) scale(.97); } }
+    @keyframes slideOutPrev { 0% { opacity: 1; transform: translateX(0) scale(1); } 55% { opacity: .2; transform: translateX(34px) scale(.985); } 100% { opacity: 0; transform: translateX(72px) scale(.97); } }
+    @keyframes pageReveal { 0% { opacity: 0; transform: translateX(24px) scale(.985); } 100% { opacity: 1; transform: translateX(0) scale(1); } }
+    .page { min-width: 0; padding: 45px 40px; }
+    .page.left { padding-right: 48px; }
+    .page.right { padding-left: 48px; }
+    .page-number { display: flex; align-items: center; justify-content: space-between; color: var(--subtle); font-size: .67rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .page h2 { margin: 9px 0 14px; font-size: clamp(1.7rem, 3vw, 2.9rem); line-height: 1; letter-spacing: -.065em; }
+    .page h3 { margin: 26px 0 8px; font-size: 1rem; letter-spacing: -.03em; }
+    .page p, .page li { color: var(--muted); font-size: .91rem; }
+    .page ul, .page ol { padding-left: 1.2rem; }
+    .page li + li { margin-top: 7px; }
+    .page strong { color: var(--ink); }
+    .page .intro { font-size: .99rem; }
+    .accent-line { width: 74px; height: 5px; margin: 20px 0; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--violet)); }
+    .note { margin-top: 24px; padding: 14px 16px; border: 1px solid rgba(0,122,255,.16); border-radius: 16px; color: #075fca; background: linear-gradient(100deg, rgba(0,122,255,.09), rgba(94,92,230,.08)); font-size: .8rem; }
+    .note strong { color: #075fca; }
+    .screen { display: grid; gap: 10px; height: 100%; align-content: center; }
+    .screen-frame { position: relative; padding: 8px; border: 1px solid rgba(255,255,255,.96); border-radius: 21px; background: rgba(255,255,255,.7); box-shadow: 0 19px 48px rgba(31,38,55,.14); cursor: zoom-in; transition: transform .25s ease, box-shadow .25s ease; }
+    .screen-frame:hover { transform: translateY(-5px) rotate(.35deg); box-shadow: 0 26px 60px rgba(31,38,55,.19); }
+    .screen-frame img { width: 100%; max-height: 530px; object-fit: contain; border-radius: 14px; background: #11152b; }
+    .screen-caption { color: var(--subtle); font-size: .71rem; text-align: center; }
+    .screen-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; align-items: start; }
+    .screen-pair .screen-frame img { max-height: 260px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+    .chip { padding: 6px 9px; border: 1px solid rgba(0,122,255,.15); border-radius: 999px; color: #075fca; background: rgba(0,122,255,.08); font-size: .68rem; font-weight: 750; }
+    .book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 2px 0; }
+    .nav-controls { display: flex; align-items: center; gap: 8px; }
+    .nav-button { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 0 15px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: rgba(255,255,255,.65); box-shadow: inset 0 1px rgba(255,255,255,.95); transition: .18s ease; }
+    .nav-button:hover:not(:disabled) { color: var(--blue); border-color: rgba(0,122,255,.35); transform: translateY(-1px); }
+    .nav-button:disabled { cursor: not-allowed; opacity: .38; }
+    .progress-wrap { display: grid; gap: 5px; flex: 1; max-width: 290px; }
+    .progress-meta { display: flex; justify-content: space-between; color: var(--subtle); font-size: .69rem; font-weight: 750; }
+    .progress { height: 5px; overflow: hidden; border-radius: 99px; background: rgba(60,60,67,.11); }
+    .progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), var(--violet)); transition: width .35s ease; }
+    .help { margin-top: 11px; color: var(--subtle); font-size: .71rem; text-align: center; }
+    .footer { padding: 24px; margin-top: 20px; color: var(--muted); font-size: .78rem; text-align: center; }
+    .footer a { color: var(--blue); }
+    .lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 30px; background: rgba(17,20,36,.72); backdrop-filter: blur(16px); opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .lightbox.open { opacity: 1; pointer-events: auto; }
+    .lightbox figure { width: min(1200px, 100%); max-height: 94vh; padding: 12px; border: 1px solid rgba(255,255,255,.35); border-radius: 22px; background: rgba(255,255,255,.12); transform: scale(.96); transition: transform .24s ease; }
+    .lightbox.open figure { transform: scale(1); }
+    .lightbox img { max-height: 82vh; width: 100%; object-fit: contain; border-radius: 13px; }
+    .lightbox figcaption { margin-top: 9px; color: rgba(255,255,255,.78); font-size: .78rem; text-align: center; }
+    .lightbox-close { position: absolute; top: 19px; right: 21px; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; color: #fff; background: rgba(255,255,255,.12); font-size: 1.45rem; }
+    code { padding: 2px 6px; border-radius: 6px; color: #4b49b8; background: rgba(94,92,230,.09); font-size: .9em; }
+    @media (max-width: 1040px) { .hero { grid-template-columns: 1fr 240px; padding: 32px; } .book-layout { grid-template-columns: 205px minmax(0, 1fr); } .page { padding: 32px 27px; } .page.left { padding-right: 34px; } .page.right { padding-left: 34px; } }
+    @media (max-width: 790px) { .hero, .book-layout { grid-template-columns: 1fr; } .hero-art { min-height: 160px; } .hero-art img { width: 160px; } .toc { position: static; } .toc-list { max-height: none; grid-template-columns: repeat(2, minmax(0, 1fr)); } .book, .spread { min-height: 0; } .spread { display: block; background: linear-gradient(145deg, rgba(255,255,255,.93), rgba(245,247,255,.72)); } .spread::before { display: none; } .page.left, .page.right { padding: 28px 26px; } .page.right { border-top: 1px solid rgba(60,60,67,.1); } .screen-frame img { max-height: 430px; } .book-controls { flex-wrap: wrap; } .progress-wrap { order: 3; flex-basis: 100%; max-width: none; } }
+    @media (max-width: 500px) { .topbar-inner, .shell { width: min(100% - 24px, 1440px); } .toolbar-button:nth-child(2) { display: none; } .hero { padding: 26px 22px; border-radius: 24px; } .toc-list { grid-template-columns: 1fr; } .page h2 { font-size: 2rem; } .screen-pair { grid-template-columns: 1fr; } .screen-pair .screen-frame img { max-height: 430px; } .nav-button { padding: 0 11px; } .nav-button span { display: none; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+    @media print { body { background: #fff; } body::before, .topbar, .hero-art, .toc, .book-controls, .help, .lightbox { display: none !important; } .shell { width: 100%; padding: 0; } .book, .spread { min-height: 0; } .spread { display: block; border: 0; box-shadow: none; background: #fff; } .spread-underlay { display: none; } .spread::before { display: none; } .page { padding: 12px 0 20px; break-inside: avoid; } .page.right { border-top: 1px solid #ddd; } .screen-frame { box-shadow: none; } .screen-frame img { max-height: 145mm; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top"><img src="../assets/images/na-monogram-purple-v2.png" alt="NA Ritiro Ingombranti"><span><strong>Manuale interattivo</strong><small>NA RITIRO INGOMBRANTI</small></span></a>
+      <div class="toolbar"><button class="toolbar-button" id="printButton" type="button">Stampa / PDF</button><a class="toolbar-button" href="MANUALE-UTENTE-APPLE.html">Manuale classico</a><button class="toolbar-button primary" id="tocButton" type="button">Indice</button></div>
+    </div>
+  </header>
+
+  <main class="shell" id="top">
+    <section class="hero">
+      <div><div class="eyebrow">GUIDA DIGITALE · EDIZIONE OPERATIVA</div><h1>Impara l’app, una schermata alla volta.</h1><p>Il manuale completo di NA Ritiro Ingombranti con procedure guidate, schermate reali, transizioni fluide e una navigazione pensata come una guida interattiva.</p></div>
+      <div class="hero-art"><img src="screenshots/17-dashboard-light.png" alt="Dashboard in modalità chiara"></div>
+    </section>
+
+    <div class="book-layout">
+      <aside class="glass toc" id="tocPanel"><h2>Indice del libro</h2><div class="toc-list" id="tocList"></div></aside>
+      <section class="book-stage" aria-label="Manuale utente interattivo a schede">
+        <div class="book"><div class="spread spread-underlay" id="spreadUnderlay" aria-hidden="true"></div><div class="spread spread-current" id="spread"></div></div>
+        <div class="book-controls">
+          <div class="nav-controls"><button class="nav-button" id="prevButton" type="button" aria-label="Pagina precedente">← <span>Indietro</span></button><button class="nav-button" id="nextButton" type="button" aria-label="Pagina successiva"><span>Avanti</span> →</button></div>
+          <div class="progress-wrap"><div class="progress-meta"><span id="pageLabel">Pagina 1 di 13</span><span id="percentLabel">8%</span></div><div class="progress"><span id="progressBar"></span></div></div>
+        </div>
+        <p class="help">Usa i pulsanti, i tasti <strong>←</strong> <strong>→</strong> oppure <strong>Home</strong> e <strong>Fine</strong> per cambiare scheda. Clicca un’immagine per ingrandirla.</p>
+      </section>
+    </div>
+
+    <footer class="glass footer">NA Ritiro Ingombranti · Manuale utente interattivo · <a href="MANUALE-UTENTE.md">Versione Markdown</a> · <a href="MANUALE-UTENTE-APPLE.html">Manuale web classico</a></footer>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Anteprima schermata"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="Chiudi anteprima">×</button><figure><img id="lightboxImage" alt=""><figcaption id="lightboxCaption"></figcaption></figure></div>
+
+  <script>
+    const pages = [
+      { kicker: "00 · BENVENUTO", title: "Manuale utente", intro: "Una guida visiva per usare NA Ritiro Ingombranti dalla configurazione iniziale al controllo dei ritiri completati.", bullets: ["App locale e offline-first", "Schermate reali dell’app", "Procedure per centralino, operatori e amministratori"], note: "Questo manuale è navigabile come un libro. L’indice laterale apre direttamente ogni capitolo.", image: "screenshots/17-dashboard-light.png", caption: "Copertina · Dashboard in modalità chiara", cover: true },
+      { kicker: "01 · CONFIGURAZIONE", title: "Primo avvio", intro: "La procedura guidata prepara azienda, Comune e calendario. È necessaria una sola volta per ogni installazione.", bullets: ["Compila i dati aziendali obbligatori.", "Inserisci almeno un Comune.", "Configura provincia, codice breve, capacità e giorni di raccolta.", "Concludi con Completa configurazione."], note: "Se il pulsante non procede, controlla ragione sociale, Comune, provincia e almeno un giorno di raccolta.", image: "screenshots/16-impostazioni.png", caption: "Impostazioni e dati dell’installazione" },
+      { kicker: "02 · ORIENTAMENTO", title: "Interfaccia e Dashboard", intro: "Il menu laterale raggruppa il lavoro in Operativo, Anagrafiche e Controllo. La Dashboard è il punto di partenza quotidiano.", bullets: ["Controlla ritiri previsti e prenotazioni odierne.", "Verifica il prossimo giorno di raccolta.", "Leggi capacità occupata e attività del mese.", "Cambia tra modalità chiara e scura dal fondo del menu."], note: "Il tema modifica solo l’aspetto: i dati restano nel database locale.", image: "screenshots/01-dashboard-dark.png", caption: "Dashboard · modalità midnight" },
+      { kicker: "03 · REGISTRAZIONE", title: "Nuova prenotazione", intro: "Registra una telefonata in pochi passaggi e controlla subito disponibilità, archivio TARI e possibili duplicati.", bullets: ["Scegli Comune e data disponibile.", "Inserisci telefono, nome, codice fiscale, via e civico.", "Cerca il cittadino nell’elenco TARI quando disponibile.", "Aggiungi rifiuto, dimensione, quantità e note.", "Conferma la prenotazione."], note: "In caso di omonimia, usa il codice fiscale e seleziona l’immobile corretto prima di salvare.", image: "screenshots/02-nuova-prenotazione.png", caption: "Inserimento della richiesta" },
+      { kicker: "04 · ARCHIVIO OPERATIVO", title: "Prenotazioni e stati", intro: "Cerca per codice, cittadino, telefono, indirizzo, Comune, data o stato. Aprendo una riga puoi aggiornare l’esito e consultare la cronologia.", bullets: ["PRENOTATA: richiesta registrata.", "PIANIFICATA: inclusa in un giro.", "IN_CORSO: servizio in esecuzione.", "RITIRATA: ritiro completato.", "NON_ESPOSTO, NON_CONFORME e RITIRO_PARZIALE: esiti con nota."], note: "Il report Ritiri completati conta RITIRATA e RITIRO_PARZIALE.", image: "screenshots/03-prenotazioni.png", caption: "Elenco delle prenotazioni" },
+      { kicker: "05 · CALENDARIO", title: "Disponibilità e capacità", intro: "Il calendario mensile visualizza i giorni di raccolta e la capacità residua per il Comune selezionato.", bullets: ["Usa le frecce per cambiare mese.", "Premi Oggi per tornare al mese corrente.", "Seleziona un Comune dal menu.", "Clicca un giorno per aprire le prenotazioni di quella data.", "I colori distinguono disponibile, quasi completo e completo."], note: "Se un giorno non è disponibile, controlla i giorni di raccolta e le esclusioni nella scheda Comune.", image: "screenshots/04-calendario.png", caption: "Calendario mensile" },
+      { kicker: "06 · PIANIFICAZIONE", title: "Giri di raccolta", intro: "Crea il lavoro del giorno, assegna squadra e automezzo, ordina le fermate e prepara il PDF operativo.", bullets: ["Scegli Comune e data.", "Seleziona squadra e automezzo.", "Usa il giro automatico oppure scegli manualmente le prenotazioni.", "Riordina le fermate con i comandi su/giù.", "Esporta o stampa il giro."], note: "Per registrare il risultato direttamente dal giro, usa i comandi Ritirato, Parziale, Non esposto e Non conforme nella scheda della fermata.", image: "screenshots/05-giri-di-raccolta.png", caption: "Creazione e programmazione del giro" },
+      { kicker: "07 · ANAGRAFICHE", title: "Comuni e risorse", intro: "Le anagrafiche alimentano ogni prenotazione e ogni giro. Mantieni attive solo le risorse disponibili.", bullets: ["Comuni: giorni, capacità, codice e limiti.", "Automezzi: targa, modello, tipologia e portata.", "Operatori: persone e ruolo.", "Squadre: composizione e mezzo predefinito.", "Catalogo rifiuti: tipologie, dimensioni e stato."], note: "Prima di creare un giro verifica che squadra e automezzo siano presenti e attivi.", pair: [{ image: "screenshots/06-comuni.png", caption: "Comuni" }, { image: "screenshots/07-automezzi.png", caption: "Automezzi" }] },
+      { kicker: "08 · ARCHIVIO TARI", title: "Importazione e ricerca TARI", intro: "Importa un elenco per Comune, associa le colonne e usa il risultato durante la registrazione della prenotazione.", bullets: ["Seleziona Comune e file CSV, XLSX o XLS.", "Mappa nome, codice fiscale, indirizzo, civico e codice utenza.", "Controlla righe valide, problematiche e duplicate.", "Prima di sostituire un elenco valuta la cancellazione dell’archivio precedente.", "In Nuova prenotazione cerca per nome o codice fiscale e seleziona l’immobile."], note: "La stessa persona può avere più immobili: il codice fiscale identifica la persona, l’indirizzo identifica l’immobile.", pair: [{ image: "screenshots/11-archivio-tari.png", caption: "Importazione TARI" }, { image: "screenshots/12-cittadini.png", caption: "Ricerca cittadini" }] },
+      { kicker: "09 · REPORT", title: "Report ed esportazioni", intro: "Filtra l’attività reale per Comune, intervallo date, stato e tipologia di rifiuto. I valori vengono aggiornati con il pulsante Aggiorna.", bullets: ["Prenotazioni totali.", "Ritiri completati.", "Annullate.", "Totale pezzi.", "Anomalie: non esposti e non conformi.", "Distribuzione per Comune."], note: "CSV e XLSX servono per analisi e archiviazione. PDF / stampa crea un documento leggibile da condividere o conservare.", image: "screenshots/13-report.png", caption: "Report e filtri" },
+      { kicker: "10 · SICUREZZA", title: "Backup e ripristino", intro: "Proteggi il database locale scegliendo una cartella esterna, OneDrive, NAS o rete aziendale.", bullets: ["Scegli la cartella di destinazione.", "Crea un backup manuale quando necessario.", "Attiva il backup giornaliero automatico.", "Imposta retention di 7 o 30 copie.", "Prima di ripristinare, verifica il file e conserva la copia di sicurezza."], note: "Il backup deve essere su un supporto diverso dal PC principale per proteggerti da guasti o perdita del computer.", image: "screenshots/14-backup.png", caption: "Backup, retention e ripristino" },
+      { kicker: "11 · ACCESSI", title: "Utenti locali e impostazioni", intro: "Gestisci gli accessi dell’installazione e aggiorna i dati aziendali o il tema dell’app.", bullets: ["Crea username, nome visualizzato, ruolo e password.", "Usa Amministratore per la configurazione.", "Usa Centralinista per le prenotazioni.", "Usa Operatore per il lavoro sul campo.", "Usa Visualizzatore per consultazione e report."], note: "Le password non vengono salvate in chiaro. Per una protezione completa conserva anche i backup in una cartella con accesso limitato.", pair: [{ image: "screenshots/15-utenti-locali.png", caption: "Utenti locali" }, { image: "screenshots/16-impostazioni.png", caption: "Impostazioni" }] },
+      { kicker: "12 · CONTROLLO FINALE", title: "Premium, privacy e routine", intro: "La versione Premium aggiunge strumenti avanzati dopo la verifica della licenza Microsoft Store. Il flusso quotidiano resta semplice e locale.", bullets: ["Apri Dashboard e Calendario.", "Registra e verifica le prenotazioni.", "Crea i Giri e aggiorna gli esiti.", "Controlla Report e anomalie.", "Esegui il backup giornaliero.", "Non condividere database o backup senza autorizzazione."], note: "Il Premium viene sbloccato solo con una licenza attiva associata all’account Microsoft; in caso di errore l’app resta Free.", image: "screenshots/17-dashboard-light.png", caption: "Routine completa · modalità chiara" }
+    ];
+
+    const spread = document.getElementById("spread");
+    const spreadUnderlay = document.getElementById("spreadUnderlay");
+    const tocList = document.getElementById("tocList");
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const pageLabel = document.getElementById("pageLabel");
+    const percentLabel = document.getElementById("percentLabel");
+    const progressBar = document.getElementById("progressBar");
+    let currentPage = 0;
+    let animating = false;
+
+    const esc = (value) => String(value).replace(/[&<>\"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[character]));
+    const bullets = (items) => `<ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
+    const media = (page) => {
+      if (page.pair) return `<div class="screen-pair">${page.pair.map(item => `<figure class="screen-frame" data-image="${esc(item.image)}" data-caption="${esc(item.caption)}"><img src="${esc(item.image)}" alt="${esc(item.caption)}"><figcaption class="screen-caption">${esc(item.caption)}</figcaption></figure>`).join("")}</div>`;
+      return `<figure class="screen-frame" data-image="${esc(page.image)}" data-caption="${esc(page.caption)}"><img src="${esc(page.image)}" alt="${esc(page.caption)}"><figcaption class="screen-caption">${esc(page.caption)}</figcaption></figure>`;
+    };
+
+    function renderToc() {
+      tocList.innerHTML = pages.map((page, index) => `<button class="toc-button ${index === currentPage ? "active" : ""}" data-page="${index}" type="button"><strong>${String(index).padStart(2, "0")}</strong> · ${esc(page.title)}</button>`).join("");
+      tocList.querySelectorAll(".toc-button").forEach(button => button.addEventListener("click", () => goTo(Number(button.dataset.page), Number(button.dataset.page) > currentPage ? "next" : "prev")));
+    }
+
+    function pageMarkup(page, pageIndex) {
+      return `<div class="page left"><div class="page-number"><span>${esc(page.kicker)}</span><span>${String(pageIndex + 1).padStart(2, "0")}</span></div><div class="accent-line"></div><h2>${esc(page.title)}</h2><p class="intro">${esc(page.intro)}</p>${bullets(page.bullets)}${page.note ? `<div class="note"><strong>Da ricordare:</strong> ${esc(page.note)}</div>` : ""}</div><div class="page right"><div class="screen">${media(page)}</div></div>`;
+    }
+
+    function bindImages(container) {
+      container.querySelectorAll("[data-image]").forEach(frame => frame.addEventListener("click", () => openLightbox(frame.dataset.image, frame.dataset.caption)));
+    }
+
+    function render() {
+      const page = pages[currentPage];
+      spread.innerHTML = pageMarkup(page, currentPage);
+      spreadUnderlay.innerHTML = pageMarkup(page, currentPage);
+      bindImages(spread);
+      pageLabel.textContent = `Pagina ${currentPage + 1} di ${pages.length}`;
+      const percent = Math.round(((currentPage + 1) / pages.length) * 100);
+      percentLabel.textContent = `${percent}%`;
+      progressBar.style.width = `${percent}%`;
+      prevButton.disabled = currentPage === 0;
+      nextButton.disabled = currentPage === pages.length - 1;
+      renderToc();
+    }
+
+    function goTo(index, direction) {
+      if (animating || index < 0 || index >= pages.length || index === currentPage) return;
+      animating = true;
+      spreadUnderlay.innerHTML = pageMarkup(pages[index], index);
+      spreadUnderlay.classList.add("is-visible");
+      spread.classList.add(direction === "prev" ? "turn-prev" : "turn-next");
+      window.setTimeout(() => { currentPage = index; spread.classList.remove("turn-prev", "turn-next"); spreadUnderlay.classList.remove("is-visible"); render(); animating = false; }, 500);
+    }
+
+    prevButton.addEventListener("click", () => goTo(currentPage - 1, "prev"));
+    nextButton.addEventListener("click", () => goTo(currentPage + 1, "next"));
+    document.getElementById("printButton").addEventListener("click", () => window.print());
+    document.getElementById("tocButton").addEventListener("click", () => document.getElementById("tocPanel").scrollIntoView({ behavior: "smooth", block: "start" }));
+    document.addEventListener("keydown", event => { if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) event.preventDefault(); if (event.key === "ArrowLeft") goTo(currentPage - 1, "prev"); if (event.key === "ArrowRight") goTo(currentPage + 1, "next"); if (event.key === "Home") goTo(0, "prev"); if (event.key === "End") goTo(pages.length - 1, "next"); });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    function openLightbox(image, caption) { lightboxImage.src = image; lightboxImage.alt = caption || "Schermata ingrandita"; lightboxCaption.textContent = caption || ""; lightbox.classList.add("open"); }
+    function closeLightbox() { lightbox.classList.remove("open"); }
+    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape") closeLightbox(); });
+    render();
+  </script>
+</body>
+</html>
