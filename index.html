@@ -151,10 +151,21 @@
       place-items: center;
       overflow: hidden;
       border-bottom: 1px solid var(--line);
+      isolation: isolate;
+    }
+    .hero-video {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
     }
     .hero::before {
       content: "";
       position: absolute;
+      z-index: 1;
       inset: 0;
       background:
         radial-gradient(circle at 73% 38%, rgba(96, 87, 226, .19), transparent 27%),
@@ -163,7 +174,7 @@
     }
     .hero-grid {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: var(--container);
       padding: 86px 0 72px;
       display: grid;
@@ -429,6 +440,9 @@
 
   <main id="contenuto">
     <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/cinematic-coast-background-v2.png" aria-hidden="true">
+        <source src="assets/video/home-hero.mp4" type="video/mp4">
+      </video>
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow">Software su misura per aziende che vogliono crescere</p>
