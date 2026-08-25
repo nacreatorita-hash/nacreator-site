@@ -665,6 +665,8 @@
             "storeUrl": "https://apps.microsoft.com/store/detail/9NJQ1J6BBZ89?cid=DevShareMCLPCS",
             "secondaryUrl": "articolo-na-ritiro-ingombranti.html",
             "secondaryText": "Scopri il progetto",
+            "manualUrl": "manuale-utente/MANUALE-UTENTE-FLIPBOOK.html",
+            "manualText": "Manuale utente",
             "privacyUrl": "privacy-na-ritiro-ingombranti.html"
       }
 ];
@@ -679,6 +681,11 @@
     function secondaryButton(app) {
       if (!app.secondaryUrl || !app.secondaryText) return '';
       return '<a class="btn btn-secondary" href="' + app.secondaryUrl + '">' + app.secondaryText + '</a>';
+    }
+
+    function manualButton(app) {
+      if (!app.manualUrl || !app.manualText) return '';
+      return '<a class="btn btn-secondary" href="' + app.manualUrl + '">' + app.manualText + '</a>';
     }
 
     function privacyButton(app) {
@@ -700,7 +707,7 @@
           '<span><strong>Prezzo</strong><em>' + app.price + '</em></span>' +
           (app.subscription ? '<span><strong>Abbonamento</strong><em>' + app.subscription + '</em></span>' : '') +
         '</div>' +
-        '<div class="app-actions">' + appButton(app) + secondaryButton(app) + '</div>' + privacyButton(app) +
+        '<div class="app-actions">' + appButton(app) + secondaryButton(app) + manualButton(app) + '</div>' + privacyButton(app) +
       '</article>';
     }).join('');
 
