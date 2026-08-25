@@ -688,6 +688,11 @@
       return '<a class="btn btn-secondary" href="' + app.manualUrl + '">' + app.manualText + '</a>';
     }
 
+    function loginButton(app) {
+      if (!app.loginUrl) return '';
+      return '<a class="btn btn-secondary btn-login" href="' + app.loginUrl + '" target="_blank" rel="noopener">Accedi all&apos;app</a>';
+    }
+
     function privacyButton(app) {
       if (!app.privacyUrl) return '';
       return '<a class="app-privacy-link" href="' + app.privacyUrl + '">Informativa privacy</a>';
