@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#050816">
+  <meta name="theme-color" content="#f4f7fb">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -368,13 +368,13 @@
       .brand span { display: none; }
       .brand img { width: 48px; }
       .hero { min-height: auto; }
-      .hero-grid { padding: 62px 0 70px; }
+      .hero-grid { gap: 28px; padding: 44px 0 48px; }
       .hero h1 { font-size: clamp(2.7rem, 13vw, 3.7rem); }
-      .hero-copy > p { font-size: .98rem; }
-      .hero-actions { flex-direction: column; }
+      .hero-copy > p { margin-top: 18px; font-size: .98rem; }
+      .hero-actions { flex-direction: column; margin-top: 24px; }
       .hero-actions .btn { width: 100%; }
-      .transformation { min-height: auto; margin-top: 14px; grid-template-columns: 1fr; }
-      .state { min-height: 300px; }
+      .transformation { min-height: auto; margin-top: 0; grid-template-columns: 1fr; }
+      .state { min-height: 220px; }
       section { padding: 78px 0; }
       .section-head { margin-bottom: 34px; }
       .section-head h2 { font-size: 2.25rem; }
@@ -402,6 +402,7 @@
       .reveal { opacity: 1; transform: none; }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/site-theme.css">
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59KV9PHG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -504,7 +505,7 @@
           </div>
         </div>
         <div class="case-visual reveal">
-          <img src="assets/images/hero-after-dashboard-clear-v2.png" alt="Dashboard gestionale sintetica con attività, scadenze, grafico mensile e riepilogo operativo">
+          <img src="assets/images/hero-after-dashboard-clear-v2.png" alt="Dashboard gestionale sintetica con attività, scadenze, grafico mensile e riepilogo operativo" loading="lazy" decoding="async" width="1280" height="884">
           <div class="case-proof">
             <span>Dati centralizzati</span>
             <span>Meno attività manuali</span>
@@ -702,3 +703,4 @@
   </script>
 </body>
 </html>
+
