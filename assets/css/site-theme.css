@@ -748,3 +748,26 @@ h1, h2, h3, h4, h5, h6 {
 h1 { line-height: 1.08 !important; }
 h2 { line-height: 1.12 !important; }
 h3, h4, h5, h6 { line-height: 1.18 !important; }
+
+/* Override finale per le hero e i titoli con regole locali più specifiche. */
+body .hero h1,
+body .download-page .hero h1,
+body .articles-hero-copy h1,
+body .article-hero h1 {
+  line-height: 1.08 !important;
+  letter-spacing: -.028em !important;
+  padding-bottom: .06em !important;
+}
+body .section-heading,
+body #catalog-title,
+body #official-download-title {
+  line-height: 1.12 !important;
+  letter-spacing: -.028em !important;
+  padding-bottom: .06em !important;
+}
+body .article-card h3,
+body .app-card h3,
+body .related-card h3 {
+  line-height: 1.18 !important;
+  letter-spacing: -.025em !important;
+}
