@@ -714,3 +714,27 @@ footer, .site-footer { color: var(--muted) !important; background: rgba(239,245,
   background: #f4f7fb !important;
   background-image: none !important;
 }
+
+/* Tipografia dei titoli: descender leggibili anche nelle dimensioni grandi. */
+:where(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.12 !important;
+  overflow: visible !important;
+}
+.articles-page #lista-articoli .section-heading {
+  max-width: 760px;
+  font-size: clamp(2rem, 4.1vw, 3.65rem) !important;
+  line-height: 1.14 !important;
+  letter-spacing: -.038em !important;
+  font-weight: 520 !important;
+  padding-bottom: .08em;
+  color: #1b3558 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #1b3558 !important;
+}
+.articles-page .article-card h3,
+.download-page .app-card h3 {
+  line-height: 1.18 !important;
+  letter-spacing: -.025em !important;
+}
