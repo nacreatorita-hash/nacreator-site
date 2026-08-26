@@ -499,7 +499,7 @@
     }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","@id":"https://nacreator.it/download.html#na-lens","name":"NA Lens","operatingSystem":"Windows 10 or later","applicationCategory":"UtilitiesApplication","publisher":{"@type":"Organization","name":"NA Creator Italia","url":"https://nacreator.it/"},"downloadUrl":"https://apps.microsoft.com/store/detail/9PFBMK01QT56?cid=DevShareMCLPCS","offers":{"@type":"Offer","price":"4.99","priceCurrency":"EUR"}}</script>
-  <link rel="stylesheet" href="assets/css/site-theme.css">
+  <link rel="stylesheet" href="assets/css/site-theme.css?v=20260826-section-videos">
 </head>
 <body class="download-page">
   <!-- Google Tag Manager (noscript) -->
@@ -529,6 +529,9 @@
 
     <main>
       <section class="hero">
+        <video class="section-hero-video download-hero-video" muted loop playsinline preload="auto" poster="assets/images/cinematic-coast-background-v2.png" data-scroll-video aria-hidden="true">
+          <source src="download-hero.mp4" type="video/mp4">
+        </video>
         <div class="container hero-inner">
           <div class="badge"><span class="badge-dot"></span> Applicazioni ufficiali per Windows</div>
           <h1>Applicazioni NA Creator</h1>
@@ -755,6 +758,7 @@
       });
     });
   </script>
+  <script src="assets/js/hero-video.js?v=20260826-scroll-sync" defer></script>
   <script src="assets/js/site-navigation.js"></script>
 </body>
 </html>
