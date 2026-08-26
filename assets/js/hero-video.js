@@ -3,25 +3,47 @@
   if (!videos.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+  let frameRequest = 0;
 
-  const setPlayback = (video, shouldPlay) => {
-    if (reducedMotion.matches || !shouldPlay) {
+  const syncVideoToScroll = (video) => {
+    const section = video.closest('section') || video.parentElement;
+    if (!section || !Number.isFinite(video.duration) || video.duration <= 0) return;
+
+    if (reducedMotion.matches) {
       video.pause();
+      video.currentTime = 0;
       return;
     }
 
-    const playback = video.play();
-    if (playback && typeof playback.catch === 'function') playback.catch(() => {});
+    const sectionStart = section.getBoundingClientRect().top + window.scrollY;
+    const scrollDistance = Math.max(section.offsetHeight, 1);
+    const progress = clamp((window.scrollY - sectionStart) / scrollDistance);
+    const nextTime = progress * video.duration;
+
+    video.pause();
+    if (Math.abs(video.currentTime - nextTime) > 0.01) {
+      video.currentTime = Math.min(nextTime, Math.max(video.duration - 0.001, 0));
+    }
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      setPlayback(entry.target, entry.isIntersecting && entry.intersectionRatio >= 0.2);
-    });
-  }, { threshold: [0, 0.2, 0.5] });
+  const syncAllVideos = () => {
+    frameRequest = 0;
+    videos.forEach(syncVideoToScroll);
+  };
+
+  const scheduleSync = () => {
+    if (!frameRequest) frameRequest = window.requestAnimationFrame(syncAllVideos);
+  };
 
   videos.forEach((video) => {
     video.pause();
-    observer.observe(video);
+    video.addEventListener('loadedmetadata', scheduleSync, { once: true });
+    video.addEventListener('durationchange', scheduleSync);
   });
+
+  window.addEventListener('scroll', scheduleSync, { passive: true });
+  window.addEventListener('resize', scheduleSync, { passive: true });
+  reducedMotion.addEventListener?.('change', scheduleSync);
+  scheduleSync();
 })();
