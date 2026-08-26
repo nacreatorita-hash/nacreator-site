@@ -670,3 +670,39 @@ footer, .site-footer { color: var(--muted) !important; background: rgba(239,245,
   .nav-links { background: rgba(248,251,255,.92) !important; box-shadow: 0 18px 36px rgba(54,82,118,.12) !important; }
 }
 
+
+
+/* Video hero delle sezioni Articoli e Download: riproduzione quando entrano in viewport. */
+.articles-hero,
+.download-page .hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.articles-hero::before,
+.download-page .hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(248,251,255,.62), rgba(246,249,253,.24) 54%, rgba(242,247,252,.48)) !important;
+}
+.section-hero-video {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .4 !important;
+  pointer-events: none;
+}
+.articles-hero > .container,
+.download-page .hero > .container {
+  position: relative;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-hero-video { display: none !important; }
+}
