@@ -706,3 +706,10 @@ footer, .site-footer { color: var(--muted) !important; background: rgba(239,245,
 @media (prefers-reduced-motion: reduce) {
   .section-hero-video { display: none !important; }
 }
+
+
+/* I video sostituiscono i fondali precedenti nelle hero Articoli e Download. */
+.articles-hero,
+.download-page .hero {
+  background: linear-gradient(135deg, rgba(248,251,255,.96), rgba(232,240,250,.82)) !important;
+}
