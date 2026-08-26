@@ -771,3 +771,13 @@ body .related-card h3 {
   line-height: 1.18 !important;
   letter-spacing: -.025em !important;
 }
+
+/* Correzione della specificità per le hero con classe sul body. */
+body.download-page .hero h1,
+body.articles-page .articles-hero-copy h1,
+body .hero h1,
+body .article-hero h1 {
+  line-height: 1.08 !important;
+  letter-spacing: -.028em !important;
+  padding-bottom: .06em !important;
+}
