@@ -738,3 +738,13 @@ footer, .site-footer { color: var(--muted) !important; background: rgba(239,245,
   line-height: 1.18 !important;
   letter-spacing: -.025em !important;
 }
+
+/* Tipografia globale: p, g e f restano leggibili in tutti i titoli. */
+h1, h2, h3, h4, h5, h6 {
+  overflow: visible !important;
+  letter-spacing: -.028em !important;
+  padding-bottom: .04em;
+}
+h1 { line-height: 1.08 !important; }
+h2 { line-height: 1.12 !important; }
+h3, h4, h5, h6 { line-height: 1.18 !important; }
