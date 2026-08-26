@@ -555,11 +555,13 @@ h1, h2, h3, .gradient-text,
   text-shadow: none !important;
 }
 
+.hero {
+  background: url("../images/cinematic-coast-background-v2.png") center 67% / cover no-repeat !important;
+}
 .hero::before {
   z-index: 1 !important;
   background:
-    linear-gradient(90deg, rgba(248,251,255,.82), rgba(246,249,253,.46) 54%, rgba(242,247,252,.72)),
-    url("../images/cinematic-coast-background-v2.png") center 67% / cover no-repeat !important;
+    linear-gradient(90deg, rgba(248,251,255,.62), rgba(246,249,253,.24) 54%, rgba(242,247,252,.48)) !important;
   opacity: 1 !important;
 }
 .hero-video { z-index: 0 !important; }
