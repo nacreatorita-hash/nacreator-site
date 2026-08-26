@@ -1194,7 +1194,7 @@
 
 /* ARTICLE_CARD_IMAGE_CSS_END */
 </style>
-  <link rel="stylesheet" href="assets/css/site-theme.css">
+  <link rel="stylesheet" href="assets/css/site-theme.css?v=20260826-section-videos">
 </head>
 <body class="articles-page">
   <canvas id="scene"></canvas>
@@ -1222,6 +1222,9 @@
 
     <main>
       <section class="articles-hero">
+        <video class="section-hero-video articles-hero-video" muted loop playsinline preload="metadata" poster="assets/images/cinematic-coast-background-v2.png" data-scroll-video aria-hidden="true">
+          <source src="articles-hero.mp4" type="video/mp4">
+        </video>
         <div class="container">
           <div class="articles-hero-copy reveal">
             <div class="badge"><span class="badge-dot"></span> Articoli e approfondimenti</div>
@@ -1799,6 +1802,7 @@
       }
     })();
   </script>
+  <script src="assets/js/hero-video.js" defer></script>
   <script src="assets/js/site-navigation.js"></script>
 </body>
 </html>
