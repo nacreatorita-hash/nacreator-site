@@ -781,3 +781,222 @@ body .article-hero h1 {
   letter-spacing: -.028em !important;
   padding-bottom: .06em !important;
 }
+
+/* ========================================================================
+   Web App: accesso a NA Ritiro Ingombranti
+   ======================================================================== */
+.web-app-page .web-app-hero {
+  position: relative;
+  min-height: min(780px, calc(100vh - 76px));
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 30%, rgba(122, 157, 246, .24), transparent 28rem),
+    radial-gradient(circle at 10% 72%, rgba(201, 139, 222, .16), transparent 25rem),
+    linear-gradient(135deg, #f8fbfe 0%, #edf4fb 54%, #f7f9fd 100%) !important;
+}
+.web-app-page .web-app-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(106, 139, 183, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(106, 139, 183, .055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, #000, transparent 92%);
+}
+.web-app-page .web-app-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: clamp(40px, 7vw, 96px);
+  align-items: center;
+  padding: 104px 0 112px;
+}
+.web-app-page .web-app-hero-copy { max-width: 680px; }
+.web-app-page .web-app-hero-copy .eyebrow { margin-top: 28px; }
+.web-app-page .web-app-hero h1 {
+  max-width: 680px;
+  margin-top: 18px;
+  font-size: clamp(3.05rem, 6.2vw, 5.9rem) !important;
+  font-weight: 480 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em !important;
+}
+.web-app-page .web-app-hero .lead {
+  max-width: 620px;
+  margin-top: 26px;
+  font-size: clamp(1.08rem, 1.65vw, 1.32rem);
+  line-height: 1.55;
+}
+.web-app-page .web-app-intro {
+  max-width: 600px;
+  margin-top: 16px;
+  color: #657891 !important;
+}
+.web-app-page .web-app-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.web-app-page .web-app-login-card {
+  position: relative;
+  min-height: 390px;
+  padding: clamp(30px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 28px !important;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(122, 152, 241, .2), transparent 12rem),
+    linear-gradient(145deg, rgba(255,255,255,.88), rgba(229,239,250,.66)) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.96), 0 30px 80px rgba(57, 84, 121, .16) !important;
+}
+.web-app-page .web-app-login-card::after {
+  content: "";
+  position: absolute;
+  right: -88px;
+  bottom: -96px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(188, 119, 212, .13);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.web-app-page .web-app-orbit {
+  position: absolute;
+  border: 1px solid rgba(91, 128, 212, .18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.web-app-page .web-app-orbit--one { width: 360px; height: 360px; top: -132px; right: -110px; }
+.web-app-page .web-app-orbit--two { width: 250px; height: 250px; top: -77px; right: -55px; border-color: rgba(189, 112, 204, .23); }
+.web-app-page .web-app-card-mark {
+  position: relative;
+  z-index: 1;
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  border: 1px solid rgba(105, 132, 183, .26);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #17265f, #6844a8 58%, #cf69b8);
+  box-shadow: 0 14px 30px rgba(77, 83, 175, .22), inset 0 1px rgba(255,255,255,.55);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -.08em;
+}
+.web-app-page .web-app-card-label,
+.web-app-page .web-app-feature-number {
+  position: relative;
+  z-index: 1;
+  color: #5578b3;
+  font-size: .72rem;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.web-app-page .web-app-login-card h2 {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+}
+.web-app-page .web-app-login-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 310px;
+  margin-top: 12px;
+}
+.web-app-page .web-app-login-card .btn,
+.web-app-page .web-app-login-card .web-app-privacy-link { position: relative; z-index: 1; }
+.web-app-page .web-app-login-card .btn { margin-top: 25px; }
+.web-app-page .web-app-privacy-link {
+  margin-top: 16px;
+  color: #5274a8;
+  font-size: .84rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.web-app-page .web-app-privacy-link:hover,
+.web-app-page .web-app-privacy-link:focus-visible { color: #2e5c99; }
+.web-app-page .web-app-features { padding: 106px 0 124px; }
+.web-app-page .web-app-section-title { max-width: 760px; margin: 0 0 48px; }
+.web-app-page .web-app-section-title h2 {
+  max-width: 690px;
+  margin-top: 14px;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+}
+.web-app-page .web-app-section-title p { max-width: 640px; margin-top: 18px; }
+.web-app-page .web-app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.web-app-page .web-app-feature {
+  min-height: 230px;
+  padding: 28px;
+  border: 1px solid rgba(118, 144, 179, .24);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,.76), rgba(233,242,251,.56));
+  box-shadow: inset 0 1px rgba(255,255,255,.92), 0 18px 46px rgba(56,83,119,.09);
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+}
+.web-app-page .web-app-feature h3 { margin-top: 28px; font-size: 1.4rem; }
+.web-app-page .web-app-feature p { margin-top: 12px; }
+.web-app-page .web-app-access-panel {
+  margin-top: 24px;
+  padding: clamp(28px, 4vw, 42px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 4% 10%, rgba(126, 166, 242, .16), transparent 28%),
+    linear-gradient(145deg, rgba(255,255,255,.82), rgba(232,240,250,.62)) !important;
+}
+.web-app-page .web-app-access-panel h2 { margin-top: 10px; font-size: clamp(1.8rem, 3vw, 2.65rem); }
+.web-app-page .web-app-access-panel p { margin-top: 10px; }
+.web-app-page .web-app-note { margin-top: 28px; color: #708198 !important; font-size: .92rem; }
+.web-app-page .web-app-note a { color: #416fac; text-decoration: underline; text-underline-offset: 3px; }
+.web-app-page .web-app-note a:hover { color: #284f86; }
+@media (max-width: 950px) {
+  .web-app-page .web-app-hero-inner { grid-template-columns: 1fr; padding: 88px 0 96px; }
+  .web-app-page .web-app-hero-copy { max-width: 760px; }
+  .web-app-page .web-app-login-card { max-width: 620px; }
+  .web-app-page .web-app-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .web-app-page .web-app-hero { min-height: auto; }
+  .web-app-page .web-app-hero-inner { padding: 72px 0 78px; }
+  .web-app-page .web-app-hero-copy .eyebrow { margin-top: 22px; }
+  .web-app-page .web-app-hero h1 { font-size: clamp(2.75rem, 14vw, 4.4rem) !important; }
+  .web-app-page .web-app-actions .btn { width: 100%; }
+  .web-app-page .web-app-login-card { min-height: 350px; padding: 28px; border-radius: 24px !important; }
+  .web-app-page .web-app-features { padding: 78px 0 88px; }
+  .web-app-page .web-app-feature { min-height: 0; padding: 24px; }
+  .web-app-page .web-app-access-panel { align-items: flex-start; flex-direction: column; }
+  .web-app-page .web-app-access-panel .btn { width: 100%; }
+}
+body .section-heading,
+body #catalog-title,
+body #official-download-title {
+  line-height: 1.12 !important;
+  letter-spacing: -.028em !important;
+  padding-bottom: .06em !important;
+}
+body .article-card h3,
+body .app-card h3,
+body .related-card h3 {
+  line-height: 1.18 !important;
+  letter-spacing: -.025em !important;
+}
