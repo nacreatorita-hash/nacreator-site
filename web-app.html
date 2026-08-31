@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="NA Creator Static CMS">
   <title>Web App | NA Creator Italia</title>
-  <meta name="description" content="Scopri le web app NA Creator: strumenti chiari e su misura per organizzare processi, dati e attività operative.">
+  <meta name="description" content="Scopri le Web App NA Creator: strumenti online chiari e su misura per organizzare processi, dati e attività operative.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://nacreator.it/web-app.html">
   <meta property="og:type" content="website">
@@ -31,32 +31,189 @@
     "@id": "https://nacreator.it/web-app.html#collection",
     "url": "https://nacreator.it/web-app.html",
     "name": "Web App NA Creator",
-    "description": "Catalogo di web app e soluzioni digitali NA Creator.",
+    "description": "Catalogo di Web App e soluzioni digitali NA Creator.",
     "inLanguage": "it-IT",
     "publisher": { "@type": "Organization", "name": "NA Creator Italia", "url": "https://nacreator.it/" }
   }
   </script>
-  <link rel="stylesheet" href="assets/css/site-theme.css?v=20260831-web-app-v2">
+  <style>
+    :root { --container: min(1180px, calc(100% - 48px)); --line: rgba(112,135,166,.24); --text: #16253d; --muted: #5c6c82; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100vh; overflow-x: hidden; color: var(--text); font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fbfe 0%, #eef4fa 48%, #f5f8fc 100%); line-height: 1.55; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: var(--container); margin-inline: auto; }
+    .skip-link { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 10px 14px; color: #15233a; background: #fff; border-radius: 8px; }
+    .skip-link:focus { top: 16px; }
+    header, .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(116,141,175,.22); background: rgba(248,251,255,.78); box-shadow: 0 10px 28px rgba(65,93,127,.08); backdrop-filter: blur(24px) saturate(145%); -webkit-backdrop-filter: blur(24px) saturate(145%); }
+    .nav { width: var(--container); min-height: 76px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: #1d2c45; font-size: 1.05rem; font-weight: 650; letter-spacing: -.02em; }
+    .brand img { width: 58px; height: 44px; object-fit: contain; border-radius: 8px; box-shadow: 0 0 28px rgba(177,91,255,.22); }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: #53657d; font-size: .86rem; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: #1d4f85; }
+    .nav-links > a:not(.nav-cta) { position: relative; }
+    .nav-links > a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 2px; background: linear-gradient(90deg,#5c8df1,#ad72cb); transition: right .25s ease; }
+    .nav-links > a:not(.nav-cta):hover::after, .nav-links > a[aria-current="page"]::after { right: 0; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 0; color: #2a4467; background: transparent; cursor: pointer; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px auto; background: currentColor; }
+    .btn { display: inline-flex; min-height: 50px; padding: 0 24px; align-items: center; justify-content: center; border: 1px solid rgba(101,128,163,.30); border-radius: 999px; font-weight: 700; line-height: 1.2; text-align: center; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary, .nav-cta { color: #fff !important; background: linear-gradient(110deg,#5f85ef,#8069d7 55%,#cf75b7); box-shadow: 0 14px 30px rgba(92,116,218,.22), inset 0 1px rgba(255,255,255,.58); }
+    .btn-secondary { color: #243957; background: rgba(255,255,255,.56); box-shadow: inset 0 1px rgba(255,255,255,.88), 0 7px 18px rgba(60,88,126,.08); }
+    .nav-cta { min-height: 44px; padding-inline: 20px; font-size: .83rem; }
+    .eyebrow { color: #4c72bb; font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .gradient-text { color: transparent; background: linear-gradient(110deg,#234f9a 0%,#4776bd 52%,#9a5ca8 100%); background-clip: text; -webkit-background-clip: text; }
+    .hero { position: relative; min-height: 760px; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--line); isolation: isolate; background: linear-gradient(180deg,#f8fbfe 0%,#edf4fa 56%,#f5f8fc 100%); }
+    .hero::before { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(rgba(106,139,183,.05) 1px,transparent 1px), linear-gradient(90deg,rgba(106,139,183,.05) 1px,transparent 1px), radial-gradient(circle at 78% 38%,rgba(126,158,232,.14),transparent 25rem); background-size: 48px 48px,48px 48px,auto; }
+    .hero-grid { position: relative; z-index: 2; width: var(--container); padding: 86px 0 72px; display: grid; grid-template-columns: .86fr 1.14fr; gap: 46px; align-items: center; }
+    .hero-copy { max-width: 650px; }
+    .hero h1 { max-width: 650px; margin-top: 25px; font-size: clamp(3.35rem,5.5vw,5.2rem); font-weight: 480; line-height: 1.08; letter-spacing: -.055em; }
+    .hero-copy > p:not(.eyebrow) { max-width: 570px; margin-top: 24px; color: var(--muted); font-size: 1.07rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+    section { padding: 108px 0; }
+    .section-head { max-width: 800px; margin: 0 auto 50px; text-align: center; }
+    .section-head h2, .case-copy h2 { margin-top: 14px; font-size: clamp(2.3rem,4.5vw,4rem); font-weight: 480; line-height: 1.12; letter-spacing: -.048em; }
+    .section-head > p:last-child, .case-copy > p { max-width: 650px; margin: 18px auto 0; color: var(--muted); }
+    .web-app-hero-card, .web-app-catalog-item { min-width: 0; display: flex; flex-direction: column; padding: 20px; border: 1px solid rgba(118,144,179,.27); border-radius: 22px; background: linear-gradient(145deg,rgba(255,255,255,.83),rgba(234,242,251,.63)); box-shadow: inset 0 1px rgba(255,255,255,.95),0 24px 60px rgba(48,77,117,.13); backdrop-filter: blur(24px) saturate(135%); -webkit-backdrop-filter: blur(24px) saturate(135%); }
+    .web-app-hero-card { min-height: 510px; }
+    .app-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+    .app-icon { width: 62px; height: 62px; flex: 0 0 62px; border: 1px solid rgba(105,130,165,.25); border-radius: 16px; object-fit: cover; box-shadow: 0 12px 28px rgba(51,78,113,.13); }
+    .store-badge { display: inline-flex; min-height: 30px; align-items: center; padding: 0 10px; border: 1px solid rgba(48,157,116,.2); border-radius: 999px; color: #15583f; background: rgba(70,184,135,.16); font-size: .66rem; font-weight: 850; white-space: nowrap; }
+    .store-badge--pending { color: #fff; background: linear-gradient(135deg,#7b61ff,#d56bc8); }
+    .app-card h3, .web-app-catalog-item h3 { margin: 0 0 12px; color: transparent; background: linear-gradient(105deg,#152845 0%,#315a91 58%,#7c4e8c 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: clamp(1.45rem,2.3vw,2rem); font-weight: 520; line-height: 1.18; letter-spacing: -.025em; }
+    .app-description { color: var(--muted); }
+    .app-meta { display: grid; gap: 10px; margin: 22px 0; padding: 16px 0; border-top: 1px solid rgba(112,135,166,.18); border-bottom: 1px solid rgba(112,135,166,.18); }
+    .app-meta span { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: .94rem; }
+    .app-meta strong { color: #233b59; font-weight: 750; }
+    .app-meta em { color: #6d7d91; font-style: normal; text-align: right; }
+    .app-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    .app-actions .btn-primary { width: 100%; padding-inline: 12px; font-size: .88rem; white-space: nowrap; }
+    .web-app-catalog { background: rgba(231,239,248,.52); }
+    .web-app-catalog-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+    .web-app-catalog-item { min-height: 410px; padding: 26px; }
+    .web-app-catalog-item:hover { transform: translateY(-4px); border-color: rgba(90,125,197,.48); box-shadow: inset 0 1px rgba(255,255,255,.96),0 28px 70px rgba(50,78,116,.17); }
+    .web-app-catalog-item .app-icon { width: 54px; height: 54px; flex-basis: 54px; }
+    .app-icon-placeholder { display: grid; place-items: center; color: #416ca5; background: rgba(159,190,239,.25); font-size: 1.8rem; font-weight: 400; }
+    .web-app-card-kicker { margin: 8px 0 10px; color: #5a7eb7; font-size: .68rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .web-app-catalog-item h3 { margin-top: 0; }
+    .web-app-catalog-item > p:not(.web-app-card-kicker) { margin-top: 2px; }
+    .web-app-catalog-item .app-actions { justify-content: center; padding-top: 28px; }
+    .web-app-catalog-item .app-actions .btn { width: auto; min-height: 46px; padding-inline: 18px; font-size: .86rem; }
+    .case-study { display: grid; grid-template-columns: .72fr 1.28fr; gap: 60px; align-items: center; }
+    .case-copy h2 { margin: 17px 0 35px; color: #1b2e4c; }
+    .story-row { padding: 22px 0; border-top: 1px solid var(--line); }
+    .story-row strong { display: block; margin-bottom: 8px; }
+    .story-row p { color: var(--muted); }
+    .case-visual { position: relative; overflow: hidden; padding: 14px; border: 1px solid rgba(118,144,179,.27); border-radius: 20px; background: linear-gradient(145deg,rgba(255,255,255,.82),rgba(237,244,251,.62)); box-shadow: inset 0 1px rgba(255,255,255,.94),0 22px 58px rgba(56,83,119,.12); backdrop-filter: blur(24px) saturate(135%); }
+    .flow-window { overflow: hidden; border: 1px solid rgba(118,144,179,.22); border-radius: 14px; background: rgba(242,247,252,.78); }
+    .flow-window-top { display: flex; align-items: center; gap: 6px; padding: 12px 14px; border-bottom: 1px solid rgba(112,135,166,.17); color: #8091a7; font-size: .65rem; }
+    .flow-window-top span { width: 7px; height: 7px; border-radius: 50%; background: #9ab3dc; }
+    .flow-window-top span:nth-child(2) { background: #bba5e1; }
+    .flow-window-top span:nth-child(3) { background: #e3a4ca; }
+    .flow-window-top em { margin-left: auto; overflow: hidden; font-style: normal; text-overflow: ellipsis; white-space: nowrap; }
+    .flow-content { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: center; min-height: 250px; padding: 28px 18px; }
+    .flow-column { min-height: 125px; display: flex; flex-direction: column; justify-content: center; padding: 18px 12px; border: 1px solid rgba(118,144,179,.2); border-radius: 13px; background: rgba(255,255,255,.7); text-align: center; }
+    .flow-column--accent { background: linear-gradient(145deg,rgba(221,232,249,.8),rgba(242,226,246,.7)); }
+    .flow-column span { color: #5c7db0; font-size: .64rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .flow-column strong { margin-top: 10px; color: #28496f; font-size: .85rem; }
+    .flow-column small { margin-top: 8px; color: #78899e; font-size: .65rem; }
+    .flow-arrow { color: #7c65be; font-size: 1.25rem; }
+    .case-proof { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 14px; border: 1px solid rgba(118,144,179,.24); border-radius: 12px; background: rgba(255,255,255,.52); }
+    .case-proof span { padding: 16px; color: #5e7087; font-size: .82rem; text-align: center; }
+    .case-proof span + span { border-left: 1px solid var(--line); }
+    .capabilities { border-block: 1px solid var(--line); background: rgba(231,239,248,.52); }
+    .capability-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .capability { padding: 18px 30px; }
+    .capability + .capability { border-left: 1px solid var(--line); }
+    .capability strong { display: block; margin-bottom: 8px; }
+    .capability p, .step p { color: var(--muted); font-size: .92rem; }
+    .process { padding-bottom: 92px; }
+    .process-grid { position: relative; display: grid; grid-template-columns: repeat(3,1fr); }
+    .process-grid::before { content: ""; position: absolute; top: 28px; left: 16%; right: 16%; height: 1px; background: linear-gradient(90deg,#8864d4,#cc68ae); }
+    .step { position: relative; z-index: 1; padding: 0 38px; text-align: center; }
+    .step-number { width: 56px; height: 56px; margin: 0 auto 22px; display: grid; place-items: center; border: 1px solid #8ba9da; border-radius: 50%; color: #345d91; background: rgba(255,255,255,.8); box-shadow: 0 8px 22px rgba(91,124,181,.14); }
+    .step h3 { margin-bottom: 10px; }
+    .web-app-final-cta { padding: 12px 0 30px; }
+    .web-app-final-shell { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: clamp(32px,5vw,52px); border: 1px solid rgba(118,144,179,.27); border-radius: 24px; background: linear-gradient(145deg,rgba(255,255,255,.83),rgba(234,242,251,.63)); box-shadow: inset 0 1px rgba(255,255,255,.95),0 24px 60px rgba(48,77,117,.13); }
+    .web-app-final-shell h2 { margin-top: 12px; font-size: clamp(2rem,4vw,3.35rem); line-height: 1.12; }
+    .web-app-final-shell > div:first-child { max-width: 650px; }
+    .web-app-final-shell > div:first-child > p:last-child { margin-top: 14px; color: var(--muted); }
+    .web-app-final-shell .hero-actions { margin-top: 0; justify-content: flex-end; }
+    footer { margin-top: 90px; padding: 42px 0; border-top: 1px solid var(--line); color: var(--muted); background: rgba(239,245,251,.64); }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 40px; }
+    .footer-brand { margin-bottom: 12px; }
+    .footer-brand img { width: 58px; height: 44px; }
+    .footer-copy { max-width: 380px; font-size: .88rem; }
+    .footer-column h3 { margin-bottom: 14px; color: #2c4563; font-size: .82rem; }
+    .footer-column a { display: block; padding: 5px 0; color: var(--muted); font-size: .86rem; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 18px; margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line); color: #718198; font-size: .77rem; }
+    .footer-legal { display: flex; flex-wrap: wrap; gap: 18px; }
+    .reveal { opacity: 1; transform: none; }
+    :focus-visible { outline: 2px solid #5a83c9; outline-offset: 4px; }
+    @media (max-width: 950px) {
+      .nav-links { position: absolute; top: 76px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 5px; padding: 22px 24px; background: rgba(248,251,255,.94); border-bottom: 1px solid var(--line); box-shadow: 0 18px 36px rgba(54,82,118,.12); }
+      .nav-links.open { display: flex; }
+      .nav-links > a { padding: 11px 0; }
+      .nav-links .nav-cta { align-self: flex-start; margin-top: 8px; }
+      .menu-toggle { display: block; }
+      .hero-grid, .case-study { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 760px; text-align: center; }
+      .hero h1, .hero-copy > p { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .web-app-hero-card { max-width: 760px; width: 100%; margin-inline: auto; }
+      .web-app-catalog-grid { grid-template-columns: 1fr; }
+      .web-app-catalog-item { min-height: 0; }
+      .case-study { gap: 40px; }
+      .capability-grid { grid-template-columns: 1fr 1fr; }
+      .capability:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .capability:nth-child(4) { border-top: 1px solid var(--line); }
+      .web-app-final-shell { align-items: flex-start; flex-direction: column; }
+      .web-app-final-shell .hero-actions { justify-content: flex-start; }
+    }
+    @media (max-width: 640px) {
+      :root { --container: min(100% - 28px, 1180px); }
+      .brand span { display: none; }
+      .brand img { width: 48px; }
+      .hero { min-height: auto; }
+      .hero-grid { gap: 28px; padding: 44px 0 48px; }
+      .hero h1 { font-size: clamp(2.7rem,13vw,3.7rem); }
+      .hero-copy > p:not(.eyebrow) { margin-top: 18px; font-size: .98rem; }
+      .hero-actions { flex-direction: column; margin-top: 24px; }
+      .hero-actions .btn { width: 100%; }
+      section { padding: 78px 0; }
+      .section-head { margin-bottom: 34px; }
+      .section-head h2, .case-copy h2 { font-size: 2.25rem; }
+      .web-app-hero-card { min-height: 0; padding: 22px; }
+      .web-app-catalog-item { padding: 22px; }
+      .web-app-catalog-item .app-actions .btn { width: 100%; }
+      .case-proof { grid-template-columns: 1fr; }
+      .case-proof span + span { border-left: 0; border-top: 1px solid var(--line); }
+      .capability-grid, .process-grid { grid-template-columns: 1fr; }
+      .capability + .capability { border-left: 0; border-top: 1px solid var(--line); }
+      .process-grid { gap: 38px; }
+      .process-grid::before { display: none; }
+      .flow-content { grid-template-columns: 1fr; gap: 10px; padding: 20px 14px; }
+      .flow-column { min-height: 90px; }
+      .flow-arrow { transform: rotate(90deg); text-align: center; }
+      .web-app-final-shell { padding: 28px 22px; }
+      .web-app-final-shell .hero-actions, .web-app-final-shell .hero-actions .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+  <link rel="stylesheet" href="assets/css/site-theme.css?v=20260831-web-app-v3">
 </head>
 <body class="web-app-page">
   <a class="skip-link" href="#contenuto">Vai al contenuto</a>
   <header class="site-header">
     <div class="nav">
-      <a class="brand" href="index.html" aria-label="NA Creator Italia, homepage">
-        <img class="logo-header" src="assets/images/na-monogram-purple-v2.png" alt="">
-        <span>Creator Italia</span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="index.html" aria-label="NA Creator Italia, homepage"><img class="logo-header" src="assets/images/na-monogram-purple-v2.png" alt=""><span>Creator Italia</span></a>
+      <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-menu"><span></span><span></span><span></span></button>
       <nav class="nav-links" id="main-menu" aria-label="Navigazione principale">
-        <a href="index.html#trasformazione">Trasformazione</a>
-        <a href="index.html#caso-reale">Caso reale</a>
-        <a href="index.html#metodo">Come lavoriamo</a>
-        <a href="web-app.html" aria-current="page">Web App</a>
-        <a href="articoli.html">Articoli</a>
-        <a href="download.html">Download</a>
-        <a class="btn btn-primary nav-cta" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20software%20su%20misura">Richiedi una consulenza</a>
+        <a href="index.html#trasformazione">Trasformazione</a><a href="index.html#caso-reale">Caso reale</a><a href="index.html#metodo">Come lavoriamo</a><a href="web-app.html" aria-current="page">Web App</a><a href="articoli.html">Articoli</a><a href="download.html">Download</a><a class="btn btn-primary nav-cta" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20software%20su%20misura">Richiedi una consulenza</a>
       </nav>
     </div>
   </header>
@@ -64,157 +221,37 @@
   <main id="contenuto">
     <section class="hero web-app-index-hero">
       <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Web App per il lavoro reale</p>
-          <h1>Il tuo lavoro, <span class="gradient-text">più semplice online.</span></h1>
-          <p>Web app gestionali chiare, accessibili e progettate intorno ai processi che vuoi organizzare meglio.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalogo-web-app">Scopri le web app</a>
-            <a class="btn btn-secondary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi alla web app</a>
-          </div>
-        </div>
-
-        <div class="web-app-hero-panel reveal" aria-label="Esempio di ambiente web app NA Creator">
-          <div class="web-app-panel-top">
-            <span class="web-app-panel-brand"><span class="web-app-panel-dot"></span> NA Creator · Web App</span>
-            <span class="web-app-panel-status">Online</span>
-          </div>
-          <div class="web-app-panel-body">
-            <aside class="web-app-panel-sidebar" aria-hidden="true">
-              <span class="is-active">Panoramica</span>
-              <span>Processi</span>
-              <span>Dati</span>
-              <span>Report</span>
-            </aside>
-            <div class="web-app-panel-content">
-              <p class="web-app-panel-kicker">WORKSPACE DIGITALE</p>
-              <h2>Processi chiari.<br><span>Accesso semplice.</span></h2>
-              <div class="web-app-panel-metrics">
-                <div><strong>01</strong><span>unico accesso</span></div>
-                <div><strong>24/7</strong><span>disponibilità online</span></div>
-              </div>
-              <div class="web-app-panel-line"><span></span><span></span><span></span><span></span><span></span></div>
-            </div>
-          </div>
-        </div>
+        <div class="hero-copy reveal"><p class="eyebrow">Web App per il lavoro reale</p><h1>Il tuo lavoro, <span class="gradient-text">più semplice online.</span></h1><p>Web App gestionali chiare, accessibili e progettate intorno ai processi che vuoi organizzare meglio.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogo-web-app">Scopri le Web App</a><a class="btn btn-secondary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi alla Web App</a></div></div>
+        <article class="app-card web-app-hero-card reveal" aria-label="NA Ritiro Ingombranti, Web App disponibile online">
+          <div class="app-top"><img class="app-icon" src="assets/images/app-icon-na-ritiro-ingombranti.png" alt="Logo di NA Ritiro Ingombranti" width="62" height="62"><span class="store-badge">Disponibile online</span></div>
+          <h3>NA Ritiro Ingombranti</h3><p class="app-description">Una Web App per organizzare prenotazioni, calendario, giri di raccolta, anagrafiche e report in un unico ambiente.</p>
+          <div class="app-meta" aria-label="Dettagli NA Ritiro Ingombranti"><span><strong>Accesso</strong><em>Web</em></span><span><strong>Disponibilità</strong><em>Online</em></span><span><strong>Abbonamento</strong><em>Mensile o annuale</em></span></div>
+          <div class="app-actions"><a class="btn btn-primary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi all'app</a><a class="btn btn-secondary" href="articolo-na-ritiro-ingombranti.html">Scopri il progetto</a></div>
+        </article>
       </div>
     </section>
 
-    <section class="compare-wrap web-app-catalog" id="catalogo-web-app">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Catalogo Web App</p>
-          <h2>Soluzioni che crescono con il tuo lavoro.</h2>
-          <p>Ogni applicazione nasce da un processo reale: il catalogo parte da NA Ritiro Ingombranti e si amplia con nuovi progetti.</p>
-        </div>
-        <div class="web-app-catalog-grid reveal">
-          <article class="web-app-catalog-card">
-            <div class="web-app-card-top"><span class="web-app-card-icon">NA</span><span class="web-app-status">Disponibile online</span></div>
-            <p class="web-app-card-kicker">Servizi e territorio</p>
-            <h3>NA Ritiro Ingombranti</h3>
-            <p>Un ambiente per gestire prenotazioni, calendario, giri di raccolta, anagrafiche e report.</p>
-            <div class="web-app-card-actions">
-              <a class="btn btn-primary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi al programma</a>
-              <a class="web-app-text-link" href="articolo-na-ritiro-ingombranti.html">Scopri il progetto</a>
-            </div>
-          </article>
-          <article class="web-app-catalog-card">
-            <div class="web-app-card-top"><span class="web-app-card-icon web-app-card-icon--soft">+</span><span class="web-app-status web-app-status--future">In sviluppo</span></div>
-            <p class="web-app-card-kicker">Nuovi progetti</p>
-            <h3>Web app in arrivo</h3>
-            <p>Il catalogo si arricchirà con nuovi strumenti per organizzare attività, dati e flussi di lavoro.</p>
-            <div class="web-app-card-actions">
-              <a class="btn btn-secondary" href="mailto:info@nacreator.it?subject=Richiesta%20informazioni%20Web%20App">Parliamo del progetto</a>
-            </div>
-          </article>
-          <article class="web-app-catalog-card">
-            <div class="web-app-card-top"><span class="web-app-card-icon web-app-card-icon--outline">✦</span><span class="web-app-status web-app-status--custom">Su misura</span></div>
-            <p class="web-app-card-kicker">La tua organizzazione</p>
-            <h3>Una soluzione per il tuo processo</h3>
-            <p>Se non trovi ancora l’app che cerchi, possiamo progettare un ambiente web intorno al modo in cui lavori.</p>
-            <div class="web-app-card-actions">
-              <a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a>
-            </div>
-          </article>
-        </div>
+    <section class="compare-wrap web-app-catalog" id="catalogo-web-app"><div class="container">
+      <div class="section-head reveal"><p class="eyebrow">Catalogo Web App</p><h2>Soluzioni che crescono con il tuo lavoro.</h2><p>Ogni applicazione nasce da un processo reale: il catalogo parte da un primo progetto e si amplia con nuove soluzioni digitali.</p></div>
+      <div class="web-app-catalog-grid reveal">
+        <article class="app-card web-app-catalog-item"><div class="app-top"><img class="app-icon" src="assets/images/app-icon-na-ritiro-ingombranti.png" alt="Logo di NA Ritiro Ingombranti" width="54" height="54"><span class="store-badge">Disponibile online</span></div><p class="web-app-card-kicker">Servizi e territorio</p><h3>NA Ritiro Ingombranti</h3><p class="app-description">Prenotazioni, calendario, giri di raccolta e dati operativi in un ambiente ordinato.</p><div class="app-actions"><a class="btn btn-primary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi all'app</a></div></article>
+        <article class="app-card web-app-catalog-item"><div class="app-top"><span class="app-icon app-icon-placeholder" aria-hidden="true">+</span><span class="store-badge store-badge--pending">In sviluppo</span></div><p class="web-app-card-kicker">Nuovi progetti</p><h3>Web App in arrivo</h3><p class="app-description">Il catalogo si arricchirà con nuovi strumenti per organizzare attività, dati e flussi di lavoro.</p><div class="app-actions"><a class="btn btn-secondary" href="mailto:info@nacreator.it?subject=Richiesta%20informazioni%20Web%20App">Parliamo del progetto</a></div></article>
+        <article class="app-card web-app-catalog-item"><div class="app-top"><span class="app-icon app-icon-placeholder" aria-hidden="true">✦</span><span class="store-badge store-badge--pending">Su misura</span></div><p class="web-app-card-kicker">La tua organizzazione</p><h3>Una soluzione per il tuo processo</h3><p class="app-description">Progettiamo ambienti Web intorno alle persone, alle attività e al modo in cui lavori.</p><div class="app-actions"><a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a></div></article>
       </div>
-    </section>
+    </div></section>
 
-    <section class="web-app-story-section">
-      <div class="container case-study">
-        <div class="case-copy reveal">
-          <p class="eyebrow">Un ecosistema che cresce</p>
-          <h2>Partiamo dal processo. Costruiamo lo strumento.</h2>
-          <div class="story-row"><strong>Un punto di accesso</strong><p>Le informazioni importanti sono raccolte in un ambiente ordinato e facile da consultare.</p></div>
-          <div class="story-row"><strong>Un flusso leggibile</strong><p>Ogni passaggio accompagna il successivo, con meno attività ripetitive e meno dispersione.</p></div>
-          <div class="story-row"><strong>Una base pronta a evolvere</strong><p>Le nuove funzioni e le future web app possono crescere insieme alle esigenze del lavoro.</p></div>
-        </div>
-        <div class="case-visual web-app-flow-visual reveal" aria-label="Schema del flusso di una web app">
-          <div class="web-app-flow-window">
-            <div class="web-app-flow-window-top"><span></span><span></span><span></span><em>workspace.nacreator.it</em></div>
-            <div class="web-app-flow-content">
-              <div class="web-app-flow-column"><span>Raccolta</span><strong>Dati ordinati</strong><small>inserimento e ricerca</small></div>
-              <div class="web-app-flow-arrow" aria-hidden="true">→</div>
-              <div class="web-app-flow-column web-app-flow-column--accent"><span>Gestione</span><strong>Processo chiaro</strong><small>attività e stato</small></div>
-              <div class="web-app-flow-arrow" aria-hidden="true">→</div>
-              <div class="web-app-flow-column"><span>Controllo</span><strong>Risultato visibile</strong><small>report e decisioni</small></div>
-            </div>
-          </div>
-          <div class="case-proof"><span>Accessibile</span><span>Concreto</span><span>Scalabile</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="web-app-story-section"><div class="container case-study">
+      <div class="case-copy reveal"><p class="eyebrow">Un ecosistema che cresce</p><h2>Partiamo dal processo. Costruiamo lo strumento.</h2><div class="story-row"><strong>Un punto di accesso</strong><p>Le informazioni importanti sono raccolte in un ambiente ordinato e facile da consultare.</p></div><div class="story-row"><strong>Un flusso leggibile</strong><p>Ogni passaggio accompagna il successivo, con meno attività ripetitive e meno dispersione.</p></div><div class="story-row"><strong>Una base pronta a evolvere</strong><p>Le nuove funzioni e le future Web App possono crescere insieme alle esigenze del lavoro.</p></div></div>
+      <div class="case-visual reveal" aria-label="Schema del flusso di una Web App"><div class="flow-window"><div class="flow-window-top"><span></span><span></span><span></span><em>workspace.nacreator.it</em></div><div class="flow-content"><div class="flow-column"><span>Raccolta</span><strong>Dati ordinati</strong><small>inserimento e ricerca</small></div><div class="flow-arrow" aria-hidden="true">→</div><div class="flow-column flow-column--accent"><span>Gestione</span><strong>Processo chiaro</strong><small>attività e stato</small></div><div class="flow-arrow" aria-hidden="true">→</div><div class="flow-column"><span>Controllo</span><strong>Risultato visibile</strong><small>report e decisioni</small></div></div></div><div class="case-proof"><span>Accessibile</span><span>Concreto</span><span>Scalabile</span></div></div>
+    </div></section>
 
-    <section class="capabilities web-app-capabilities" aria-labelledby="web-app-capabilities-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Cosa trovi nelle Web App</p>
-          <h2 id="web-app-capabilities-title">La tecnologia che serve, nel posto giusto.</h2>
-        </div>
-        <div class="capability-grid reveal">
-          <article class="capability"><strong>Accesso semplice</strong><p>Un ingresso chiaro per arrivare subito alle funzioni che servono.</p></article>
-          <article class="capability"><strong>Dati organizzati</strong><p>Informazioni leggibili, ricercabili e collegate al lavoro quotidiano.</p></article>
-          <article class="capability"><strong>Flussi su misura</strong><p>Processi progettati intorno alle persone e alle attività reali.</p></article>
-          <article class="capability"><strong>Pronte a crescere</strong><p>Una base modulare per aggiungere nuove esigenze nel tempo.</p></article>
-        </div>
-      </div>
-    </section>
+    <section class="capabilities" aria-labelledby="web-app-capabilities-title"><div class="container"><div class="section-head reveal"><p class="eyebrow">Cosa trovi nelle Web App</p><h2 id="web-app-capabilities-title">La tecnologia che serve, nel posto giusto.</h2></div><div class="capability-grid reveal"><article class="capability"><strong>Accesso semplice</strong><p>Un ingresso chiaro per arrivare subito alle funzioni che servono.</p></article><article class="capability"><strong>Dati organizzati</strong><p>Informazioni leggibili, ricercabili e collegate al lavoro quotidiano.</p></article><article class="capability"><strong>Flussi su misura</strong><p>Processi progettati intorno alle persone e alle attività reali.</p></article><article class="capability"><strong>Pronte a crescere</strong><p>Una base modulare per aggiungere nuove esigenze nel tempo.</p></article></div></div></section>
 
-    <section class="process web-app-process">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Come nasce una Web App</p>
-          <h2>Un percorso chiaro, insieme.</h2>
-          <p>Ascoltiamo il lavoro reale e lo trasformiamo in un ambiente digitale che il team può usare davvero.</p>
-        </div>
-        <div class="process-grid reveal">
-          <article class="step"><span class="step-number">01</span><h3>Ascoltiamo</h3><p>Partiamo dal processo, dalle persone e dagli obiettivi.</p></article>
-          <article class="step"><span class="step-number">02</span><h3>Progettiamo</h3><p>Disegniamo flussi e schermate semplici da usare ogni giorno.</p></article>
-          <article class="step"><span class="step-number">03</span><h3>Evolviamo</h3><p>Raccogliamo il feedback e facciamo crescere lo strumento.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="web-app-final-cta">
-      <div class="container">
-        <div class="web-app-final-shell reveal">
-          <div><p class="eyebrow">Web App NA Creator</p><h2>Hai un processo da semplificare?</h2><p>Raccontaci come lavori oggi: possiamo trasformarlo in uno strumento più chiaro.</p></div>
-          <div class="hero-actions"><a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a><a class="btn btn-secondary" href="https://ritiro-ingombranti.nacreator.it/" target="_blank" rel="noopener">Accedi alla web app</a></div>
-        </div>
-      </div>
-    </section>
+    <section class="process"><div class="container"><div class="section-head reveal"><p class="eyebrow">Come nasce una Web App</p><h2>Un percorso chiaro, insieme.</h2><p>Ascoltiamo il lavoro reale e lo trasformiamo in un ambiente digitale che il team può usare davvero.</p></div><div class="process-grid reveal"><article class="step"><span class="step-number">01</span><h3>Ascoltiamo</h3><p>Partiamo dal processo, dalle persone e dagli obiettivi.</p></article><article class="step"><span class="step-number">02</span><h3>Progettiamo</h3><p>Disegniamo flussi e schermate semplici da usare ogni giorno.</p></article><article class="step"><span class="step-number">03</span><h3>Evolviamo</h3><p>Raccogliamo il feedback e facciamo crescere lo strumento.</p></article></div></div></section>
+    <section class="web-app-final-cta"><div class="container"><div class="web-app-final-shell reveal"><div><p class="eyebrow">Web App NA Creator</p><h2>Hai un processo da semplificare?</h2><p>Raccontaci come lavori oggi: possiamo trasformarlo in uno strumento più chiaro.</p></div><div class="hero-actions"><a class="btn btn-primary" href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a><a class="btn btn-secondary" href="#catalogo-web-app">Esplora il catalogo</a></div></div></div></section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div><a class="brand footer-brand" href="index.html"><img src="assets/images/na-monogram-purple-v2.png" alt=""><span>Creator Italia</span></a><p class="footer-copy">Software gestionali, web app e automazioni su misura per aziende che vogliono lavorare con più ordine e controllo.</p></div>
-        <div class="footer-column"><h3>Esplora</h3><a href="index.html#trasformazione">Trasformazione</a><a href="index.html#caso-reale">Caso reale</a><a href="index.html#metodo">Come lavoriamo</a><a href="web-app.html">Web App</a><a href="articoli.html">Articoli</a><a href="download.html">Download</a></div>
-        <div class="footer-column"><h3>Contatti</h3><a href="mailto:info@nacreator.it">info@nacreator.it</a><a href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 NA Creator Italia · P.IVA 11131741214</span><nav class="footer-legal" aria-label="Pagine legali"><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="note-legali.html">Note legali</a></nav></div>
-    </div>
-  </footer>
+  <footer><div class="container"><div class="footer-grid"><div><a class="brand footer-brand" href="index.html"><img src="assets/images/na-monogram-purple-v2.png" alt=""><span>Creator Italia</span></a><p class="footer-copy">Software gestionali, Web App e automazioni su misura per aziende che vogliono lavorare con più ordine e controllo.</p></div><div class="footer-column"><h3>Esplora</h3><a href="index.html#trasformazione">Trasformazione</a><a href="index.html#caso-reale">Caso reale</a><a href="index.html#metodo">Come lavoriamo</a><a href="web-app.html">Web App</a><a href="articoli.html">Articoli</a><a href="download.html">Download</a></div><div class="footer-column"><h3>Contatti</h3><a href="mailto:info@nacreator.it">info@nacreator.it</a><a href="mailto:info@nacreator.it?subject=Richiesta%20consulenza%20Web%20App">Richiedi una consulenza</a></div></div><div class="footer-bottom"><span>© 2026 NA Creator Italia · P.IVA 11131741214</span><nav class="footer-legal" aria-label="Pagine legali"><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookie</a><a href="note-legali.html">Note legali</a></nav></div></div></footer>
   <script src="assets/js/site-navigation.js"></script>
 </body>
 </html>
